@@ -1,0 +1,4 @@
+[submodule "demo/dist"]
+	path = demo/dist
+	url = https://github.com/kirjs/react-highcharts.git
+	branch = gh-pages
