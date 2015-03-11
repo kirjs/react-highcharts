@@ -1,6 +1,6 @@
 {
   "name": "react-highcharts",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "React wrapper for highcharts",
   "main": "Highcharts.jxs",
   "scripts": {
@@ -11,7 +11,6 @@
   "peerDependencies": {
     "react": "*"
   },
-
   "devDependencies": {
     "exports-loader": "^0.6.2",
     "webpack": "^1.5.3",
