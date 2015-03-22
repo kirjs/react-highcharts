@@ -6,11 +6,22 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Kirill Cherkashin",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kirjs/react-highcharts"
+  },
   "peerDependencies": {
     "react": "*"
   },
+  "bugs": "https://github.com/kirjs/react-highcharts/issues",
+  "keywords": [
+    "chart",
+    "react",
+    "highcharts",
+    "graph"
+  ],
   "devDependencies": {
     "exports-loader": "^0.6.2",
     "webpack": "^1.5.3",
