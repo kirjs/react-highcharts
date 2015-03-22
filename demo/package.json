@@ -11,6 +11,6 @@
   "dependencies": {},
   "devDependencies": {
     "react": "^0.12.2",
-    "react-highcharts": "0.0.1"
+    "react-highcharts": "*"
   }
 }

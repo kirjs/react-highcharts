@@ -2,7 +2,7 @@
   "name": "react-highcharts",
   "version": "0.0.3",
   "description": "React wrapper for highcharts",
-  "main": "Highcharts.jxs",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

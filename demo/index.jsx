@@ -1,5 +1,5 @@
 var React = require('react');
-var Highcharts = require('react-highcharts');
+var Highcharts = require('react-highcharts/index.js');
 
 var config = {
 
