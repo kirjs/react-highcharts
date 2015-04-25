@@ -3,9 +3,11 @@ react-highcharts
 Highcharts component for react.
 
 ## Demo
-[Demo](http://kirjs.github.io/react-highcharts/), the code is [Here](https://github.com/kirjs/react-highcharts/tree/master/demo)
+* see [example of using react-highcharts](http://kirjs.github.io/react-highcharts/)
+* see [example of using react-highcharts/more](http://kirjs.github.io/react-highcharts/more.html)
 
-
+You can find the full code for the examples here [Here](https://github.com/kirjs/react-highcharts/tree/master/demo
+)
 ## Installation
 ```bash
 npm install react-highcharts --save
@@ -24,3 +26,6 @@ var config = {
 React.render(<Highcharts config = {config}></Highcharts>, document.body);
 
 ```
+
+## Using highcharts-more
+Just require `require('react-highcharts/more');` instead of `react-highcharts`
