@@ -10,7 +10,11 @@
   "license": "ISC",
   "dependencies": {},
   "devDependencies": {
+    "highlight.js": "^8.5.0",
+    "raw-loader": "^0.5.1",
     "react": "^0.12.2",
-    "react-highcharts": "*"
+    "react-highcharts": "0.0.5",
+    "react-highlight": "^0.4.1",
+    "react-prism": "^1.2.1"
   }
 }
