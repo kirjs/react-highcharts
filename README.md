@@ -6,7 +6,7 @@ Highcharts component for react.
 * see [example of using react-highcharts](http://kirjs.github.io/react-highcharts/)
 * see [example of using react-highcharts/more](http://kirjs.github.io/react-highcharts/more.html)
 
-You can find the full code for the examples here [Here](https://github.com/kirjs/react-highcharts/tree/master/demo
+You can find the full code for the examples [here](https://github.com/kirjs/react-highcharts/tree/master/demo
 )
 ## Installation
 ```bash
