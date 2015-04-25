@@ -1,6 +1,9 @@
 module.exports = {
   watch: true,
-  entry: './index.jsx',
+  entry: {
+    index: './index.jsx',
+    more: './more.jsx'
+  },
   module: {
     loaders: [
       {test: /\.jsx$/, loader: 'jsx?harmony'}
@@ -12,7 +15,7 @@ module.exports = {
   },
 
   output: {
-    filename: 'index.js',
+    filename: '[name].js',
     libraryTarget: 'umd',
     library: 'Highcharts'
   }
