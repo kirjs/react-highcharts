@@ -1,5 +1,6 @@
 global.HighchartsAdapter = require('exports?HighchartsAdapter!Highcharts/js/adapters/standalone-framework.src');
 var Highcharts = require('exports?Highcharts!Highcharts');
+require('exports!Highcharts/js/highcharts-more.src');
 var React = require('react');
 var update = require('react/addons').addons.update;
 module.exports = React.createClass({
@@ -29,6 +30,6 @@ module.exports = React.createClass({
     this.renderChart();
   },
   render: function () {
-    return <div className = "chart" ref = "chart" />
+    return <div className="chart" ref="chart" />
   }
 });
