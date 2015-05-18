@@ -7,7 +7,7 @@ module.exports = React.createClass({
 
   renderChart: function () {
     if (!this.props.config) {
-      throw newError('Config has to be specified, for the Highchart component')
+      throw new Error('Config has to be specified, for the Highchart component');
     }
 
     var config = this.props.config;
