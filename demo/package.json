@@ -14,7 +14,6 @@
     "raw-loader": "^0.5.1",
     "react": "^0.12.2",
     "react-highcharts": "0.0.5",
-    "react-highlight": "^0.4.1",
-    "react-prism": "^1.2.1"
+    "react-highlight": "^0.4.1"
   }
 }
