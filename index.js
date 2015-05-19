@@ -60,8 +60,8 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 1 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(global) {global.HighchartsAdapter = __webpack_require__(4);
-	var Highcharts = __webpack_require__(5);
+	/* WEBPACK VAR INJECTION */(function(global) {global.HighchartsAdapter = __webpack_require__(5);
+	var Highcharts = __webpack_require__(6);
 	var React = __webpack_require__(2);
 	var update = __webpack_require__(3).addons.update;
 	module.exports = React.createClass({
@@ -69,7 +69,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	  renderChart: function () {
 	    if (!this.props.config) {
-	      throw newError('Config has to be specified, for the Highchart component')
+	      throw new Error('Config has to be specified, for the Highchart component');
 	    }
 
 	    var config = this.props.config;
@@ -94,6 +94,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	    return React.createElement("div", {className: "chart", ref: "chart"})
 	  }
 	});
+
+	module.exports.Highcharts = Highcharts;
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
@@ -109,7 +111,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = __WEBPACK_EXTERNAL_MODULE_3__;
 
 /***/ },
-/* 4 */
+/* 4 */,
+/* 5 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -721,7 +724,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = HighchartsAdapter
 
 /***/ },
-/* 5 */
+/* 6 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// ==ClosureCompiler==
