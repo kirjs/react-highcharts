@@ -32,3 +32,5 @@ module.exports = React.createClass({
     return <div className = "chart" ref = "chart" />
   }
 });
+
+module.exports.Highcharts = Highcharts;
