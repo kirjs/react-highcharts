@@ -1,9 +1,15 @@
 global.HighchartsAdapter = require('exports?HighchartsAdapter!Highcharts/js/adapters/standalone-framework.src');
-var Highcharts = require('exports?Highcharts!Highcharts');
+var Highcharts = require('exports?Highcharts!Highcharts/js/highstock.src');
 var React = require('react');
 var update = require('react/addons').addons.update;
 module.exports = React.createClass({
   displayName: 'Highcharts',
+
+  getDefaultProps: function() {
+    return {
+      stock: false
+    };
+  },
 
   renderChart: function () {
     if (!this.props.config) {
@@ -19,7 +25,11 @@ module.exports = React.createClass({
 
     config = update(config, {chart: {renderTo: {$set: node}}});
 
-    new Highcharts.Chart(config);
+    if(this.props.stock) {
+      new Highcharts.StockChart(config);
+    } else {
+      new Highcharts.Chart(config);
+    }
   },
 
   componentDidMount: function () {
