@@ -19,7 +19,14 @@ module.exports = React.createClass({
 
     config = update(config, {chart: {renderTo: {$set: node}}});
 
-    new Highcharts.Chart(config);
+    this.chart = new Highcharts.Chart(config);
+  },
+
+  getChart: function() {
+    if (!this.chart) {
+        throw new Error('getChart() should not be called before the component is mounted');
+    }
+    return this.chart;
   },
 
   componentDidMount: function () {
