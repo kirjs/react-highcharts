@@ -2,7 +2,8 @@ module.exports = {
   watch: true,
   entry: {
     index: './index.jsx',
-    more: './more.jsx'
+    more: './more.jsx',
+    highmaps: './highmaps.jsx'
   },
   module: {
     loaders: [

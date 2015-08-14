@@ -44,3 +44,8 @@ class MyComponent extends React.Component {
 
 ## Using highcharts-more
 Just require `require('react-highcharts/more');` instead of `react-highcharts`
+
+## Using highmaps
+Just add `require('react-highcharts/highmaps')`
+
+when you draw maps, add the prop like this: `<Highcharts type="map" config={config}></Highcharts>`
