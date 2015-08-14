@@ -7,45 +7,45 @@
 		exports["Highcharts"] = factory(require("react"), require("react/addons"));
 	else
 		root["Highcharts"] = factory(root["react"], root["react/addons"]);
-})(this, function(__WEBPACK_EXTERNAL_MODULE_2__, __WEBPACK_EXTERNAL_MODULE_3__) {
+})(this, function(__WEBPACK_EXTERNAL_MODULE_5__, __WEBPACK_EXTERNAL_MODULE_6__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
-/******/
+
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
-/******/
+
 /******/ 		// Check if module is in cache
 /******/ 		if(installedModules[moduleId])
 /******/ 			return installedModules[moduleId].exports;
-/******/
+
 /******/ 		// Create a new module (and put it into the cache)
 /******/ 		var module = installedModules[moduleId] = {
 /******/ 			exports: {},
 /******/ 			id: moduleId,
 /******/ 			loaded: false
 /******/ 		};
-/******/
+
 /******/ 		// Execute the module function
 /******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-/******/
+
 /******/ 		// Flag the module as loaded
 /******/ 		module.loaded = true;
-/******/
+
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
-/******/
-/******/
+
+
 /******/ 	// expose the modules object (__webpack_modules__)
 /******/ 	__webpack_require__.m = modules;
-/******/
+
 /******/ 	// expose the module cache
 /******/ 	__webpack_require__.c = installedModules;
-/******/
+
 /******/ 	// __webpack_public_path__
 /******/ 	__webpack_require__.p = "";
-/******/
+
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(0);
 /******/ })
@@ -54,16 +54,17 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(1);
+	module.exports = __webpack_require__(2);
 
 /***/ },
-/* 1 */
+/* 1 */,
+/* 2 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(global) {global.HighchartsAdapter = __webpack_require__(5);
-	var Highcharts = __webpack_require__(6);
-	var React = __webpack_require__(2);
-	var update = __webpack_require__(3).addons.update;
+	/* WEBPACK VAR INJECTION */(function(global) {global.HighchartsAdapter = __webpack_require__(3);
+	var Highcharts = __webpack_require__(4);
+	var React = __webpack_require__(5);
+	var update = __webpack_require__(6).addons.update;
 	module.exports = React.createClass({
 	  displayName: 'Highcharts',
 
@@ -73,6 +74,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 
 	    var config = this.props.config;
+	    var type = this.props.type;
 	    var node = this.refs.chart.getDOMNode();
 
 	    if (!config.chart) {
@@ -81,7 +83,11 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	    config = update(config, {chart: {renderTo: {$set: node}}});
 
-	    this.chart = new Highcharts.Chart(config);
+	    if (type == 'map') {
+	      this.chart = new Highcharts.Map(config);
+	    } else {
+	      this.chart = new Highcharts.Chart(config);
+	    }
 	  },
 
 	  getChart: function() {
@@ -103,24 +109,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	});
 
 	module.exports.Highcharts = Highcharts;
+
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 2 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __WEBPACK_EXTERNAL_MODULE_2__;
-
-/***/ },
 /* 3 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __WEBPACK_EXTERNAL_MODULE_3__;
-
-/***/ },
-/* 4 */,
-/* 5 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ function(module, exports) {
 
 	/**
 	 * @license @product.name@ JS v@product.version@ (@product.date@)
@@ -529,7 +523,8 @@ return /******/ (function(modules) { // webpackBootstrap
 					end,
 					fx,
 					args,
-					name;
+					name,
+					PX = 'px';
 
 				el.stopAnimation = false; // ready for new
 
@@ -565,12 +560,15 @@ return /******/ (function(modules) { // webpackBootstrap
 					} else {
 						start = parseFloat(HighchartsAdapter._getStyle(el, name)) || 0;
 						if (name !== 'opacity') {
-							unit = 'px';
+							unit = PX;
 						}
 					}
 		
 					if (!end) {
 						end = prop[name];
+					}
+					if (end.match && end.match(PX)) {
+						end = end.replace(/px/g, ''); // #4351
 					}
 					fx.custom(start, end, unit);
 				}	
@@ -731,8 +729,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = HighchartsAdapter
 
 /***/ },
-/* 6 */
-/***/ function(module, exports, __webpack_require__) {
+/* 4 */
+/***/ function(module, exports) {
 
 	// ==ClosureCompiler==
 	// @compilation_level SIMPLE_OPTIMIZATIONS
@@ -785,7 +783,6 @@ return /******/ (function(modules) { // webpackBootstrap
 		garbageBin,
 		defaultOptions,
 		dateFormat, // function
-		globalAnimation,
 		pathAnim,
 		timeUnits,
 		noop = function () { return UNDEFINED; },
@@ -1141,7 +1138,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 */
 	dateFormat = function (format, timestamp, capitalize) {
 		if (!defined(timestamp) || isNaN(timestamp)) {
-			return 'Invalid date';
+			return defaultOptions.lang.invalidDate || '';
 		}
 		format = pick(format, '%Y-%m-%d %H:%M:%S');
 
@@ -1459,7 +1456,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @param {Object} chart
 	 */
 	function setAnimation(animation, chart) {
-		globalAnimation = pick(animation, chart.animation);
+		chart.renderer.globalAnimation = pick(animation, chart.animation);
 	}
 
 	/**
@@ -1995,6 +1992,7 @@ return /******/ (function(modules) { // webpackBootstrap
 					'August', 'September', 'October', 'November', 'December'],
 			shortMonths: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
 			weekdays: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+			// invalidDate: '', // docs
 			decimalPoint: '.',
 			numericSymbols: ['k', 'M', 'G', 'T', 'P', 'E'], // SI prefixes used in axis labels
 			resetZoom: 'Reset zoom',
@@ -2554,7 +2552,7 @@ return /******/ (function(modules) { // webpackBootstrap
 		 * @param {Function} complete Function to perform at the end of animation
 		 */
 		animate: function (params, options, complete) {
-			var animOptions = pick(options, globalAnimation, true);
+			var animOptions = pick(options, this.renderer.globalAnimation, true);
 			stop(this); // stop regardless of animation actually running, or reverting to .attr (#607)
 			if (animOptions) {
 				animOptions = merge(animOptions, {}); //#2625
@@ -4233,9 +4231,9 @@ return /******/ (function(modules) { // webpackBootstrap
 			};
 
 			return label
-				.on('click', function () {
+				.on('click', function (e) {
 					if (curState !== 3) {
-						callback.call(label);
+						callback.call(label, e);
 					}
 				})
 				.attr(normalState)
@@ -4885,7 +4883,11 @@ return /******/ (function(modules) { // webpackBootstrap
 						wrapper.box = box = shape ?
 							renderer.symbol(shape, boxX, boxY, wrapper.width, wrapper.height, deferredAttr) :
 							renderer.rect(boxX, boxY, wrapper.width, wrapper.height, 0, deferredAttr[STROKE_WIDTH]);
-						box.attr('fill', NONE).add(wrapper);
+
+						if (!box.isImg) { // #4324, fill "none" causes it to be ignored by mouse events in IE
+							box.attr('fill', NONE);
+						}
+						box.add(wrapper);
 					}
 
 					// apply the box attributes
@@ -5208,7 +5210,7 @@ return /******/ (function(modules) { // webpackBootstrap
 					rotation = wrapper.rotation,
 					baseline,
 					textWidth = pInt(wrapper.textWidth),
-					currentTextTransform = [rotation, align, elem.innerHTML, wrapper.textWidth].join(',');
+					currentTextTransform = [rotation, align, elem.innerHTML, wrapper.textWidth, wrapper.textAlign].join(',');
 
 				if (currentTextTransform !== wrapper.cTT) { // do the calculations and DOM access only if properties changed
 
@@ -5293,6 +5295,7 @@ return /******/ (function(modules) { // webpackBootstrap
 					delete this.bBox;
 				}
 				element.innerHTML = this.textStr = value;
+				wrapper.htmlUpdateTransform();
 			};
 
 			// Various setters which rely on update transform
@@ -6788,7 +6791,7 @@ return /******/ (function(modules) { // webpackBootstrap
 				gridLineColor = options[gridPrefix + 'LineColor'],
 				dashStyle = options[gridPrefix + 'LineDashStyle'],
 				tickLength = options[tickPrefix + 'Length'],
-				tickWidth = options[tickPrefix + 'Width'] || 0,
+				tickWidth = pick(options[tickPrefix + 'Width'], !type && axis.isXAxis ? 1 : 0), // X axis defaults to 1
 				tickColor = options[tickPrefix + 'Color'],
 				tickPosition = options[tickPrefix + 'Position'],
 				gridLinePath,
@@ -7259,7 +7262,7 @@ return /******/ (function(modules) { // webpackBootstrap
 			tickmarkPlacement: 'between', // on or between
 			tickPixelInterval: 100,
 			tickPosition: 'outside',
-			tickWidth: 1,
+			//tickWidth: 1,
 			title: {
 				//text: null,
 				align: 'middle', // low, middle or high
@@ -7291,7 +7294,7 @@ return /******/ (function(modules) { // webpackBootstrap
 			maxPadding: 0.05,
 			minPadding: 0.05,
 			startOnTick: true,
-			tickWidth: 0,
+			//tickWidth: 0,
 			title: {
 				rotation: 270,
 				text: 'Values'
@@ -7377,6 +7380,8 @@ return /******/ (function(modules) { // webpackBootstrap
 			var isXAxis = userOptions.isX,
 				axis = this;
 
+			axis.chart = chart;
+
 			// Flag, is the axis horizontal
 			axis.horiz = chart.inverted ? !isXAxis : isXAxis;
 
@@ -7407,7 +7412,6 @@ return /******/ (function(modules) { // webpackBootstrap
 			//axis.ignoreMinPadding = UNDEFINED; // can be set to true by a column or bar series
 			//axis.ignoreMaxPadding = UNDEFINED;
 
-			axis.chart = chart;
 			axis.reversed = options.reversed;
 			axis.zoomEnabled = options.zoomEnabled !== false;
 
@@ -7848,8 +7852,9 @@ return /******/ (function(modules) { // webpackBootstrap
 				minorTickPositions = [],
 				pos,
 				i,
-				min = axis.min,
-				max = axis.max,
+				pointRangePadding = axis.pointRangePadding || 0, 
+				min = axis.min - pointRangePadding, // #1498
+				max = axis.max + pointRangePadding, // #1498
 				range = max - min,
 				len;
 
@@ -7879,7 +7884,9 @@ return /******/ (function(modules) { // webpackBootstrap
 				}
 			}
 
-			axis.trimTicks(minorTickPositions); // #3652 #3743
+			if(minorTickPositions.length !== 0) { // don't change the extremes, when there is no minor ticks
+				axis.trimTicks(minorTickPositions, options.startOnTick, options.endOnTick); // #3652 #3743 #1498
+			}
 			return minorTickPositions;
 		},
 
@@ -8044,6 +8051,10 @@ return /******/ (function(modules) { // webpackBootstrap
 			axis.minPixelPadding = transA * minPointOffset;
 		},
 
+		minFromRange: function () {
+			return this.max - this.range;
+		},
+
 		/**
 		 * Set the tick positions to round values and optionally extend the extremes
 		 * to the nearest tick
@@ -8096,7 +8107,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 			// handle zoomed range
 			if (axis.range && defined(axis.max)) {
-				axis.userMin = axis.min = mathMax(axis.min, axis.max - axis.range); // #618
+				axis.userMin = axis.min = mathMax(axis.min, axis.minFromRange()); // #618
 				axis.userMax = axis.max;
 
 				axis.range = null;  // don't use it when running setExtremes
@@ -8482,10 +8493,6 @@ return /******/ (function(modules) { // webpackBootstrap
 				axis.userMax = newMax;
 				axis.eventArgs = eventArguments;
 
-				// Mark for running afterSetExtremes
-				axis.isDirtyExtremes = true;
-
-				// redraw
 				if (redraw) {
 					chart.redraw(animation);
 				}
@@ -8672,7 +8679,7 @@ return /******/ (function(modules) { // webpackBootstrap
 					});
 				}
 
-			} else {
+			} else if (!labelOptions.step) { // #4411
 				newTickInterval = getStep(labelMetrics.h);
 			}
 
@@ -8706,7 +8713,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 			// Set rotation option unless it is "auto", like in gauges
 			if (!isString(labelOptions.rotation)) {
-				attr.rotation = labelOptions.rotation;
+				attr.rotation = labelOptions.rotation || 0; // #4443
 			}
 			
 			// Handle auto rotation on horizontal axis
@@ -8928,10 +8935,7 @@ return /******/ (function(modules) { // webpackBootstrap
 			);
 
 			// Decide the clipping needed to keep the graph inside the plot area and axis lines
-			clip = mathFloor(options.lineWidth / 2) * 2;
-			if (options.offset) {
-				clip = mathMax(0, clip - options.offset);		
-			}
+			clip = options.offset ? 0 : mathFloor(options.lineWidth / 2) * 2; // #4308, #4371
 			clipOffset[invertedSide] = mathMax(clipOffset[invertedSide], clip);
 		},
 
@@ -9032,6 +9036,7 @@ return /******/ (function(modules) { // webpackBootstrap
 				hasRendered = chart.hasRendered,
 				slideInTicks = hasRendered && defined(axis.oldMin) && !isNaN(axis.oldMin),
 				showAxis = axis.showAxis,
+				globalAnimation = renderer.globalAnimation,
 				from,
 				to;
 
@@ -9843,15 +9848,15 @@ return /******/ (function(modules) { // webpackBootstrap
 				ret = {},
 				h = point.h || 0, // #4117
 				swapped,
-				first = ['y', chart.chartHeight, boxHeight, point.plotY + chart.plotTop],
-				second = ['x', chart.chartWidth, boxWidth, point.plotX + chart.plotLeft],
+				first = ['y', chart.chartHeight, boxHeight, point.plotY + chart.plotTop, chart.plotTop, chart.plotTop + chart.plotHeight],
+				second = ['x', chart.chartWidth, boxWidth, point.plotX + chart.plotLeft, chart.plotLeft, chart.plotLeft + chart.plotWidth],
 				// The far side is right or bottom
 				preferFarSide = pick(point.ttBelow, (chart.inverted && !point.negative) || (!chart.inverted && point.negative)),
 				/**
 				 * Handle the preferred dimension. When the preferred dimension is tooltip
 				 * on top or bottom of the point, it will look for space there.
 				 */
-				firstDimension = function (dim, outerSize, innerSize, point) {
+				firstDimension = function (dim, outerSize, innerSize, point, min, max) {
 					var roomLeft = innerSize < point - distance,
 						roomRight = point + distance + innerSize < outerSize,
 						alignedLeft = point - distance - innerSize,
@@ -9862,9 +9867,9 @@ return /******/ (function(modules) { // webpackBootstrap
 					} else if (!preferFarSide && roomLeft) {
 						ret[dim] = alignedLeft;
 					} else if (roomLeft) {
-						ret[dim] = alignedLeft - h < 0 ? alignedLeft : alignedLeft - h;
+						ret[dim] = mathMin(max - innerSize, alignedLeft - h < 0 ? alignedLeft : alignedLeft - h);
 					} else if (roomRight) {
-						ret[dim] = alignedRight + h + innerSize > outerSize ? alignedRight : alignedRight + h;
+						ret[dim] = mathMax(min, alignedRight + h + innerSize > outerSize ? alignedRight : alignedRight + h);
 					} else {
 						return false;
 					}
@@ -10360,14 +10365,10 @@ return /******/ (function(modules) { // webpackBootstrap
 						tooltip.refresh(kdpoints, e);
 					}
 
-					// do mouseover on all points except the closest
+					// Do mouseover on all points (#3919, #3985, #4410)
 					each(kdpoints, function (point) {
-						if (point !== kdpoint) { 
-							point.onMouseOver(e);
-						}
-					});	
-					// #3919, #3985 do mouseover on the closest point last to ensure it is the hoverpoint
-					((hoverSeries && hoverSeries.directTouch && hoverPoint) || kdpoint).onMouseOver(e); 
+						point.onMouseOver(e, point !== ((hoverSeries && hoverSeries.directTouch && hoverPoint) || kdpoint));
+					}); 
 				} else {
 					if (tooltip) { 
 						tooltip.refresh(kdpoint, e);
@@ -10534,9 +10535,16 @@ return /******/ (function(modules) { // webpackBootstrap
 				plotHeight = chart.plotHeight,
 				clickedInside,
 				size,
+				selectionMarker = this.selectionMarker,
 				mouseDownX = this.mouseDownX,
 				mouseDownY = this.mouseDownY,
 				panKey = chartOptions.panKey && e[chartOptions.panKey + 'Key'];
+
+			// If the device supports both touch and mouse (like IE11), and we are touch-dragging
+			// inside the plot area, don't handle the mouse event. #4339.
+			if (selectionMarker && selectionMarker.touch) {
+				return;
+			}
 
 			// If the mouse is outside the plot area, adjust to cooordinates
 			// inside to prevent the selection marker from going outside
@@ -10563,8 +10571,8 @@ return /******/ (function(modules) { // webpackBootstrap
 
 				// make a selection
 				if (chart.hasCartesianSeries && (this.zoomX || this.zoomY) && clickedInside && !panKey) {
-					if (!this.selectionMarker) {
-						this.selectionMarker = chart.renderer.rect(
+					if (!selectionMarker) {
+						this.selectionMarker = selectionMarker = chart.renderer.rect(
 							plotLeft,
 							plotTop,
 							zoomHor ? 1 : plotWidth,
@@ -10580,24 +10588,24 @@ return /******/ (function(modules) { // webpackBootstrap
 				}
 
 				// adjust the width of the selection marker
-				if (this.selectionMarker && zoomHor) {
+				if (selectionMarker && zoomHor) {
 					size = chartX - mouseDownX;
-					this.selectionMarker.attr({
+					selectionMarker.attr({
 						width: mathAbs(size),
 						x: (size > 0 ? 0 : size) + mouseDownX
 					});
 				}
 				// adjust the height of the selection marker
-				if (this.selectionMarker && zoomVert) {
+				if (selectionMarker && zoomVert) {
 					size = chartY - mouseDownY;
-					this.selectionMarker.attr({
+					selectionMarker.attr({
 						height: mathAbs(size),
 						y: (size > 0 ? 0 : size) + mouseDownY
 					});
 				}
 
 				// panning
-				if (clickedInside && !this.selectionMarker && chartOptions.panning) {
+				if (clickedInside && !selectionMarker && chartOptions.panning) {
 					chart.pan(e, chartOptions.panning);
 				}
 			}
@@ -11023,7 +11031,8 @@ return /******/ (function(modules) { // webpackBootstrap
 				// Set the marker
 				if (!selectionMarker) {
 					self.selectionMarker = selectionMarker = extend({
-						destroy: noop
+						destroy: noop,
+						touch: true
 					}, chart.plotBox);
 				}
 				
@@ -11558,7 +11567,7 @@ return /******/ (function(modules) { // webpackBootstrap
 			var chart = this.chart, 
 				options = this.options,
 				// Use the first letter of each alignment option in order to detect the side 
-				alignment = options.align[0] + options.verticalAlign[0] + options.layout[0];
+				alignment = options.align.charAt(0) + options.verticalAlign.charAt(0) + options.layout.charAt(0); // #4189 - use charAt(x) notation instead of [x] for IE7
 				
 			if (this.display && !options.floating) {
 
@@ -12246,16 +12255,16 @@ return /******/ (function(modules) { // webpackBootstrap
 
 				// redraw axes
 				each(axes, function (axis) {
-					
+
 					// Fire 'afterSetExtremes' only if extremes are set
-					if (axis.isDirtyExtremes) { // #821
-						axis.isDirtyExtremes = false;
+					var key = axis.min + ',' + axis.max;
+					if (axis.extKey !== key) { // #821, #4452
+						axis.extKey = key;
 						afterRedraw.push(function () { // prevent a recursive call to chart.redraw() (#1119)
 							fireEvent(axis, 'afterSetExtremes', extend(axis.eventArgs, axis.getExtremes())); // #747, #751
 							delete axis.eventArgs;
 						});
 					}
-					
 					if (isDirtyBox || hasStackedSeries) {
 						axis.redraw();
 					}
@@ -12756,7 +12765,9 @@ return /******/ (function(modules) { // webpackBootstrap
 			var chart = this,
 				chartWidth,
 				chartHeight,
-				fireEndResize;
+				fireEndResize,
+				renderer = chart.renderer,
+				globalAnimation = renderer.globalAnimation;
 
 			// Handle the isResizing counter
 			chart.isResizing += 1;
@@ -12788,7 +12799,7 @@ return /******/ (function(modules) { // webpackBootstrap
 			}, globalAnimation);
 
 			chart.setChartSize(true);
-			chart.renderer.setSize(chartWidth, chartHeight, animation);
+			renderer.setSize(chartWidth, chartHeight, animation);
 
 			// handle axes
 			chart.maxTicks = null;
@@ -13607,15 +13618,15 @@ return /******/ (function(modules) { // webpackBootstrap
 		 * Return the configuration hash needed for the data label and tooltip formatters
 		 */
 		getLabelConfig: function () {
-			var point = this;
 			return {
-				x: point.category,
-				y: point.y,
-				key: point.name || point.category,
-				series: point.series,
-				point: point,
-				percentage: point.percentage,
-				total: point.total || point.stackTotal
+				x: this.category,
+				y: this.y,
+				color: this.color,
+				key: this.name || this.category,
+				series: this.series,
+				point: this,
+				percentage: this.percentage,
+				total: this.total || this.stackTotal
 			};
 		},	
 
@@ -14124,7 +14135,7 @@ return /******/ (function(modules) { // webpackBootstrap
 							pt = { series: series };
 							series.pointClass.prototype.applyOptions.apply(pt, [data[i]]);
 							series.updateParallelArrays(pt, i);
-							if (hasCategories && pt.name) {
+							if (hasCategories && defined(pt.name)) { // #4401
 								xAxis.names[pt.x] = pt.name; // #2046
 							}
 						}
@@ -14740,6 +14751,8 @@ return /******/ (function(modules) { // webpackBootstrap
 				},
 				points = series.points || [], // #927
 				i,
+				j,
+				threshold,
 				point,
 				seriesPointAttr = [],
 				pointAttr,
@@ -14799,13 +14812,15 @@ return /******/ (function(modules) { // webpackBootstrap
 					}
 
 					if (zones.length) {
-						var j = 0,
-							threshold = zones[j];
+						j = 0;
+						threshold = zones[j];
 						while (point[zoneAxis] >= threshold.value) {				
 							threshold = zones[++j];
 						}
 						
-						point.color = point.fillColor = threshold.color;
+						if (threshold.color) {
+							point.color = point.fillColor = threshold.color;
+						}
 					}
 
 					hasPointSpecificOptions = seriesOptions.colorByPoint || point.color; // #868
@@ -15061,7 +15076,6 @@ return /******/ (function(modules) { // webpackBootstrap
 					attribs;
 
 				if (graph) {
-					stop(graph); // cancel running animations, #459
 					graph.animate({ d: graphPath });
 
 				} else if ((lineWidth || fillColor) && graphPath.length) { // #1487
@@ -15100,8 +15114,7 @@ return /******/ (function(modules) { // webpackBootstrap
 				graph = this.graph,
 				area = this.area,
 				chartSizeMax = mathMax(chart.chartWidth, chart.chartHeight),
-				zoneAxis = this.zoneAxis || 'y',
-				axis = this[zoneAxis + 'Axis'],
+				axis = this[(this.zoneAxis || 'y') + 'Axis'],
 				extremes,
 				reversed = axis.reversed,
 				inverted = chart.inverted,
@@ -15111,7 +15124,7 @@ return /******/ (function(modules) { // webpackBootstrap
 				pxPosMax,
 				ignoreZones = false;
 
-			if (zones.length && (graph || area)) {
+			if (zones.length && (graph || area) && axis.min !== UNDEFINED) {
 				// The use of the Color Threshold assumes there are no gaps
 				// so it is safe to hide the original graph and area
 				if (graph) {
@@ -15474,7 +15487,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 			// Start the recursive build process with a clone of the points array and null points filtered out (#3873)
 			function startRecursive() {
-				var points = grep(series.points, function (point) {
+				var points = grep(series.points || [], function (point) { // #4390
 					return point.y !== null;
 				});
 
@@ -16087,8 +16100,6 @@ return /******/ (function(modules) { // webpackBootstrap
 						if (graphic && graphic.element) {
 							if (options && options.marker && options.marker.symbol) {
 								point.graphic = graphic.destroy();
-							} else {
-								graphic.attr(point.pointAttr[point.state || ''])[point.visible === false ? 'hide' : 'show'](true); // #2430
 							}
 						}
 						if (options && options.dataLabels && point.dataLabel) { // #2468
@@ -17194,7 +17205,7 @@ return /******/ (function(modules) { // webpackBootstrap
 			enabled: true // Overrides auto-enabling in line series (#3647)
 		},
 		tooltip: {
-			headerFormat: '<span style="color:{series.color}">\u25CF</span> <span style="font-size: 10px;"> {series.name}</span><br/>',
+			headerFormat: '<span style="color:{point.color}">\u25CF</span> <span style="font-size: 10px;"> {series.name}</span><br/>',
 			pointFormat: 'x: <b>{point.x}</b><br/>y: <b>{point.y}</b><br/>'
 		}
 	});
@@ -18482,13 +18493,16 @@ return /******/ (function(modules) { // webpackBootstrap
 				var labels = [];
 
 				each(chart.series, function (series) {
-					var dlOptions = series.options.dataLabels;
+					var dlOptions = series.options.dataLabels,
+						collections = series.dataLabelCollections || ['dataLabel']; // Range series have two collections
 					if ((dlOptions.enabled || series._hasPointLabels) && !dlOptions.allowOverlap && series.visible) { // #3866
-						each(series.points, function (point) { 
-							if (point.dataLabel) {
-								point.dataLabel.labelrank = pick(point.labelrank, point.shapeArgs && point.shapeArgs.height); // #4118
-								labels.push(point.dataLabel);
-							}
+						each(collections, function (coll) {
+							each(series.points, function (point) {
+								if (point[coll]) {
+									point[coll].labelrank = pick(point.labelrank, point.shapeArgs && point.shapeArgs.height); // #4118
+									labels.push(point[coll]);
+								}
+							});
 						});
 					}
 				});
@@ -19002,8 +19016,12 @@ return /******/ (function(modules) { // webpackBootstrap
 
 		/**
 		 * Runs on mouse over the point
+		 *
+		 * @param {Object} e The event arguments
+		 * @param {Boolean} byProximity Falsy for kd points that are closest to the mouse, or to 
+		 *        actually hovered points. True for other points in shared tooltip.
 		 */
-		onMouseOver: function (e) {
+		onMouseOver: function (e, byProximity) {
 			var point = this,
 				series = point.series,
 				chart = series.chart,
@@ -19031,7 +19049,9 @@ return /******/ (function(modules) { // webpackBootstrap
 
 				// hover this
 				point.setState(HOVER_STATE);
-				chart.hoverPoint = point;
+				if (!byProximity) {
+					chart.hoverPoint = point;
+				}
 			}
 		},
 
@@ -19453,6 +19473,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	/*** EXPORTS FROM exports-loader ***/
 	module.exports = Highcharts
 
+/***/ },
+/* 5 */
+/***/ function(module, exports) {
+
+	module.exports = __WEBPACK_EXTERNAL_MODULE_5__;
+
+/***/ },
+/* 6 */
+/***/ function(module, exports) {
+
+	module.exports = __WEBPACK_EXTERNAL_MODULE_6__;
+
 /***/ }
 /******/ ])
 });
+;

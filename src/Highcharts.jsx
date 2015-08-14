@@ -11,6 +11,7 @@ module.exports = React.createClass({
     }
 
     var config = this.props.config;
+    var type = this.props.type;
     var node = this.refs.chart.getDOMNode();
 
     if (!config.chart) {
@@ -19,7 +20,11 @@ module.exports = React.createClass({
 
     config = update(config, {chart: {renderTo: {$set: node}}});
 
-    this.chart = new Highcharts.Chart(config);
+    if (type == 'map') {
+      this.chart = new Highcharts.Map(config);
+    } else {
+      this.chart = new Highcharts.Chart(config);
+    }
   },
 
   getChart: function() {
