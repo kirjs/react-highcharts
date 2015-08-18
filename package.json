@@ -4,7 +4,8 @@
   "description": "React wrapper for highcharts",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "demo": "cd demo && webpack && webpack-dev-server --content-base dist/"
   },
   "author": "Kirill Cherkashin",
   "license": "MIT",

@@ -6,8 +6,14 @@ Highcharts component for react.
 * see [example of using react-highcharts](http://kirjs.github.io/react-highcharts/)
 * see [example of using react-highcharts/more](http://kirjs.github.io/react-highcharts/more.html)
 
-You can find the full code for the examples [here](https://github.com/kirjs/react-highcharts/tree/master/demo
-)
+You can find the full code for the examples [here](https://github.com/kirjs/react-highcharts/tree/master/demo)
+
+To run the demo, clone the repo, then run:
+```
+npm install
+npm run demo
+```
+
 ## Installation
 ```bash
 npm install react-highcharts --save
@@ -44,3 +50,13 @@ class MyComponent extends React.Component {
 
 ## Using highcharts-more
 Just require `require('react-highcharts/more');` instead of `react-highcharts`
+
+## Update Highcharts Version
+
+ 1. Install new highcharts version.
+```
+npm unistall highcharts-release --save-dev
+npm install highcharts-release --save-dev
+```
+
+ 2. Set package version to the version of `highcharts-release` in the `package.json`.
