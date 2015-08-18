@@ -54,9 +54,9 @@ Just require `require('react-highcharts/more');` instead of `react-highcharts`
 ## Update Highcharts Version
 
  1. Install new highcharts version.
-```
-npm unistall highcharts-release --save-dev
-npm install highcharts-release --save-dev
-```
-
+    ```
+    npm unistall highcharts-release --save-dev
+    npm install highcharts-release --save-dev
+    ```
+    
  2. Set package version to the version of `highcharts-release` in the `package.json`.
