@@ -37,7 +37,12 @@ module.exports = React.createClass({
   },
 
   render: function () {
-    return <div className="chart" ref="chart"/>
+    let props = this.props;
+    props = {
+      ...props,
+      ref: 'chart'
+    };
+    return <div {...props} />;
   }
 });
 

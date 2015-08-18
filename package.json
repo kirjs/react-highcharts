@@ -1,6 +1,6 @@
 {
   "name": "react-highcharts",
-  "version": "4.1.7",
+  "version": "2.0.0",
   "description": "React wrapper for highcharts",
   "main": "dist/Higcharts.js",
   "scripts": {
