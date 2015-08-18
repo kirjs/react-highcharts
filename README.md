@@ -59,4 +59,5 @@ Just require `require('react-highcharts/more');` instead of `react-highcharts`
     npm install highcharts-release --save-dev
     ```
     
- 2. Set package version to the version of `highcharts-release` in the `package.json`.
+ 2. Increment the version such that a patch, minor release, or major release of 
+    higcharts is reflected in a corresponding library version bump.
