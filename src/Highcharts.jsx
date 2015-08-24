@@ -6,11 +6,16 @@ var React = require('react');
 module.exports = React.createClass({
   displayName: 'Highcharts',
 
+  propTypes: {
+    config: React.PropTypes.object.isRequired,
+    isPureConfig: React.PropTypes.boolean
+  },
+
   renderChart: function () {
     if (!this.props.config) {
       throw new Error('Config must be specified for the Highchart component');
     }
-    var config = this.props.config;
+    var {config} = this.props;
     let chartConfig = config.chart;
     this.chart = new Highcharts.Chart({
       ...config,
@@ -21,6 +26,13 @@ module.exports = React.createClass({
     });
   },
 
+  shouldComponentUpdate(nextProps) {
+    if (!this.props.isPureConfig || !(this.props.config === nextProps.config)) {
+      this.renderChart();
+    }
+    return true;
+  },
+
   getChart: function () {
     if (!this.chart) {
       throw new Error('getChart() should not be called before the component is mounted');
@@ -29,10 +41,6 @@ module.exports = React.createClass({
   },
 
   componentDidMount: function () {
-    this.renderChart();
-  },
-
-  componentDidUpdate: function () {
     this.renderChart();
   },
 
