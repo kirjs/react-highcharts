@@ -8,7 +8,7 @@ module.exports = React.createClass({
 
   propTypes: {
     config: React.PropTypes.object.isRequired,
-    isPureConfig: React.PropTypes.boolean
+    isPureConfig: React.PropTypes.bool
   },
 
   renderChart: function (config) {
