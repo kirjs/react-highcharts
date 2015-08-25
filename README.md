@@ -8,11 +8,15 @@ Highcharts component for react.
 
 You can find the full code for the examples [here](https://github.com/kirjs/react-highcharts/tree/master/demo)
 
-To run the demo, clone the repo, then run:
-```
-npm install
-npm run demo
-```
+To run the demo:
+
+ 1. Clone the repo
+ 2. run:
+    ```
+    npm install
+    npm run demo
+    ```
+ 3. Point your browser at http://localhost:8080
 
 ## Installation
 ```bash
