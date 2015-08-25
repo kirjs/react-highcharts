@@ -11,11 +11,10 @@ module.exports = React.createClass({
     isPureConfig: React.PropTypes.boolean
   },
 
-  renderChart: function () {
-    if (!this.props.config) {
+  renderChart: function (config) {
+    if (!config) {
       throw new Error('Config must be specified for the Highchart component');
     }
-    var {config} = this.props;
     let chartConfig = config.chart;
     this.chart = new Highcharts.Chart({
       ...config,
@@ -28,7 +27,7 @@ module.exports = React.createClass({
 
   shouldComponentUpdate(nextProps) {
     if (!this.props.isPureConfig || !(this.props.config === nextProps.config)) {
-      this.renderChart();
+      this.renderChart(nextProps.config);
     }
     return true;
   },
@@ -41,7 +40,7 @@ module.exports = React.createClass({
   },
 
   componentDidMount: function () {
-    this.renderChart();
+    this.renderChart(this.props.config);
   },
 
   render: function () {
