@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "demo": "cd demo && webpack && webpack-dev-server --content-base dist/",
+    "demo": "cd demo && webpack && ../node_modules/.bin/webpack-dev-server --content-base dist/",
     "prepublish": "webpack"
   },
   "author": "Kirill Cherkashin",
@@ -35,6 +35,7 @@
     "raw-loader": "^0.5.1",
     "react": "*",
     "react-highlight": "^0.4.1",
-    "webpack": "^1.5.3"
+    "webpack": "^1.5.3",
+    "webpack-dev-server": "^1.10.1"
   }
 }
