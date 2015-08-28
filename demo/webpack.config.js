@@ -22,8 +22,6 @@ module.exports = {
     modulesDirectories: ['node_modules']
   },
   output: {
-    filename: 'dist/[name].js',
-    libraryTarget: 'umd',
-    library: 'Highcharts'
+    filename: 'dist/[name].js'
   }
 };
