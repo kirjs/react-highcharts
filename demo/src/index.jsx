@@ -24,8 +24,8 @@ React.render(
   document.getElementById('code-html')
 );
 
-require("file?name=dist/[name].[ext]!./index.html");
-require("file?name=dist/[name].[ext]!./more.html");
-require("file?name=dist/[name].[ext]!./style.css");
-require("file?name=dist/[name].[ext]!./tomorrow.css");
+require("file?name=[name].[ext]!./index.html");
+require("file?name=[name].[ext]!./more.html");
+require("file?name=[name].[ext]!./style.css");
+require("file?name=[name].[ext]!./tomorrow.css");
 

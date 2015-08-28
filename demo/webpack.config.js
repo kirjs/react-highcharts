@@ -22,6 +22,8 @@ module.exports = {
     modulesDirectories: ['node_modules']
   },
   output: {
-    filename: 'dist/[name].js'
+    path: 'dist/',
+    filename: '[name].js',
+    publicPath: '/'
   }
 };
