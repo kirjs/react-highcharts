@@ -1,42 +1,55 @@
-global.HighchartsAdapter = require('exports?HighchartsAdapter!Highcharts/js/adapters/standalone-framework.src');
-var Highcharts = require('exports?Highcharts!Highcharts');
+global.HighchartsAdapter = require('exports?HighchartsAdapter!highcharts-standalone-adapter');
+var Highcharts = require("exports?Highcharts!highcharts");
+
 var React = require('react');
-var update = require('react/addons').addons.update;
+
 module.exports = React.createClass({
   displayName: 'Highcharts',
 
-  renderChart: function () {
-    if (!this.props.config) {
-      throw new Error('Config has to be specified, for the Highchart component');
-    }
-
-    var config = this.props.config;
-    var node = this.refs.chart.getDOMNode();
-
-    if (!config.chart) {
-      config = update(config, {chart: {$set: {}}})
-    }
-
-    config = update(config, {chart: {renderTo: {$set: node}}});
-
-    this.chart = new Highcharts.Chart(config);
+  propTypes: {
+    config: React.PropTypes.object.isRequired,
+    isPureConfig: React.PropTypes.bool
   },
 
-  getChart: function() {
+  renderChart: function (config) {
+    if (!config) {
+      throw new Error('Config must be specified for the Highchart component');
+    }
+    let chartConfig = config.chart;
+    this.chart = new Highcharts.Chart({
+      ...config,
+      chart: {
+        ...chartConfig,
+        renderTo: this.refs.chart.getDOMNode()
+      }
+    });
+  },
+
+  shouldComponentUpdate(nextProps) {
+    if (!this.props.isPureConfig || !(this.props.config === nextProps.config)) {
+      this.renderChart(nextProps.config);
+    }
+    return true;
+  },
+
+  getChart: function () {
     if (!this.chart) {
-        throw new Error('getChart() should not be called before the component is mounted');
+      throw new Error('getChart() should not be called before the component is mounted');
     }
     return this.chart;
   },
 
   componentDidMount: function () {
-    this.renderChart();
+    this.renderChart(this.props.config);
   },
-  componentDidUpdate: function () {
-    this.renderChart();
-  },
+
   render: function () {
-    return <div className = "chart" ref = "chart" />
+    let props = this.props;
+    props = {
+      ...props,
+      ref: 'chart'
+    };
+    return <div {...props} />;
   }
 });
 

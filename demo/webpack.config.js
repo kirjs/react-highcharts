@@ -1,16 +1,29 @@
 module.exports = {
-    watch: true,
-    entry: {
-        more: './more.jsx',
-        index: './index.jsx'
+  entry: {
+    index: './src/index.jsx',
+    more: './src/more.jsx'
+  },
+  module: {
+    loaders: [
+      {
+        test: /\.jsx$/,
+        loader: 'babel'
+      }
+    ]
+  },
+  resolve: {
+    alias: {
+      "highcharts" : "highcharts-release/highcharts.src.js",
+      "highcharts-more" : "highcharts-release/highcharts-more.src.js",
+      "highcharts-standalone-adapter" : "highcharts-release/adapters/standalone-framework.src.js",
+      "react-highcharts/more": '../../src/More.jsx',
+      "react-highcharts": '../../src/Highcharts.jsx'
     },
-    module: {
-        loaders: [
-            {test: /\.jsx$/, loader: 'jsx?harmony'}
-        ]
-    },
-    output: {
-        path: 'dist',
-        filename: '[name].js'
-    }
+    modulesDirectories: ['node_modules']
+  },
+  output: {
+    path: 'dist/',
+    filename: '[name].js',
+    publicPath: '/'
+  }
 };
