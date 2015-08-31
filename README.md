@@ -45,7 +45,7 @@ Highcharts provides an API for manipulating a chart after the initial render. Se
 class MyComponent extends React.Component {
   componentDidMount() {
     let chart = this.refs.chart.getChart();
-    chart.series.addPoint({x: 10, y: 12});
+    chart.series[0].addPoint({x: 10, y: 12});
   }
 
   render() {
