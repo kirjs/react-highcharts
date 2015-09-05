@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "demo": "cd demo && webpack && ../node_modules/.bin/webpack-dev-server --content-base dist/",
-    "prepublish": "webpack"
+    "prepublish": "webpack",
+    "deploy-demo": "./demo/deploy.sh"
   },
   "author": "Kirill Cherkashin",
   "license": "MIT",
