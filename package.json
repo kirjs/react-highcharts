@@ -4,7 +4,7 @@
   "description": "React wrapper for highcharts",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "webpack && mocha",
     "demo": "cd demo && webpack && ../node_modules/.bin/webpack-dev-server --content-base dist/",
     "prepublish": "webpack"
   },
@@ -32,6 +32,8 @@
     "highcharts-release": "^4.1.7",
     "highlight.js": "^8.5.0",
     "imports-loader": "^0.6.4",
+    "jsdom": "^6.3.0",
+    "mocha": "^2.3.0",
     "raw-loader": "^0.5.1",
     "react": "*",
     "react-highlight": "^0.4.1",
