@@ -60,8 +60,8 @@ Rerendering a highcharts graph is expensive. You can pass in a `isPureConfig` op
 ## Using highcharts-more
 Just require `require('react-highcharts/more');` instead of `react-highcharts`
 
-## Update Highcharts Version (For Contributors)
-
+## For Contributors
+### Update Highcharts Version 
  1. Install new highcharts version.
     ```
     npm unistall highcharts-release --save-dev
@@ -70,3 +70,6 @@ Just require `require('react-highcharts/more');` instead of `react-highcharts`
     
  2. Increment the `react-highcharts` version such that a patch, minor release, or major release of 
     Higcharts is reflected in a corresponding version increase for `react-highcharts`.
+
+#### Running tests
+Run `npm tests`
