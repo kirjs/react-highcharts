@@ -3,6 +3,7 @@ var path = require('path');
 module.exports = {
   entry: {
     highcharts: ['./src/Highcharts.jsx'], // Array syntax to workaround https://github.com/webpack/webpack/issues/300
+    highstock: ['./src/Highstock.jsx'], // Array syntax to workaround https://github.com/webpack/webpack/issues/300
     more: './src/More.jsx'
   },
   module: {
@@ -31,6 +32,7 @@ module.exports = {
   ],
   resolve: {
     alias: {
+      "highstock" : "highstock-release/highstock.src.js",
       "highcharts" : "highcharts-release/highcharts.src.js",
       "highcharts-more" : "highcharts-release/highcharts-more.src.js",
       "highcharts-standalone-adapter" : "highcharts-release/adapters/standalone-framework.src.js"

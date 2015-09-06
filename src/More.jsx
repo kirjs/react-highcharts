@@ -1,2 +1,2 @@
 module.exports = require('./Highcharts.jsx');
-require("exports?Highcharts!highcharts-more");
+require("exports?Highcharts!higgihcharts-more");
