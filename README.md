@@ -5,6 +5,7 @@ Highcharts component for react.
 ## Demo
 * see [example of using react-highcharts](http://kirjs.github.io/react-highcharts/)
 * see [example of using react-highcharts/more](http://kirjs.github.io/react-highcharts/more.html)
+* see [example of using react-highcharts/highstock](http://kirjs.github.io/react-highcharts/highstock.html)
 
 You can find the full code for the examples [here](https://github.com/kirjs/react-highcharts/tree/master/demo)
 
@@ -59,6 +60,13 @@ Rerendering a highcharts graph is expensive. You can pass in a `isPureConfig` op
 
 ## Using highcharts-more
 Just require `require('react-highcharts/more');` instead of `react-highcharts`
+* see [the demo](http://kirjs.github.io/react-highcharts/more.html)
+
+## Using highstock
+Just require `require('react-highcharts/highstock');` instead of `react-highcharts`
+* see [the demo](http://kirjs.github.io/react-highcharts/highstock.html)
+
+
 
 ## For Contributors
 ### Update Highcharts Version 
