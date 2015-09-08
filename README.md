@@ -1,5 +1,8 @@
 react-highcharts
 ================
+
+[![Build Status](https://travis-ci.org/kirjs/react-highcharts.svg?branch=master)](https://travis-ci.org/kirjs/react-highcharts)
+
 Highcharts component for react.
 
 ## Demo
