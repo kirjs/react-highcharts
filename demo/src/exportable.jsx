@@ -1,5 +1,5 @@
 var React = require('react');
-var Highcharts = require('react-highcharts');
+var Highcharts = require('react-highcharts/exportable');
 var Highlight = require('react-highlight');
 
 var config = {
@@ -16,15 +16,16 @@ React.render(
   document.getElementById('test')
 );
 React.render(
-  <Highlight className="jsx">{require("raw-loader!./index.jsx")}</Highlight>,
+  <Highlight className="jsx">{require("raw-loader!./exportable.jsx")}</Highlight>,
   document.getElementById('code-js')
 );
 React.render(
-  <Highlight className="html">{require("raw-loader!./index.html")}</Highlight>,
+  <Highlight className="html">{require("raw-loader!./exportable.html")}</Highlight>,
   document.getElementById('code-html')
 );
 
 require("file?name=[name].[ext]!./index.html");
+require("file?name=[name].[ext]!./exportable.html");
 require("file?name=[name].[ext]!./more.html");
 require("file?name=[name].[ext]!./style.css");
 require("file?name=[name].[ext]!./tomorrow.css");
