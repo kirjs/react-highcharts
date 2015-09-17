@@ -1,45 +1,45 @@
 {
-    "name": "react-highcharts",
-    "version": "2.0.0",
-    "description": "React wrapper for highcharts",
-    "main": "index.js",
-    "scripts": {
-        "test": "webpack && mocha",
-        "demo": "cd demo && webpack && C:/code/react-highcharts/node_modules/.bin/webpack-dev-server --content-base dist/",
-        "prepublish": "webpack",
-        "deploy-demo": "./demo/deploy.sh"
-    },
-    "author": "Kirill Cherkashin",
-    "license": "MIT",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/kirjs/react-highcharts"
-    },
-    "peerDependencies": {
-        "react": "*"
-    },
-    "bugs": "https://github.com/kirjs/react-highcharts/issues",
-    "keywords": [
-        "chart",
-        "react",
-        "highcharts",
-        "graph"
-    ],
-    "devDependencies": {
-        "babel-core": "^5.8.22",
-        "babel-loader": "^5.3.2",
-        "exports-loader": "^0.6.2",
-        "file-loader": "^0.8.4",
-        "highcharts-release": "^4.1.7",
-        "highlight.js": "^8.5.0",
-        "highstock-release": "^2.1.8",
-        "imports-loader": "^0.6.4",
-        "jsdom": "^6.3.0",
-        "mocha": "^2.3.0",
-        "raw-loader": "^0.5.1",
-        "react": "*",
-        "react-highlight": "^0.4.1",
-        "webpack": "^1.5.3",
-        "webpack-dev-server": "^1.10.1"
-    }
+  "name":"react-highcharts",
+  "version":"2.0.0",
+  "description":"React wrapper for highcharts",
+  "main":"index.js",
+  "scripts":{
+    "test":"webpack && mocha",
+    "demo":"cd demo && webpack && ../node_modules/.bin/webpack-dev-server --content-base dist/",
+    "prepublish":"webpack",
+    "deploy-demo":"./demo/deploy.sh"
+  },
+  "author":"Kirill Cherkashin",
+  "license":"MIT",
+  "repository":{
+    "type":"git",
+    "url":"https://github.com/kirjs/react-highcharts"
+  },
+  "peerDependencies":{
+    "react":"*"
+  },
+  "bugs":"https://github.com/kirjs/react-highcharts/issues",
+  "keywords":[
+    "chart",
+    "react",
+    "highcharts",
+    "graph"
+  ],
+  "devDependencies":{
+    "babel-core":"^5.8.22",
+    "babel-loader":"^5.3.2",
+    "exports-loader":"^0.6.2",
+    "file-loader":"^0.8.4",
+    "highcharts-release":"^4.1.7",
+    "highlight.js":"^8.5.0",
+    "highstock-release":"^2.1.8",
+    "imports-loader":"^0.6.4",
+    "jsdom":"^6.3.0",
+    "mocha":"^2.3.0",
+    "raw-loader":"^0.5.1",
+    "react":"*",
+    "react-highlight":"^0.4.1",
+    "webpack":"^1.5.3",
+    "webpack-dev-server":"^1.10.1"
+  }
 }
