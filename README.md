@@ -9,6 +9,7 @@ Highcharts component for react.
 * see [example of using react-highcharts](http://kirjs.github.io/react-highcharts/)
 * see [example of using react-highcharts/more](http://kirjs.github.io/react-highcharts/more.html)
 * see [example of using react-highcharts/highstock](http://kirjs.github.io/react-highcharts/highstock.html)
+* see [example of using react-highcharts/exportable](http://kirjs.github.io/react-highcharts/exportable.html)
 
 You can find the full code for the examples [here](https://github.com/kirjs/react-highcharts/tree/master/demo)
 
@@ -69,17 +70,19 @@ Just require `require('react-highcharts/more');` instead of `react-highcharts`
 Just require `require('react-highcharts/highstock');` instead of `react-highcharts`
 * see [the demo](http://kirjs.github.io/react-highcharts/highstock.html)
 
-
+## Using exportable
+Just require `require('react-highcharts/exportable');`instead of `react-highcarts`
+* see [the demo](http://kirjs.github.io/react-highcharts/exportable.html)
 
 ## For Contributors
-### Update Highcharts Version 
+### Update Highcharts Version
  1. Install new highcharts version.
     ```
     npm unistall highcharts-release --save-dev
     npm install highcharts-release --save-dev
     ```
-    
- 2. Increment the `react-highcharts` version such that a patch, minor release, or major release of 
+
+ 2. Increment the `react-highcharts` version such that a patch, minor release, or major release of
     Higcharts is reflected in a corresponding version increase for `react-highcharts`.
 
 #### Running tests
