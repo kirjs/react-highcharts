@@ -17,7 +17,7 @@
     "url": "https://github.com/kirjs/react-highcharts"
   },
   "peerDependencies": {
-    "react": "0.13.*"
+    "react": "~0.13"
   },
   "bugs": "https://github.com/kirjs/react-highcharts/issues",
   "keywords": [
@@ -36,7 +36,7 @@
     "jsdom": "^6.3.0",
     "mocha": "^2.3.0",
     "raw-loader": "^0.5.1",
-    "react": "*",
+    "react": "~0.13",
     "react-highlight": "^0.4.1",
     "webpack": "^1.5.3",
     "webpack-dev-server": "^1.10.1"
