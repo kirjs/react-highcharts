@@ -21,7 +21,6 @@ module.exports = function (Highcharts, chartType) {
         throw new Error('Config must be specified for the ' + displayName + ' component');
       }
       let chartConfig = config.chart;
-      debugger
       this.chart = new Highcharts[chartType]({
         ...config,
         chart: {
