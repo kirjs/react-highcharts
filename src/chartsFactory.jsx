@@ -20,7 +20,7 @@ module.exports = function (Highcharts, chartType) {
         ...config,
         chart: {
           ...chartConfig,
-          renderTo: this.refs.chart.getDOMNode()
+          renderTo: this.refs.chart
         }
       });
     },
