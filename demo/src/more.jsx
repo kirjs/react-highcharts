@@ -1,6 +1,7 @@
 var React = require('react');
 var Highcharts = require('react-highcharts/more');
 var Highlight = require('react-highlight');
+var ReactDOM = require('react-dom');
 
 var config = {
   chart: {
@@ -14,15 +15,15 @@ var config = {
   }]
 };
 
-React.render(
+ReactDOM.render(
   <Highcharts config={config}></Highcharts>,
   document.getElementById('test')
 );
-React.render(
+ReactDOM.render(
   <Highlight className="jsx">{require("raw-loader!./more.jsx")}</Highlight>,
   document.getElementById('code-js')
 );
-React.render(
+ReactDOM.render(
   <Highlight className="html">{require("raw-loader!./more.html")}</Highlight>,
   document.getElementById('code-html')
 );
