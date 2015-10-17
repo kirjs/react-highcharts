@@ -1,5 +1,6 @@
 var React = require('react');
-var Highcharts = require('react-highcharts/more');
+var Highcharts = require('react-highcharts/bundle/highcharts');
+require('react-highcharts/modules/more');
 var Highlight = require('react-highlight');
 
 var config = {

@@ -2,12 +2,13 @@
   "name": "react-highcharts",
   "version": "2.1.0",
   "description": "React wrapper for highcharts",
-  "main": "index.js",
+  "main": "dist/highcharts.js",
   "scripts": {
     "test": "webpack && mocha",
-    "demo": "cd demo && webpack && ../node_modules/.bin/webpack-dev-server --content-base dist/",
+    "demo": "cd demo && webpack &&  sh generate-contents.sh && ../node_modules/.bin/webpack-dev-server --content-base dist/",
     "prepublish": "webpack",
-    "deploy-demo": "./demo/deploy.sh"
+    "deploy-demo": "./demo/deploy.sh",
+    "generate-modules": "(cd src; sh ./generate-modules.sh)"
   },
   "author": "Kirill Cherkashin",
   "license": "MIT",
@@ -16,7 +17,7 @@
     "url": "https://github.com/kirjs/react-highcharts"
   },
   "peerDependencies": {
-    "react": "*"
+    "react": "0.13.*"
   },
   "bugs": "https://github.com/kirjs/react-highcharts/issues",
   "keywords": [
@@ -30,9 +31,7 @@
     "babel-loader": "^5.3.2",
     "exports-loader": "^0.6.2",
     "file-loader": "^0.8.4",
-    "highcharts-release": "^4.1.7",
     "highlight.js": "^8.5.0",
-    "highstock-release": "^2.1.8",
     "imports-loader": "^0.6.4",
     "jsdom": "^6.3.0",
     "mocha": "^2.3.0",
@@ -41,5 +40,10 @@
     "react-highlight": "^0.4.1",
     "webpack": "^1.5.3",
     "webpack-dev-server": "^1.10.1"
+  },
+  "dependencies": {
+    "highcharts-release": "^4.1.7",
+    "highmaps-release": "^1.1.9",
+    "highstock-release": "^2.1.8"
   }
 }

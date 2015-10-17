@@ -1,16 +1,20 @@
 #!/bin/sh
-#clean up
+#
+# This script builds demo and pushes it to gh-pages branch
+#
+
+# clean up
 cd "$(git rev-parse --show-toplevel)"
 set -e
 rm -rf demo/dist || exit 0;
 mkdir demo/dist;
 
-#build
+# build
 cd demo
 webpack
 cd dist
 
-#deploy
+# deploy
 git init
 git remote add origin https://github.com/kirjs/react-highcharts.git
 git add .
