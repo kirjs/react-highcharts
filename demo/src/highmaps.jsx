@@ -1,0 +1,68 @@
+var React = require('react');
+var Highmaps = require('react-highcharts/bundle/highmaps');
+var Highlight = require('react-highlight');
+require('./mapdata/europe');
+
+
+var config = {
+  chart: {
+    spacingBottom: 20
+  },
+  title : {
+    text : 'Europe time zones'
+  },
+
+  legend: {
+    enabled: true
+  },
+
+  plotOptions: {
+    map: {
+      allAreas: false,
+      joinBy: ['iso-a2', 'code'],
+      dataLabels: {
+        enabled: true,
+        color: 'white',
+        style: {
+          fontWeight: 'bold'
+        }
+      },
+      mapData: Highcharts.maps['custom/europe'],
+      tooltip: {
+        headerFormat: '',
+        pointFormat: '{point.name}: <b>{series.name}</b>'
+      }
+
+    }
+  },
+
+  series : [{
+    name: 'UTC',
+    data: ['IE', 'IS', 'GB', 'PT'].map( function (code) {
+      return { code: code };
+    })
+  }, {
+    name: 'UTC + 1',
+    data: ['NO', 'SE', 'DK', 'DE', 'NL', 'BE', 'LU', 'ES', 'FR', 'PL', 'CZ', 'AT', 'CH', 'LI', 'SK', 'HU',
+      'SI', 'IT', 'SM', 'HR', 'BA', 'YF', 'ME', 'AL', 'MK'].map(function (code) {
+      return { code: code };
+    })
+  }  ]
+};
+
+React.render(
+  <Highmaps config={config}></Highmaps>,
+  document.getElementById('test')
+);
+
+React.render(
+  <Highlight className="jsx">{require("raw-loader!./highmaps.jsx")}</Highlight>,
+  document.getElementById('code-js')
+);
+
+React.render(
+  <Highlight className="html">{require("raw-loader!./highmaps.html")}</Highlight>,
+  document.getElementById('code-html')
+);
+
+require("file?name=[name].[ext]!./highmaps.html");

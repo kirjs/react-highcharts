@@ -1,5 +1,7 @@
 var React = require('react');
-var Highcharts = require('react-highcharts');
+global.HighchartsAdapter = require('exports?HighchartsAdapter!highcharts-standalone-adapter');
+var Highcharts = require("highcharts");
+var ReactHighcharts = require('react-highcharts');
 var Highlight = require('react-highlight');
 var ReactDOM = require('react-dom');
 
