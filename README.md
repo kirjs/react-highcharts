@@ -24,8 +24,13 @@ To run the demo:
  3. Point your browser at http://localhost:8080
 
 ## Installation
+If you are using `React@0.14` just do this:
 ```bash
 npm install react-highcharts --save
+```
+For `React@0.13` use: 
+```bash
+npm install react-highcharts@^3.0.0 --save
 ```
 
 ## Usage
