@@ -1,5 +1,11 @@
 var React = require('react');
 
+if(typeof Highcharts === 'undefined'){
+  throw Error('Starting with version 3 of react-highcharts, Highcharts is not bundled by default. ' +
+    ' use "react-highcharts/bundle/highcharts" instead, or include highcharts. '
+  );
+}
+
 module.exports = function (Highcharts, chartType) {
   var displayName = 'Highcharts' + chartType;
   var result = React.createClass({
@@ -15,7 +21,6 @@ module.exports = function (Highcharts, chartType) {
         throw new Error('Config must be specified for the ' + displayName + ' component');
       }
       let chartConfig = config.chart;
-
       this.chart = new Highcharts[chartType]({
         ...config,
         chart: {
