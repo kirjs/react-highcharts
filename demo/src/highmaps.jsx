@@ -66,3 +66,4 @@ ReactDOM.render(
 );
 
 require("file?name=[name].[ext]!./highmaps.html");
+
