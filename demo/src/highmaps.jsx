@@ -1,8 +1,8 @@
 var React = require('react');
 var Highmaps = require('react-highcharts/bundle/highmaps');
 var Highlight = require('react-highlight');
+var ReactDOM = require('react-dom');
 require('./mapdata/europe');
-
 
 var config = {
   chart: {
@@ -50,19 +50,20 @@ var config = {
   }  ]
 };
 
-React.render(
+ReactDOM.render(
   <Highmaps config={config}></Highmaps>,
   document.getElementById('test')
 );
 
-React.render(
+ReactDOM.render(
   <Highlight className="jsx">{require("raw-loader!./highmaps.jsx")}</Highlight>,
   document.getElementById('code-js')
 );
 
-React.render(
+ReactDOM.render(
   <Highlight className="html">{require("raw-loader!./highmaps.html")}</Highlight>,
   document.getElementById('code-html')
 );
 
 require("file?name=[name].[ext]!./highmaps.html");
+
