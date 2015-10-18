@@ -45,7 +45,6 @@ module.exports = function (Highcharts, chartType) {
     },
 
     componentDidMount: function () {
-      debugger
       this.renderChart(this.props.config);
     },
 
