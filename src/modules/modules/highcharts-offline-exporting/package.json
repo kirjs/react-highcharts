@@ -1,0 +1,12 @@
+{
+  "name": "highcharts-offline-exporting",
+  "version": "0.0.2",
+  "description": "highcharts-offline-exporting module for react Highcharts. This package is generated based on highcharts-release v0.0.2",
+  "main": "highcharts-offline-exporting.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["charts", "highcharts", "highcharts-offline-exporting"],
+  "author": "kirjs",
+  "license": "CC"
+}

@@ -1,0 +1,12 @@
+{
+  "name": "highcharts-3d",
+  "version": "0.0.2",
+  "description": "highcharts-3d module for react Highcharts. This package is generated based on highcharts-release v0.0.2",
+  "main": "highcharts-3d.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["charts", "highcharts", "highcharts-3d"],
+  "author": "kirjs",
+  "license": "CC"
+}

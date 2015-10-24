@@ -1,0 +1,12 @@
+{
+  "name": "highcharts-no-data-to-display",
+  "version": "0.0.2",
+  "description": "highcharts-no-data-to-display module for react Highcharts. This package is generated based on highcharts-release v0.0.2",
+  "main": "highcharts-no-data-to-display.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["charts", "highcharts", "highcharts-no-data-to-display"],
+  "author": "kirjs",
+  "license": "CC"
+}

@@ -1,0 +1,12 @@
+{
+  "name": "highcharts-exporting",
+  "version": "0.0.2",
+  "description": "highcharts-exporting module for react Highcharts. This package is generated based on highcharts-release v0.0.2",
+  "main": "highcharts-exporting.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["charts", "highcharts", "highcharts-exporting"],
+  "author": "kirjs",
+  "license": "CC"
+}
