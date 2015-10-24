@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 #
 # This scripts collects all highcharts modules, and for each module generates a
 # file requiring this module.
@@ -9,7 +9,7 @@
 # module.exports = require('highcharts-release/highcharts-more.js');
 #
 
-dir="../dist/modules/"
+dir="../modules/"
 node_modules_dir="../node_modules/"
 
 # Clean up first
@@ -19,7 +19,7 @@ mkdir $dir
 echo "folder created."
 
 
-function generate {
+generate () {
   # Iterate ove a list of files
   for path in $@ ; do
 

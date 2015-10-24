@@ -1,0 +1,69 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/iojs',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'version',
+1 verbose cli   'major' ]
+2 info using npm@2.13.0
+3 info using node@v2.4.0
+4 info git [ 'status', '--porcelain' ]
+5 info preversion react-highcharts@3.0.0
+6 verbose version.write data { name: 'react-highcharts',
+6 verbose version.write   version: '3.0.0',
+6 verbose version.write   description: 'React wrapper for highcharts',
+6 verbose version.write   main: 'dist/highcharts.js',
+6 verbose version.write   scripts:
+6 verbose version.write    { test: 'webpack && mocha',
+6 verbose version.write      demo: 'cd demo && webpack &&  sh generate-contents.sh && ../node_modules/.bin/webpack-dev-server --content-base dist/',
+6 verbose version.write      prepublish: 'webpack',
+6 verbose version.write      'deploy-demo': './demo/deploy.sh',
+6 verbose version.write      'generate-modules': '(cd src; sh ./generate-modules.sh)' },
+6 verbose version.write   author: 'Kirill Cherkashin',
+6 verbose version.write   license: 'MIT',
+6 verbose version.write   repository:
+6 verbose version.write    { type: 'git',
+6 verbose version.write      url: 'https://github.com/kirjs/react-highcharts' },
+6 verbose version.write   peerDependencies: { react: '~0.13' },
+6 verbose version.write   bugs: 'https://github.com/kirjs/react-highcharts/issues',
+6 verbose version.write   keywords: [ 'chart', 'react', 'highcharts', 'graph' ],
+6 verbose version.write   devDependencies:
+6 verbose version.write    { 'babel-core': '^5.8.22',
+6 verbose version.write      'babel-loader': '^5.3.2',
+6 verbose version.write      'exports-loader': '^0.6.2',
+6 verbose version.write      'file-loader': '^0.8.4',
+6 verbose version.write      'highlight.js': '^8.5.0',
+6 verbose version.write      'imports-loader': '^0.6.4',
+6 verbose version.write      jsdom: '^6.3.0',
+6 verbose version.write      mocha: '^2.3.0',
+6 verbose version.write      'raw-loader': '^0.5.1',
+6 verbose version.write      react: '~0.13',
+6 verbose version.write      'react-highlight': '^0.4.1',
+6 verbose version.write      webpack: '^1.5.3',
+6 verbose version.write      'webpack-dev-server': '^1.10.1' },
+6 verbose version.write   dependencies:
+6 verbose version.write    { 'highcharts-release': '^4.1.7',
+6 verbose version.write      'highmaps-release': '^1.1.9',
+6 verbose version.write      'highstock-release': '^2.1.8' } } to package.json
+7 info version react-highcharts@3.0.0
+8 info git [ 'add', 'package.json' ]
+9 verbose stack Error: Command failed: git add package.json
+9 verbose stack fatal: pathspec 'package.json' did not match any files
+9 verbose stack
+9 verbose stack     at ChildProcess.exithandler (child_process.js:197:12)
+9 verbose stack     at emitTwo (events.js:87:13)
+9 verbose stack     at ChildProcess.emit (events.js:172:7)
+9 verbose stack     at maybeClose (internal/child_process.js:764:16)
+9 verbose stack     at Socket.<anonymous> (internal/child_process.js:319:11)
+9 verbose stack     at emitOne (events.js:77:13)
+9 verbose stack     at Socket.emit (events.js:169:7)
+9 verbose stack     at Pipe._onclose (net.js:468:12)
+10 verbose cwd /Users/kirjs/code/react-highcharts/src/modules
+11 error Darwin 15.0.0
+12 error argv "/usr/local/bin/iojs" "/usr/local/bin/npm" "version" "major"
+13 error node v2.4.0
+14 error npm  v2.13.0
+15 error code 128
+16 error Command failed: git add package.json
+16 error fatal: pathspec 'package.json' did not match any files
+17 error If you need help, you may report this error at:
+17 error     <https://github.com/npm/npm/issues>
+18 verbose exit [ 1, true ]

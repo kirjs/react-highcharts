@@ -1,0 +1,12 @@
+{
+  "name": "highcharts-map",
+  "version": "0.0.2",
+  "description": "highcharts-map module for react Highcharts. This package is generated based on highmaps-release v0.0.2",
+  "main": "highcharts-map.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["charts", "highcharts", "highcharts-map"],
+  "author": "kirjs",
+  "license": "CC"
+}
