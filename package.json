@@ -6,7 +6,7 @@
   "scripts": {
     "test": "webpack && mocha",
     "demo": "cd demo && webpack &&  sh generate-contents.sh && ../node_modules/.bin/webpack-dev-server --content-base dist/",
-    "prepublish": "npm run generate-modules && webpack && npm run copy-bundles",
+    "prepublish": "webpack && npm run copy-bundles",
     "copy-bundles": "sh ./src/copy-bundles.sh",
     "deploy-demo": "./demo/deploy.sh",
     "generate-modules": "(cd src; sh ./generate-modules.sh)"
