@@ -89,7 +89,10 @@ Or use bundled version:  `require('react-highcharts/dist/bundle/highstock');`
 * see [the demo](http://kirjs.github.io/react-highcharts/highstock.html)
 
 ## Using highcharts modules/add-ons like exporting, data, etc.
-Just require `require('react-highcharts/modules/MODULE_NAME');` after requiring `react-highcharts`
+Everything related to modules was moved out of `react-highcharts`. 
+Now every highcharts module is published as a separate npm package. 
+You can find the full list list [here](https://github.com/kirjs/publish-highcharts-modules/blob/master/modules.md)
+* see [the demo](http://kirjs.github.io/react-highcharts/more.html)
 
 ## For Contributors
 ### Update Highcharts Version 
