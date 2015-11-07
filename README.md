@@ -49,7 +49,7 @@ React.render(<Highcharts config = {config}></Highcharts>, document.body);
 #### Bundled Usage (includes Highcharts) 
 ```jsx
 var React = require('react');
-var Highcharts = require('react-highcharts/dist/bundle/highcharts'); // Highcharts is bundled 
+var Highcharts = require('react-highcharts/bundle/highcharts'); // Highcharts is bundled 
 
 var config = {
   /* HighchartsConfig */
@@ -80,12 +80,12 @@ Rerendering a highcharts graph is expensive. You can pass in a `isPureConfig` op
 
 ## Using highmaps
 Require Highmaps first, and then `require('react-highcharts/highmaps');`
-Or use bundled version:  `require('react-highcharts/dist/bundle/highmaps');`
+Or use bundled version:  `require('react-highcharts/bundle/highmaps');`
 * see [the demo](http://kirjs.github.io/react-highcharts/highmaps.html)
 
 ## Using highstock
 Require Highstock first, and then `require('react-highcharts/highstock');`
-Or use bundled version:  `require('react-highcharts/dist/bundle/highstock');`
+Or use bundled version:  `require('react-highcharts/bundle/highstock');`
 * see [the demo](http://kirjs.github.io/react-highcharts/highstock.html)
 
 ## Using highcharts modules/add-ons like exporting, data, etc.
