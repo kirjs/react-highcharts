@@ -1,6 +1,6 @@
 var React = require('react');
 var Highcharts = require('react-highcharts/bundle/highcharts');
-require('react-highcharts/modules/more');
+require('highcharts-more');
 var Highlight = require('react-highlight');
 var ReactDOM = require('react-dom');
 
