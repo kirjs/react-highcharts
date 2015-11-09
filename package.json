@@ -1,6 +1,6 @@
 {
   "name": "react-highcharts",
-  "version": "5.0.0",
+  "version": "5.0.1",
   "description": "React wrapper for highcharts",
   "main": "dist/highcharts.js",
   "scripts": {
@@ -13,7 +13,6 @@
     "preversion": "npm test",
     "version": "npm run prepublish",
     "postversion": "git push && git push --tags"
-
   },
   "author": "Kirill Cherkashin",
   "license": "MIT",
