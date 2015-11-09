@@ -9,7 +9,11 @@
     "prepublish": "webpack && npm run copy-bundles",
     "copy-bundles": "sh ./src/copy-bundles.sh",
     "deploy-demo": "./demo/deploy.sh",
-    "generate-modules": "(cd src; sh ./generate-modules.sh)"
+    "generate-modules": "(cd src; sh ./generate-modules.sh)",
+    "preversion": "npm test",
+    "version": "npm run prepublish",
+    "postversion": "git push && git push --tags"
+
   },
   "author": "Kirill Cherkashin",
   "license": "MIT",
