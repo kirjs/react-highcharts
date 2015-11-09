@@ -26,6 +26,7 @@ To run the demo:
 ## Installation
 If you are using `React@0.14` just do this:
 ```bash
+npm install highcharts-release --save
 npm install react-highcharts --save
 ```
 For `React@0.13` use: 
@@ -33,28 +34,31 @@ For `React@0.13` use:
 npm install react-highcharts@^3.0.0 --save
 ```
 
+With this version ignore the `highcharts-release` instructions below.
+
 ## Usage
-#### Basic Usage
+#### Basic Usage with React@0.14
 
 ```jsx
 var React = require('react');
-var Highcharts = require('react-highcharts'); // Expects that Highcharts was loaded in the code. 
+var Highcharts = require('highcharts-release/highcharts.src.js'); // With webpack you may wish to alias this as 'highcharts-release'
+var ReactHighcharts = require('react-highcharts'); // Expects that Highcharts was loaded in the code. 
 
 var config = {
   /* HighchartsConfig */
 };
-React.render(<Highcharts config = {config}></Highcharts>, document.body);
+React.render(<ReactHighcharts config = {config}></ReactHighcharts>, document.body);
 ```
 
 #### Bundled Usage (includes Highcharts) 
 ```jsx
 var React = require('react');
-var Highcharts = require('react-highcharts/bundle/highcharts'); // Highcharts is bundled 
+var ReactHighcharts = require('react-highcharts/bundle/highcharts'); // Highcharts is bundled 
 
 var config = {
   /* HighchartsConfig */
 };
-React.render(<Highcharts config = {config}></Highcharts>, document.body);
+React.render(<ReactHighcharts config = {config}></ReactHighcharts>, document.body);
 ```
 
 #### Accessing Highcharts API After Render
@@ -70,7 +74,7 @@ class MyComponent extends React.Component {
   }
 
   render() {
-    return <Highcharts config={config} ref="chart"></Highcharts>;
+    return <ReactHighcharts config={config} ref="chart"></ReactHighcharts>;
   }
 }
 ```
