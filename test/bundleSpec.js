@@ -1,11 +1,11 @@
-var React = require('react/addons');
+var React = require('react');
 var assert = require('assert');
-var TestUtils = React.addons.TestUtils;
-require('../src/simulateDOM');
+var TestUtils =  require('react-addons-test-utils');
+require('./simulateDOM');
 
 
 function bundleTest(bundleName, chartName) {
-  describe('react-highcharts/' + bundleName, function () {
+  describe('react-highcharts/bundle' + bundleName, function () {
     var Component, args, config;
     beforeEach(function () {
       Component = require('../dist/' + bundleName + '.js');
