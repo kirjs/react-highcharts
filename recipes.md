@@ -1,7 +1,7 @@
 # React-highcharts recipes
 
 ## Using with highcharts-release package
-Thanks @mblakele for writing this out.
+Thanks [@mblakele](https://github.com/mblakele) for writing this out.
 
 First install both libraries: 
 ```bash
