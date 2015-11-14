@@ -38,27 +38,27 @@ npm install react-highcharts@^3.0.0 --save
 
 ```jsx
 var React = require('react');
-var Highcharts = require('react-highcharts'); // Expects that Highcharts was loaded in the code. 
+var ReactHighcharts = require('react-highcharts'); // Expects that Highcharts was loaded in the code. 
 
 var config = {
   /* HighchartsConfig */
 };
-React.render(<Highcharts config = {config}></Highcharts>, document.body);
+React.render(<ReactHighcharts config = {config}></ReactHighcharts>, document.body);
 ```
 
 #### Bundled Usage (includes Highcharts) 
 ```jsx
 var React = require('react');
-var Highcharts = require('react-highcharts/bundle/highcharts'); // Highcharts is bundled 
+var ReactHighcharts = require('react-highcharts/bundle/highcharts'); // Highcharts is bundled 
 
 var config = {
   /* HighchartsConfig */
 };
-React.render(<Highcharts config = {config}></Highcharts>, document.body);
+React.render(<ReactHighcharts config = {config}></ReactHighcharts>, document.body);
 ```
 
 #### Accessing Highcharts API After Render
-For access to methods & properties from the Highcharts library you can use `Highcharts.Highcharts`. For example, the Highcharts options are available via `Highcharts.Highcharts.getOptions()`.
+For access to methods & properties from the Highcharts library you can use `ReactHighcharts.Highcharts`. For example, the Highcharts options are available via `ReactHighcharts.Highcharts.getOptions()`.
 
 Highcharts provides an API for manipulating a chart after the initial render. See the **Methods and Properties** in [the documentation](http://api.highcharts.com/highcharts). Here's how you access it:
 
@@ -70,13 +70,13 @@ class MyComponent extends React.Component {
   }
 
   render() {
-    return <Highcharts config={config} ref="chart"></Highcharts>;
+    return <ReactHighcharts config={config} ref="chart"></ReactHighcharts>;
   }
 }
 ```
 
 #### Limiting Highchart Rerenders
-Rerendering a highcharts graph is expensive. You can pass in a `isPureConfig` option to the `Highcharts` component, which will keep the highcharts graph from being updated so long as the provided `config` is [referentially equal](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Comparison_Operators) to its previous value.
+Rerendering a highcharts graph is expensive. You can pass in a `isPureConfig` option to the `ReactHighcharts` component, which will keep the highcharts graph from being updated so long as the provided `config` is [referentially equal](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Comparison_Operators) to its previous value.
 
 ## Using highmaps
 Require Highmaps first, and then `require('react-highcharts/highmaps');`
