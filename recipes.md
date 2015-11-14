@@ -30,8 +30,9 @@ React.render(<Highcharts config = {config}></Highcharts>, document.body);
 ## Rendering react-highcharts on node. 
 There is no simple way to render Highcharts in node, so contributions are welcome to this section. 
 
-At this point the simplest solution would be to have a node specific `Highcharts` version which would do nothing but 
-return an empty `div` when rendered.
+At this point the simplest solution would be to have a node-specific `Highcharts`
+ [version](https://github.com/kirjs/react-highcharts/blob/master/src/fakeHighcharts.js)
+ which would do nothing but return an empty `div` when rendered.
 
 ```javascript
 // In the browser Highcharts comes from the outside. In node we load fake highcharts.
