@@ -4,6 +4,3 @@ node_modules
 dist/
 modules
 bundle
-/highcharts.js
-/highmaps.js
-/highstock.js
