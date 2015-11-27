@@ -1,4 +1,7 @@
 var path = require('path');
+var src = (process.argv.indexOf('-p') === -1);
+var filenamePostfix = src ? '.src': '';
+
 
 module.exports = {
   entry: {
@@ -21,24 +24,23 @@ module.exports = {
       }
     ]
   },
-  externals:
-  [
+  externals: [
     {
       'react': true
     }
   ],
   resolve: {
     alias: {
-      "highstock" : "highstock-release/highstock.src.js",
-      "highcharts" : "highcharts-release/highcharts.src.js",
-      "highmaps" : "highmaps-release/highmaps.src.js",
-      "highcharts-more" : "highcharts-release/highcharts-more.src.js",
-      "highcharts-standalone-adapter" : "highcharts-release/adapters/standalone-framework.src.js",
+      "highstock": "highstock-release/highstock.src.js",
+      "highcharts": "highcharts-release/highcharts.src.js",
+      "highmaps": "highmaps-release/highmaps.src.js",
+      "highcharts-more": "highcharts-release/highcharts-more.src.js",
+      "highcharts-standalone-adapter": "highcharts-release/adapters/standalone-framework.src.js",
     },
     modulesDirectories: ['node_modules']
   },
   output: {
-    filename: 'dist/[name].js',
+    filename: 'dist/[name]' + filenamePostfix + '.js',
     libraryTarget: 'umd',
     library: 'Highcharts'
   }
