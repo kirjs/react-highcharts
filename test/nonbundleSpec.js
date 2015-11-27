@@ -15,7 +15,7 @@ function unCacheLib(path){
 }
 
 function nonBundleTest(lib, chartName, extra){
-  var libPath = 'dist/' + lib + '.js';
+  var libPath = 'dist/' + lib + '.src.js';
   describe('react-highcharts/' + lib, function (){
     var Component, args, config;
     beforeEach(function (){
