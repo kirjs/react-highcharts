@@ -8,7 +8,7 @@ function bundleTest(bundleName, chartName) {
   describe('react-highcharts/bundle' + bundleName, function () {
     var Component, args, config;
     beforeEach(function () {
-      Component = require('../dist/' + bundleName + '.js');
+      Component = require('../dist/' + bundleName + '.src.js');
 
       args = undefined;
 

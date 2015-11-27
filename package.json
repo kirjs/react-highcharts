@@ -4,9 +4,9 @@
   "description": "React wrapper for highcharts",
   "main": "dist/highcharts.js",
   "scripts": {
-    "test": "npm run build && mocha",
+    "test": "webpack && mocha",
     "build": "webpack && webpack -p",
-    "demo": "cd demo && npm run build &&  sh generate-contents.sh && ../node_modules/.bin/webpack-dev-server --content-base dist/",
+    "demo": "cd demo && webpack &&  sh generate-contents.sh && ../node_modules/.bin/webpack-dev-server --content-base dist/",
     "prepublish": "npm run build && npm run copy-bundles",
     "copy-bundles": "sh ./src/copy-bundles.sh",
     "deploy-demo": "./demo/deploy.sh",
