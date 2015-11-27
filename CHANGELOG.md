@@ -3,10 +3,10 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 From http://keepachangelog.com
 
-## [5.0.6] - 2015-11-17
+## [5.0.6] - 2015-11-26
 - I have no idea how npm works
 
-## [5.0.5] - 2015-11-17
+## [5.0.5] - 2015-11-26
 ### Added
 - Minify all js files by default. Keep source files as `file.src.js`. 
 
