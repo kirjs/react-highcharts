@@ -33,8 +33,9 @@ module.exports = function (Highcharts, chartType) {
     shouldComponentUpdate(nextProps) {
       if (!this.props.isPureConfig || !(this.props.config === nextProps.config)) {
         this.renderChart(nextProps.config);
+        return true;
       }
-      return true;
+      return false;
     },
 
     getChart: function () {
