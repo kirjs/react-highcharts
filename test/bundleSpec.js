@@ -5,7 +5,7 @@ require('./simulateDOM');
 
 
 function bundleTest(bundleName, chartName) {
-  describe('react-highcharts/bundle' + bundleName, function () {
+  describe('react-highcharts/' + bundleName, function () {
     var Component, args, config;
     beforeEach(function () {
       Component = require('../dist/' + bundleName + '.src.js');

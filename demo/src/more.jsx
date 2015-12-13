@@ -1,6 +1,12 @@
 var React = require('react');
-var Highcharts = require('react-highcharts/bundle/highcharts');
+
+global.HighchartsAdapter = require('highcharts-standalone-adapter');
+var Highcharts = require("highcharts");
+global.Highcharts = Highcharts(global.HighchartsAdapter);
+
+//var Highcharts = require('react-highcharts/bundle/highcharts');
 require('highcharts-more');
+var ReactHighcharts = require('react-highcharts');
 var Highlight = require('react-highlight');
 var ReactDOM = require('react-dom');
 
@@ -17,7 +23,7 @@ var config = {
 };
 
 ReactDOM.render(
-  <Highcharts config={config}></Highcharts>,
+  <ReactHighcharts config={config}></ReactHighcharts>,
   document.getElementById('test')
 );
 ReactDOM.render(

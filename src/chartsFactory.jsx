@@ -25,7 +25,7 @@ module.exports = function (Highcharts, chartType) {
         ...config,
         chart: {
           ...chartConfig,
-          renderTo: this.refs.chart.getDOMNode()
+          renderTo: this.refs.chart
         }
       });
     },
@@ -61,4 +61,3 @@ module.exports = function (Highcharts, chartType) {
   result.Highcharts = Highcharts;
   return result;
 };
-
