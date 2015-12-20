@@ -3,8 +3,11 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 From http://keepachangelog.com
 
+## [6.0.0] - 2015-11-26
+- Update Highcharts Highmaps and Highstock to 4.2.0 
+
 ## [5.0.6] - 2015-11-26
-- I have no idea how npm works
+- No changes
 
 ## [5.0.5] - 2015-11-26
 ### Added
