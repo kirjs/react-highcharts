@@ -4,6 +4,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 From http://keepachangelog.com
 
 ## [6.0.0] - 2015-11-26
+### Changed
 - Update Highcharts Highmaps and Highstock to 4.2.0 
 
 ## [5.0.6] - 2015-11-26
