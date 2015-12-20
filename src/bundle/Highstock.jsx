@@ -3,8 +3,9 @@ if( Highcharts && !Highcharts.Map){
     'but looks like a different copy of Highcharts was loaded before that');
 }
 if( !Highcharts ){
-  global.HighchartsAdapter = require('exports?HighchartsAdapter!highcharts-standalone-adapter');
-  var Highcharts = require("exports?Highcharts!highstock");
+  global.HighchartsAdapter = require('highcharts-standalone-adapter');
+  var Highcharts = require("highstock");
+  global.Highcharts = Highcharts(global.HighchartsAdapter);
 }
 
 module.exports = require('../Highstock.jsx');

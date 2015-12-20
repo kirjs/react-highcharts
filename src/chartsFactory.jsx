@@ -61,4 +61,3 @@ module.exports = function (Highcharts, chartType) {
   result.Highcharts = Highcharts;
   return result;
 };
-
