@@ -1,5 +1,6 @@
 var React = require('react');
-var Highstock = require('react-highcharts/bundle/highstock');
+global.Highcharts = require("highstock-release");
+var ReactHighstock = require('react-highcharts/highstock');
 var Highlight = require('react-highlight');
 var ReactDOM = require('react-dom');
 
@@ -24,7 +25,7 @@ var config = {
 };
 
 ReactDOM.render(
-  <Highstock config={config}></Highstock>,
+  <ReactHighstock config={config}></ReactHighstock>,
   document.getElementById('test')
 );
 

@@ -1,10 +1,8 @@
-if( Highcharts && !Highcharts.Map){
+if( typeof Highcharts !== "undefined" && !Highcharts.Map){
   throw Error('React-highcharts Highmaps module expects Highmaps to be loaded, ' +
     'but looks like a different copy of Highcharts was loaded before that');
 }
-if(!Highcharts) {
-  global.HighchartsAdapter = require('highcharts-standalone-adapter');
-  var Highcharts = require("highmaps");
-  global.Highcharts = Highcharts(global.HighchartsAdapter);
+if(typeof Highcharts === "undefined" ) {
+  global.Highcharts = require("highmaps");
 }
 module.exports = require('../Highmaps.jsx');

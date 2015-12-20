@@ -1,5 +1,6 @@
 var React = require('react');
-var Highmaps = require('react-highcharts/bundle/highmaps');
+global.Highcharts = require("highmaps-release");
+var ReactHighmaps = require('react-highcharts/highmaps');
 var Highlight = require('react-highlight');
 var ReactDOM = require('react-dom');
 require('./mapdata/europe');
@@ -51,7 +52,7 @@ var config = {
 };
 
 ReactDOM.render(
-  <Highmaps config={config}></Highmaps>,
+  <ReactHighmaps config={config}></ReactHighmaps>,
   document.getElementById('test')
 );
 

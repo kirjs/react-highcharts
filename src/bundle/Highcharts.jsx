@@ -1,6 +1,4 @@
-if(!Highcharts) {
-  global.HighchartsAdapter = require('highcharts-standalone-adapter');
-  var Highcharts = require("highcharts");
-  global.Highcharts = Highcharts(global.HighchartsAdapter);
+if(typeof Highcharts === "undefined") {
+  global.Highcharts = require("highcharts");
 }
 module.exports = require('../Highcharts.jsx');
