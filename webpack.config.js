@@ -10,6 +10,7 @@ module.exports = {
     'highcharts': ['./src/Highcharts.jsx'],
     'highstock': ['./src/Highstock.jsx'],
     'highmaps': ['./src/Highmaps.jsx'],
+    'RedrawOnPrint': ['./src/RedrawOnPrint.jsx'],
     'bundle/index': './src/bundle/Highcharts.jsx',
     'bundle/highcharts': './src/bundle/Highcharts.jsx',
     'bundle/highstock': './src/bundle/Highstock.jsx',
