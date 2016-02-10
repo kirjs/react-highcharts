@@ -23,7 +23,7 @@ var config = {
   /* HighchartsConfig */		
 };
 
-React.render(<Highcharts config = {config}></Highcharts>, document.body);		
+React.render(<ReactHighcharts config = {config}></ReactHighcharts>, document.body);		
 ```
 
 ## Rendering react-highcharts on node.
