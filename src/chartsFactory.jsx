@@ -1,8 +1,4 @@
-if(typeof Highcharts === 'undefined'){
-  throw Error('Starting with version 3 of react-highcharts, Highcharts is not bundled by default. ' +
-    ' please include highcharts. '
-  );
-}
+
 
 (function(React){
   if(!React){
@@ -11,7 +7,14 @@ if(typeof Highcharts === 'undefined'){
       throw Error("react-highcharts does not include React");
     }
   }
+  
+  var Highcharts = require('highcharts');
 
+  if(typeof Highcharts === 'undefined'){
+  throw Error('Starting with version 3 of react-highcharts, Highcharts is not bundled by default. ' +
+    ' please include highcharts. '
+  );
+}
   module.exports = function (Highcharts, chartType){
     var displayName = 'Highcharts' + chartType;
     var result = React.createClass({
