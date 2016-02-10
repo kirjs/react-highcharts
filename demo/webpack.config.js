@@ -15,10 +15,7 @@ module.exports = {
   },
   resolve: {
     alias: {
-      "highmaps" : "highmaps-release/highmaps.src.js",
-      "highcharts" : "highcharts-release/highcharts.src.js",
-      "highcharts-more" : "highcharts-release/highcharts-more.src.js",
-      "highcharts-standalone-adapter" : "highcharts-release/adapters/standalone-framework.src.js",
+      "highcharts-more" : "highcharts/highcharts-more.src.js",
       "react-highcharts": '../../dist'
     },
     modulesDirectories: ['node_modules']

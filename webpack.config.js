@@ -31,13 +31,6 @@ module.exports = {
     }
   ],
   resolve: {
-    alias: {
-      "highstock": "highstock-release/highstock.src.js",
-      "highcharts": "highcharts-release/highcharts.src.js",
-      "highmaps": "highmaps-release/highmaps.src.js",
-      "highcharts-more": "highcharts-release/highcharts-more.src.js",
-      "highcharts-standalone-adapter": "highcharts-release/adapters/standalone-framework.src.js",
-    },
     modulesDirectories: ['node_modules']
   },
   output: {

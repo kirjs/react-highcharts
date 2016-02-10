@@ -1,5 +1,5 @@
 var React = require('react');
-global.Highcharts = require("highmaps-release");
+global.Highcharts = require("highcharts/highmaps");
 var ReactHighmaps = require('react-highcharts/highmaps');
 var Highlight = require('react-highlight');
 var ReactDOM = require('react-dom');

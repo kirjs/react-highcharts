@@ -35,7 +35,7 @@ npm install react-highcharts@^3.0.0 --save
 
 ## Usage
 #### Basic Usage
-Check out this [recipe](https://github.com/kirjs/react-highcharts/blob/master/recipes.md#using-with-highcharts-release-package) 
+Check out this [recipe](https://github.com/kirjs/react-highcharts/blob/master/recipes.md#using-with-highcharts-package) 
 to see how to install `Highcharts` with `npm`. 
 
 ```jsx
@@ -103,8 +103,8 @@ You can find the full list list [here](https://github.com/kirjs/publish-highchar
 ### Update Highcharts Version 
  1. Install new highcharts version.
     ```
-    npm unistall highcharts-release --save-dev
-    npm install highcharts-release --save-dev
+    npm unistall highcharts --save-dev
+    npm install highcharts --save-dev
     ```
     
  2. Increment the `react-highcharts` version such that a patch, minor release, or major release of 

@@ -3,6 +3,6 @@ if( typeof global.Highcharts !== "undefined" && !global.Highcharts.Map){
     'but looks like a different copy of Highcharts was loaded before that');
 }
 if(typeof global.Highcharts === "undefined" ) {
-  global.Highcharts = require("highmaps");
+  global.Highcharts = require("highcharts/highmaps");
 }
 module.exports = require('../Highmaps.jsx');

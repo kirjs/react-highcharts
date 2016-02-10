@@ -1,5 +1,5 @@
 var React = require('react');
-global.Highcharts = require("highstock-release");
+global.Highcharts = require("highcharts/highstock");
 var ReactHighstock = require('react-highcharts/highstock');
 var Highlight = require('react-highlight');
 var ReactDOM = require('react-dom');

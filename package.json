@@ -50,8 +50,6 @@
     "webpack-dev-server": "^1.10.1"
   },
   "dependencies": {
-    "highcharts-release": "^4.2.0",
-    "highmaps-release": "^4.2.0",
-    "highstock-release": "^4.2.0"
+    "highcharts": "^4.2.3"
   }
 }
