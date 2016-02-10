@@ -27,7 +27,6 @@ function bundleTest(bundleName, chartName) {
     });
 
     it('Renders the chart with the appropriate parameters', function () {
-      console.log("~~~");
       TestUtils.renderIntoDocument(
         React.createElement(Component, {config: config})
       );
