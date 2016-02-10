@@ -5,23 +5,20 @@ react-highcharts
 
 Highcharts component for react.
 
-## Demo
-* see [example of using react-highcharts](http://kirjs.github.io/react-highcharts/)
-* see [example of using react-highcharts/more](http://kirjs.github.io/react-highcharts/more.html)
-* see [example of using react-highcharts/highstock](http://kirjs.github.io/react-highcharts/highstock.html)
-* see [example of using react-highcharts/highmaps](http://kirjs.github.io/react-highcharts/highmaps.html)
+## Demos
+[react-highcharts](http://kirjs.github.io/react-highcharts/) [react-highcharts/more](http://kirjs.github.io/react-highcharts/more.html) [react-highcharts/highstock](http://kirjs.github.io/react-highcharts/highstock.html) [react-highcharts/highmaps](http://kirjs.github.io/react-highcharts/highmaps.html)
 
 You can find the full code for the examples [here](https://github.com/kirjs/react-highcharts/tree/master/demo)
 
 To run the demo:
 
- 1. Clone the repo
- 2. run:
-    ```
+ 1. run:
+    ```bash
+    git clone https://github.com/kirjs/react-highcharts.git
     npm install
     npm run demo
     ```
- 3. Point your browser at http://localhost:8080
+ 2. Point your browser at http://localhost:8080
 
 ## Installation
 If you are using `React@0.14` just do this:
