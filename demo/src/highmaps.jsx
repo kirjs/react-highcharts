@@ -1,6 +1,6 @@
 var React = require('react');
 global.Highcharts = require("highcharts/highmaps");
-var ReactHighmaps = require('react-highcharts/highmaps');
+var ReactHighmaps = require('react-highcharts/ReactHighmaps');
 var Highlight = require('react-highlight');
 var ReactDOM = require('react-dom');
 require('./mapdata/europe');

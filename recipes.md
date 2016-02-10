@@ -45,7 +45,7 @@ Browser will have real Highcharts instead, and would rerender the chart on top o
 Since highcharts doesn't reflow upon print media query. Wrap your chart in `RedrawOnPrint` component.
 
 ```jsx
-  import ReactHighcharts from 'react-highcharts/bundle/highcharts';
+  import ReactHighcharts from 'react-highcharts/bundle/ReactHighcharts';
   import RedrawOnPrint from 'react-highcharts/RedrawOnPrint';
 
   class MyComponent extends React.Component {
