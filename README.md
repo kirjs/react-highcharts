@@ -51,7 +51,7 @@ React.render(<ReactHighcharts config = {config}></ReactHighcharts>, document.bod
 #### Bundled Usage (includes Highcharts) 
 ```jsx
 var React = require('react');
-var ReactHighcharts = require('react-highcharts/bundle/highcharts'); // Highcharts is bundled 
+var ReactHighcharts = require('react-highcharts/bundle/ReactHighcharts'); // Highcharts is bundled 
 
 var config = {
   /* HighchartsConfig */

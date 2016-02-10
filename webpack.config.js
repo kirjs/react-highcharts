@@ -13,8 +13,8 @@ module.exports = {
     'RedrawOnPrint': ['./src/RedrawOnPrint.jsx'],
     'bundle/index': './src/bundle/ReactHighcharts.jsx',
     'bundle/ReactHighcharts': './src/bundle/ReactHighcharts.jsx',
-    'bundle/ReactHighstock': './src/bundle/Highstock.jsx',
-    'bundle/ReactHighmaps': './src/bundle/Highmaps.jsx'
+    'bundle/ReactHighstock': './src/bundle/ReactHighstock.jsx',
+    'bundle/ReactHighmaps': './src/bundle/ReactHighmaps.jsx'
 
   },
   module: {

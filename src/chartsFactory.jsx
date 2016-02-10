@@ -1,6 +1,6 @@
 if(typeof Highcharts === 'undefined'){
   throw Error('Starting with version 3 of react-highcharts, Highcharts is not bundled by default. ' +
-    ' use "react-highcharts/dist/bundle/highcharts" instead, or include highcharts. '
+    ' please include highcharts. '
   );
 }
 
