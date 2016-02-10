@@ -61,9 +61,9 @@ function nonBundleTest(lib, chartName, extra){
 }
 
 
-nonBundleTest('highcharts', 'Chart');
-nonBundleTest('highstock', 'StockChart', {shouldThrow: true});
-nonBundleTest('highmaps', 'Map', {shouldThrow: true});
+nonBundleTest('ReactHighcharts', 'Chart');
+nonBundleTest('ReactHighstock', 'StockChart', {shouldThrow: true});
+nonBundleTest('ReactHighmaps', 'Map', {shouldThrow: true});
 
 
 

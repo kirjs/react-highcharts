@@ -84,13 +84,13 @@ Rerendering a highcharts graph is expensive. You can pass in a `isPureConfig` op
 See this [recipe](https://github.com/kirjs/react-highcharts/blob/master/recipes.md#rendering-react-highcharts-on-node)
 
 ## Using highmaps
-Require Highmaps first, and then `require('react-highcharts/highmaps');`
-Or use bundled version:  `require('react-highcharts/bundle/highmaps');`
+Require Highmaps first, and then `require('react-highcharts/ReactHighmaps');`
+Or use bundled version:  `require('react-highcharts/bundle/ReactHighmaps');`
 * see [the demo](http://kirjs.github.io/react-highcharts/highmaps.html)
 
 ## Using highstock
-Require Highstock first, and then `require('react-highcharts/highstock');`
-Or use bundled version:  `require('react-highcharts/bundle/highstock');`
+Require Highstock first, and then `require('react-highcharts/ReactHighstock');`
+Or use bundled version:  `require('react-highcharts/bundle/ReactHighstock');`
 * see [the demo](http://kirjs.github.io/react-highcharts/highstock.html)
 
 ## Using highcharts modules/add-ons like exporting, data, etc.

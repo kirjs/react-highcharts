@@ -27,6 +27,7 @@ function bundleTest(bundleName, chartName) {
     });
 
     it('Renders the chart with the appropriate parameters', function () {
+      console.log("~~~");
       TestUtils.renderIntoDocument(
         React.createElement(Component, {config: config})
       );
@@ -36,7 +37,7 @@ function bundleTest(bundleName, chartName) {
 }
 
 
-bundleTest('bundle/highcharts', 'Chart');
-bundleTest('bundle/highstock', 'StockChart');
-bundleTest('bundle/highmaps', 'Map');
+bundleTest('bundle/ReactHighcharts', 'Chart');
+bundleTest('bundle/ReactHighstock', 'StockChart');
+bundleTest('bundle/ReactHighmaps', 'Map');
 

@@ -6,15 +6,15 @@ var filenamePostfix = src ? '.src': '';
 module.exports = {
   entry: {
     // Array syntax to workaround https://github.com/webpack/webpack/issues/300
-    'index': ['./src/Highcharts.jsx'],
-    'highcharts': ['./src/Highcharts.jsx'],
-    'highstock': ['./src/Highstock.jsx'],
-    'highmaps': ['./src/Highmaps.jsx'],
+    'index': ['./src/ReactHighcharts.jsx'],
+    'ReactHighcharts': ['./src/ReactHighcharts.jsx'],
+    'ReactHighstock': ['./src/Highstock.jsx'],
+    'ReactHighmaps': ['./src/Highmaps.jsx'],
     'RedrawOnPrint': ['./src/RedrawOnPrint.jsx'],
-    'bundle/index': './src/bundle/Highcharts.jsx',
-    'bundle/highcharts': './src/bundle/Highcharts.jsx',
-    'bundle/highstock': './src/bundle/Highstock.jsx',
-    'bundle/highmaps': './src/bundle/Highmaps.jsx'
+    'bundle/index': './src/bundle/ReactHighcharts.jsx',
+    'bundle/ReactHighcharts': './src/bundle/ReactHighcharts.jsx',
+    'bundle/ReactHighstock': './src/bundle/Highstock.jsx',
+    'bundle/ReactHighmaps': './src/bundle/Highmaps.jsx'
 
   },
   module: {
@@ -36,6 +36,6 @@ module.exports = {
   output: {
     filename: 'dist/[name]' + filenamePostfix + '.js',
     libraryTarget: 'umd',
-    library: 'Highcharts'
+    library: '[name]'
   }
 };
