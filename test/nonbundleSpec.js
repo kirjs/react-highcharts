@@ -7,7 +7,7 @@ function unCacheLib(path){
   var last = keys.length - 1;
 
   for (var i = last; i > 0; i--) {
-    if(keys[i].indexOf(path) > -1){
+    if (keys[i].indexOf(path) > -1) {
       delete require.cache[keys[i]];
       return;
     }
@@ -22,13 +22,10 @@ function nonBundleTest(lib, chartName, extra){
       unCacheLib(libPath);
     });
 
-    afterEach(function (){
-      delete global.Highcharts;
-    });
-
     it('Renders the chart with the appropriate parameters', function (){
-      global.Highcharts = require('../src/fakeHighcharts');
-      Component = require('../' + libPath);
+      var Highcharts = require('../src/fakeHighcharts');
+
+      Component = require('../' + libPath)(Highcharts);
 
       args = undefined;
 
@@ -36,7 +33,7 @@ function nonBundleTest(lib, chartName, extra){
         a: 1
       };
 
-      global.Highcharts[chartName] = function (){
+      Highcharts[chartName] = function (){
         args = Array.prototype.slice.call(arguments);
         delete args[0].chart;
       };
@@ -47,23 +44,13 @@ function nonBundleTest(lib, chartName, extra){
       );
       assert.deepEqual(args, [config]);
     });
-
-
-    if (extra && extra.shouldThrow) {
-      it('Should throw if wrong version of Highcharts is loaded', function (){
-        global.Highcharts = {};
-        assert.throws(function(){
-          Component = require('../'+ libPath);
-        }, lib);
-      });
-    }
   })
 }
 
 
 nonBundleTest('ReactHighcharts', 'Chart');
-nonBundleTest('ReactHighstock', 'StockChart', {shouldThrow: true});
-nonBundleTest('ReactHighmaps', 'Map', {shouldThrow: true});
+nonBundleTest('ReactHighstock', 'StockChart');
+nonBundleTest('ReactHighmaps', 'Map');
 
 
 

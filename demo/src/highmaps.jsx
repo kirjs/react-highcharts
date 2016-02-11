@@ -1,9 +1,9 @@
 var React = require('react');
-global.Highcharts = require("highcharts/highmaps");
-var ReactHighmaps = require('react-highcharts/ReactHighmaps');
+var Highcharts = require("highcharts/highmaps");
+var ReactHighmaps = require('react-highcharts/ReactHighmaps')(Highcharts);
 var Highlight = require('react-highlight');
 var ReactDOM = require('react-dom');
-require('./mapdata/europe');
+var maps = require('./mapdata/europe');
 
 var config = {
   chart: {
@@ -28,7 +28,7 @@ var config = {
           fontWeight: 'bold'
         }
       },
-      mapData: Highcharts.maps['custom/europe'],
+      mapData: maps,
       tooltip: {
         headerFormat: '',
         pointFormat: '{point.name}: <b>{series.name}</b>'

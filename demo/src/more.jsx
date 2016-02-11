@@ -1,8 +1,8 @@
 var React = require('react');
-global.Highcharts = require('highcharts');
+var Highcharts = require('highcharts');
 var HighchartsMore = require('highcharts-more');
-HighchartsMore(global.Highcharts );
-var ReactHighcharts = require('react-highcharts');
+HighchartsMore(Highcharts );
+var ReactHighcharts = require('react-highcharts')(Highcharts);
 var Highlight = require('react-highlight');
 var ReactDOM = require('react-dom');
 

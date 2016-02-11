@@ -41,6 +41,7 @@
     "imports-loader": "^0.6.4",
     "jsdom": "^6.3.0",
     "mocha": "^2.3.0",
+    "proxyquire": "^1.7.4",
     "raw-loader": "^0.5.1",
     "react": "~0.14",
     "react-addons-test-utils": "^0.14.0",
