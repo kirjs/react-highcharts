@@ -46,7 +46,7 @@ Since highcharts doesn't reflow upon print media query. Wrap your chart in `Redr
 
 ```jsx
   import ReactHighcharts from 'react-highcharts/bundle/ReactHighcharts';
-  import RedrawOnPrint from 'react-highcharts/RedrawOnPrint';
+  import RedrawOnPrint from 'react-highcharts/dist/RedrawOnPrint';
 
   class MyComponent extends React.Component {
     render() {
