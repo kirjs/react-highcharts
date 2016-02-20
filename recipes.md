@@ -13,10 +13,11 @@ Now use them together:
 
 ```jsx
 var React = require('react');
+
 var Highcharts = require('highcharts');
 
 // Expects that Highcharts was loaded in the code.
-var ReactHighcharts = require('react-highcharts')(Highcharts);
+var ReactHighcharts = require('react-highcharts');
 
 var config = {
   /* HighchartsConfig */		
@@ -45,11 +46,8 @@ Since highcharts doesn't reflow upon print media query. Wrap your chart in `Redr
 
 ```jsx
   import ReactHighcharts from 'react-highcharts/bundle/ReactHighcharts';
-  import RedrawOnPrint from 'react-highcharts/RedrawOnPrint';
-  import highcharts;
-  ReactHighcharts = ReactHighcharts(highcharts);
-  
-  
+  import RedrawOnPrint from 'react-highcharts/dist/RedrawOnPrint';
+
   class MyComponent extends React.Component {
     render() {
       return (
