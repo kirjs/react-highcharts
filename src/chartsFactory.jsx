@@ -34,6 +34,10 @@ if(typeof Highcharts === 'undefined'){
             renderTo: this.refs.chart
           }
         });
+        let highchart = this.chart
+        requestAnimationFrame(function(){
+          highchart.reflow()
+        })
       },
 
       shouldComponentUpdate(nextProps) {
