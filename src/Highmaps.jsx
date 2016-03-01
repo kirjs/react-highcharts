@@ -1,1 +1,1 @@
-module.exports = require('./chartsFactory.jsx').bind(null, 'Map');
+module.exports = require('./chartsFactory.jsx')('Map', require("highcharts/highmaps"));

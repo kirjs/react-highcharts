@@ -1,1 +1,1 @@
-module.exports = require('./chartsFactory.jsx').bind(null, 'StockChart');
+module.exports = require('./chartsFactory.jsx')('StockChart', require("highcharts/highstock"));

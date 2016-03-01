@@ -1,6 +1,7 @@
 var React = require('react');
 var assert = require('assert');
 var TestUtils = require('react-addons-test-utils');
+var proxyquire = require('proxyquire');
 
 function unCacheLib(path){
   var keys = Object.keys(require.cache);
@@ -14,43 +15,44 @@ function unCacheLib(path){
   }
 }
 
-function nonBundleTest(lib, chartName, extra){
+function nonBundleTest(lib, chartName, modulename){
   var libPath = 'dist/' + lib + '.src.js';
   describe('react-highcharts/' + lib, function (){
     var Component, args, config;
     beforeEach(function (){
       unCacheLib(libPath);
+      args = undefined;
     });
 
     it('Renders the chart with the appropriate parameters', function (){
       var Highcharts = require('../src/fakeHighcharts');
-
-      Component = require('../' + libPath)(Highcharts);
-
-      args = undefined;
-
-      config = {
-        a: 1
-      };
-
       Highcharts[chartName] = function (){
         args = Array.prototype.slice.call(arguments);
         delete args[0].chart;
       };
 
+      var fakeRequire = {};
+      fakeRequire[modulename] = Highcharts;
+
+      Component = proxyquire('../' + libPath, fakeRequire);
+
+      config = {
+        a: 1
+      };
 
       TestUtils.renderIntoDocument(
         React.createElement(Component, {config: config})
       );
+
       assert.deepEqual(args, [config]);
     });
   })
 }
 
 
-nonBundleTest('ReactHighcharts', 'Chart');
-nonBundleTest('ReactHighstock', 'StockChart');
-nonBundleTest('ReactHighmaps', 'Map');
+nonBundleTest('ReactHighcharts', 'Chart', 'highcharts');
+nonBundleTest('ReactHighstock', 'StockChart', 'highcharts/highstock');
+nonBundleTest('ReactHighmaps', 'Map', 'highcharts/highmaps');
 
 
 

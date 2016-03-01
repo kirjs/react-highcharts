@@ -1,6 +1,60 @@
 var path = require('path');
+
+/**
+ * If -p flag is set, minify the files
+ * @type {boolean}
+ */
 var src = (process.argv.indexOf('-p') === -1);
-var filenamePostfix = src ? '.src': '';
+var filenamePostfix = src ? '.src' : '';
+
+/**
+ * If -b flag is set, build bundles, and not exclude highcharts from the build
+ * @type {boolean}
+ */
+var bundles = (process.argv.indexOf('-b') !== -1);
+var bundlePrefix = (bundles ? 'bundle/' : '');
+
+
+var highchartsExternals = {
+  'highcharts/highmaps': {
+    root: 'Highcharts',
+    commonjs2: 'highcharts/highmaps',
+    commonjs: 'highcharts/highmaps',
+    amd: 'highcharts/highmaps'
+  },
+  'highcharts/highstock': {
+    root: 'Highcharts',
+    commonjs2: 'highcharts/highstock',
+    commonjs: 'highcharts/highstock',
+    amd: 'highcharts/highstock'
+  },
+  'highcharts': {
+    root: 'Highcharts',
+    commonjs2: 'highcharts',
+    commonjs: 'highcharts',
+    amd: 'highcharts'
+  }
+};
+
+var reactExternals = {
+  react: {
+    root: 'React',
+    commonjs2: 'react',
+    commonjs: 'react',
+    amd: 'react'
+  },
+  'react-dom': {
+    root: 'ReactDOM',
+    commonjs2: 'react-dom',
+    commonjs: 'react-dom',
+    amd: 'react-dom'
+  }
+};
+
+var externals = [reactExternals];
+if(!bundles){
+  externals.push(highchartsExternals);
+}
 
 
 module.exports = {
@@ -10,12 +64,7 @@ module.exports = {
     'ReactHighcharts': ['./src/ReactHighcharts.jsx'],
     'ReactHighstock': ['./src/Highstock.jsx'],
     'ReactHighmaps': ['./src/Highmaps.jsx'],
-    'RedrawOnPrint': ['./src/RedrawOnPrint.jsx'],
-    'bundle/index': './src/bundle/ReactHighcharts.jsx',
-    'bundle/ReactHighcharts': './src/bundle/ReactHighcharts.jsx',
-    'bundle/ReactHighstock': './src/bundle/ReactHighstock.jsx',
-    'bundle/ReactHighmaps': './src/bundle/ReactHighmaps.jsx'
-
+    'RedrawOnPrint': ['./src/RedrawOnPrint.jsx']
   },
   module: {
     loaders: [
@@ -25,16 +74,12 @@ module.exports = {
       }
     ]
   },
-  externals: [
-    {
-      'react': true
-    }
-  ],
+  externals: externals,
   resolve: {
     modulesDirectories: ['node_modules']
   },
   output: {
-    filename: 'dist/[name]' + filenamePostfix + '.js',
+    filename: 'dist/' + bundlePrefix + '[name]' + filenamePostfix + '.js',
     libraryTarget: 'umd',
     library: '[name]'
   }
