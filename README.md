@@ -6,10 +6,10 @@ react-highcharts
 Highcharts component for react.
 
 ## Demos
-[ReactHighcharts](http://kirjs.github.io/react-highcharts/) 
-| [ReactHighcharts/more](http://kirjs.github.io/react-highcharts/more.html)
-| [ReactHighstock](http://kirjs.github.io/react-highcharts/highstock.html)
-| [ReactHighmaps](http://kirjs.github.io/react-highcharts/highmaps.html)
+[react-highcharts](http://kirjs.github.io/react-highcharts/) 
+| [react-highcharts/more](http://kirjs.github.io/react-highcharts/more.html)
+| [react-highcharts/highstock](http://kirjs.github.io/react-highcharts/highstock.html)
+| [react-highcharts/highmaps](http://kirjs.github.io/react-highcharts/highmaps.html)
 
 You can find the full code for the examples [here](https://github.com/kirjs/react-highcharts/tree/master/demo)
 
@@ -24,19 +24,15 @@ To run the demo:
  2. Point your browser at http://localhost:8080
 
 ## Installation
-If you are using `React@0.14` just do this:
 ```bash
 npm install react-highcharts --save
 ```
-For `React@0.13` use: 
-```bash
-npm install react-highcharts@^3.0.0 --save
-```
 
 ## Usage
-#### Basic Usage
-Check out this [recipe](https://github.com/kirjs/react-highcharts/blob/master/recipes.md#using-with-highcharts-package) 
-to see how to install `Highcharts` with `npm`. 
+#### Webpack/Browserify
+```bash
+npm install react-highcharts highcharts react --save
+```
 
 ```jsx
 var React = require('react');
@@ -50,7 +46,8 @@ React.render(<ReactHighcharts config = {config}></ReactHighcharts>, document.bod
 ```
 
 #### Accessing Highcharts API After Render
-For access to methods & properties from the Highcharts library you can use `ReactHighcharts.Highcharts`. For example, the Highcharts options are available via `ReactHighcharts.Highcharts.getOptions()`.
+For access to methods & properties from the Highcharts library you can use `ReactHighcharts.Highcharts`.
+For example, the Highcharts options are available via `ReactHighcharts.Highcharts.getOptions()`.
 
 Highcharts provides an API for manipulating a chart after the initial render. See the **Methods and Properties** in [the documentation](http://api.highcharts.com/highcharts). Here's how you access it:
 
@@ -73,28 +70,36 @@ Rerendering a highcharts graph is expensive. You can pass in a `isPureConfig` op
 #### Rendering on the server with node
 See this [recipe](https://github.com/kirjs/react-highcharts/blob/master/recipes.md#rendering-react-highcharts-on-node)
 
-## Using highmaps ([demo](http://kirjs.github.io/react-highcharts/highmaps.html))
+## Using highmaps
 ```javascript
-var Highcharts = require('highcharts/highmaps');
-var ReactHighmaps = require('react-highcharts/ReactHighmaps')(Highcharts);
+var ReactHighmaps = require('react-highcharts/ReactHighmaps');
 ```
+
+* see [the demo](http://kirjs.github.io/react-highcharts/highmaps.html)
 
 ## Using highstock ([demo](http://kirjs.github.io/react-highcharts/highstock.html))
 ```javascript
-var Highcharts = require('highcharts/highstock');
-var ReactHighstock = require('react-highcharts/ReactHighstock')(Highcharts);
+var ReactHighstock = require('react-highcharts/ReactHighstock')
 ```
 
 ## Using highcharts modules/add-ons like exporting, data, etc.
-All modules were moved out of `react-highcharts`. 
-Every highcharts module is published as a separate npm package. 
+Use `highcharts-more` npm package. 
+```javascript
+var ReactHighcharts = require('react-highcharts')
+require('highcharts-more')(ReactHighcharts.Highcharts)
+```
+
 You can find the full list list [here](https://github.com/kirjs/publish-highcharts-modules/blob/master/modules.md)
 * see [the demo](http://kirjs.github.io/react-highcharts/more.html)
 
 ## For Contributors
-
 #### Running tests
 Run `npm tests`
 
 #### Running demo
 Run `npm run demo`
+
+#### Using with React@0.13 
+```bash
+npm install react-highcharts@^3.0.0 --save
+```
