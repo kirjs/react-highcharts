@@ -1,6 +1,6 @@
 var React = require('react');
-var Highcharts = require("highcharts/highmaps");
-var ReactHighmaps = require('react-highcharts/ReactHighmaps')(Highcharts);
+// Note that HighMaps has to be in the codebase already
+var ReactHighmaps = require('react-highcharts/ReactHighmaps.src');
 var Highlight = require('react-highlight');
 var ReactDOM = require('react-dom');
 var maps = require('./mapdata/europe');

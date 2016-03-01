@@ -1,5 +1,6 @@
 var React = require('react');
-var ReactHighcharts = require('react-highcharts')(require("highcharts"));
+// Note that Highcharts has to be required separately
+var ReactHighcharts = require('react-highcharts');
 var Highlight = require('react-highlight');
 var ReactDOM = require('react-dom');
 
@@ -8,7 +9,7 @@ var config = {
     categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
   },
   series: [{
-    data: [29.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]
+    data: [29.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 295.6, 454.4]
   }]
 };
 
