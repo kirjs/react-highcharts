@@ -22,6 +22,10 @@ module.exports = function (chartType, Highcharts){
           renderTo: this.refs.chart
         }
       });
+
+      requestAnimationFrame(()=>{
+        this.chart.reflow()
+      })
     },
 
     shouldComponentUpdate(nextProps) {
@@ -44,7 +48,8 @@ module.exports = function (chartType, Highcharts){
 
     render: function (){
       let props = this.props;
-      props = {        ...props,
+      props = {
+        ...props,
         ref: 'chart'
       };
       return <div {...props} />;
