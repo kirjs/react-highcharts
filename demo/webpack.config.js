@@ -9,7 +9,11 @@ module.exports = {
     loaders: [
       {
         test: /\.jsx$/,
-        loader: 'babel'
+        loader: 'babel',
+        query: {
+          cacheDirectory: true,
+          presets: ['react','es2015', 'stage-2']
+        }
       }
     ]
   },
