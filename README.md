@@ -6,10 +6,10 @@ react-highcharts
 Highcharts component for react.
 
 ## Demos
-[react-highcharts](http://kirjs.github.io/react-highcharts/) 
-| [react-highcharts/more](http://kirjs.github.io/react-highcharts/more.html)
-| [react-highcharts/highstock](http://kirjs.github.io/react-highcharts/highstock.html)
-| [react-highcharts/highmaps](http://kirjs.github.io/react-highcharts/highmaps.html)
+[ReactHighcharts](http://kirjs.github.io/react-highcharts/) 
+| [ReactHighcharts/more](http://kirjs.github.io/react-highcharts/more.html)
+| [ReactHighstock](http://kirjs.github.io/react-highcharts/highstock.html)
+| [ReactHighmaps](http://kirjs.github.io/react-highcharts/highmaps.html)
 
 You can find the full code for the examples [here](https://github.com/kirjs/react-highcharts/tree/master/demo)
 
@@ -40,18 +40,8 @@ to see how to install `Highcharts` with `npm`.
 
 ```jsx
 var React = require('react');
-var ReactHighcharts = require('react-highcharts'); // Expects that Highcharts was loaded in the code. 
-
-var config = {
-  /* HighchartsConfig */
-};
-React.render(<ReactHighcharts config = {config}></ReactHighcharts>, document.body);
-```
-
-#### Bundled Usage (includes Highcharts) 
-```jsx
-var React = require('react');
-var ReactHighcharts = require('react-highcharts/bundle/ReactHighcharts'); // Highcharts is bundled 
+var Highcharts = require('highcharts');
+var ReactHighcharts = require('react-highcharts')(Highcharts); // Expects that Highcharts was loaded in the code. 
 
 var config = {
   /* HighchartsConfig */
@@ -83,32 +73,28 @@ Rerendering a highcharts graph is expensive. You can pass in a `isPureConfig` op
 #### Rendering on the server with node
 See this [recipe](https://github.com/kirjs/react-highcharts/blob/master/recipes.md#rendering-react-highcharts-on-node)
 
-## Using highmaps
-Require Highmaps first, and then `require('react-highcharts/ReactHighmaps');`
-Or use bundled version:  `require('react-highcharts/bundle/ReactHighmaps');`
-* see [the demo](http://kirjs.github.io/react-highcharts/highmaps.html)
+## Using highmaps ([demo](http://kirjs.github.io/react-highcharts/highmaps.html))
+```javascript
+var Highcharts = require('highcharts/highmaps');
+var ReactHighmaps = require('react-highcharts/ReactHighmaps')(Highcharts);
+```
 
-## Using highstock
-Require Highstock first, and then `require('react-highcharts/ReactHighstock');`
-Or use bundled version:  `require('react-highcharts/bundle/ReactHighstock');`
-* see [the demo](http://kirjs.github.io/react-highcharts/highstock.html)
+## Using highstock ([demo](http://kirjs.github.io/react-highcharts/highstock.html))
+```javascript
+var Highcharts = require('highcharts/highstock');
+var ReactHighstock = require('react-highcharts/ReactHighstock')(Highcharts);
+```
 
 ## Using highcharts modules/add-ons like exporting, data, etc.
-Everything related to modules was moved out of `react-highcharts`. 
-Now every highcharts module is published as a separate npm package. 
+All modules were moved out of `react-highcharts`. 
+Every highcharts module is published as a separate npm package. 
 You can find the full list list [here](https://github.com/kirjs/publish-highcharts-modules/blob/master/modules.md)
 * see [the demo](http://kirjs.github.io/react-highcharts/more.html)
 
 ## For Contributors
-### Update Highcharts Version 
- 1. Install new highcharts version.
-    ```
-    npm unistall highcharts --save-dev
-    npm install highcharts --save-dev
-    ```
-    
- 2. Increment the `react-highcharts` version such that a patch, minor release, or major release of 
-    Higcharts is reflected in a corresponding version increase for `react-highcharts`.
 
 #### Running tests
 Run `npm tests`
+
+#### Running demo
+Run `npm run demo`

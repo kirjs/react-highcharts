@@ -1,8 +1,9 @@
 var React = require('react');
-global.Highcharts = require('highcharts');
-var HighchartsMore = require('highcharts-more');
-HighchartsMore(global.Highcharts );
+// Note that Highcharts has to be required separately
 var ReactHighcharts = require('react-highcharts');
+var HighchartsMore = require('highcharts-more');
+// We tell HighchartsMore to use the same Highcharts object as ReactHighcharts
+HighchartsMore(ReactHighcharts.Highcharts);
 var Highlight = require('react-highlight');
 var ReactDOM = require('react-dom');
 

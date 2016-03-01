@@ -1,2 +1,1 @@
-var chartFactory = require('./chartsFactory.jsx');
-module.exports = chartFactory(Highcharts, 'Chart');
+module.exports = require('./chartsFactory.jsx')('Chart', require("highcharts"));

@@ -1,8 +1,8 @@
-if( typeof global.Highcharts !== "undefined" && !global.Highcharts.Map){
-  throw Error('React-highcharts Highmaps module expects Highmaps to be loaded, ' +
-    'but looks like a different copy of Highcharts was loaded before that');
+console.warn("ReactHighcharts: Bundled versions are deprecated");
+
+if( typeof global.Highcharts !== "undefined"){
+  throw Error('ReachHighmaps: Using bundled version, ' +
+    'but Highcharts already defined.');
 }
-if(typeof global.Highcharts === "undefined" ) {
-  global.Highcharts = require("highcharts/highmaps");
-}
-module.exports = require('../Highmaps.jsx');
+
+module.exports = require('../Highmaps.jsx')(require("highcharts/highmaps"));

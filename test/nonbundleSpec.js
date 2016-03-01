@@ -1,69 +1,58 @@
 var React = require('react');
 var assert = require('assert');
 var TestUtils = require('react-addons-test-utils');
+var proxyquire = require('proxyquire');
 
 function unCacheLib(path){
   var keys = Object.keys(require.cache);
   var last = keys.length - 1;
 
   for (var i = last; i > 0; i--) {
-    if(keys[i].indexOf(path) > -1){
+    if (keys[i].indexOf(path) > -1) {
       delete require.cache[keys[i]];
       return;
     }
   }
 }
 
-function nonBundleTest(lib, chartName, extra){
+function nonBundleTest(lib, chartName, modulename){
   var libPath = 'dist/' + lib + '.src.js';
   describe('react-highcharts/' + lib, function (){
     var Component, args, config;
     beforeEach(function (){
       unCacheLib(libPath);
-    });
-
-    afterEach(function (){
-      delete global.Highcharts;
+      args = undefined;
     });
 
     it('Renders the chart with the appropriate parameters', function (){
-      global.Highcharts = require('../src/fakeHighcharts');
-      Component = require('../' + libPath);
+      var Highcharts = require('../src/fakeHighcharts');
+      Highcharts[chartName] = function (){
+        args = Array.prototype.slice.call(arguments);
+        delete args[0].chart;
+      };
 
-      args = undefined;
+      var fakeRequire = {};
+      fakeRequire[modulename] = Highcharts;
+
+      Component = proxyquire('../' + libPath, fakeRequire);
 
       config = {
         a: 1
       };
 
-      global.Highcharts[chartName] = function (){
-        args = Array.prototype.slice.call(arguments);
-        delete args[0].chart;
-      };
-
-
       TestUtils.renderIntoDocument(
         React.createElement(Component, {config: config})
       );
+
       assert.deepEqual(args, [config]);
     });
-
-
-    if (extra && extra.shouldThrow) {
-      it('Should throw if wrong version of Highcharts is loaded', function (){
-        global.Highcharts = {};
-        assert.throws(function(){
-          Component = require('../'+ libPath);
-        }, lib);
-      });
-    }
   })
 }
 
 
-nonBundleTest('ReactHighcharts', 'Chart');
-nonBundleTest('ReactHighstock', 'StockChart', {shouldThrow: true});
-nonBundleTest('ReactHighmaps', 'Map', {shouldThrow: true});
+nonBundleTest('ReactHighcharts', 'Chart', 'highcharts');
+nonBundleTest('ReactHighstock', 'StockChart', 'highcharts/highstock');
+nonBundleTest('ReactHighmaps', 'Map', 'highcharts/highmaps');
 
 
 

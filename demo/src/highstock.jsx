@@ -1,6 +1,6 @@
 var React = require('react');
-global.Highcharts = require("highcharts/highstock");
-var ReactHighstock = require('react-highcharts/ReactHighstock');
+// Note that HighMaps has to be in the codebase already
+var ReactHighstock = require('react-highcharts/ReactHighstock.src');
 var Highlight = require('react-highlight');
 var ReactDOM = require('react-dom');
 

@@ -1,4 +1,8 @@
-if(typeof global.Highcharts === "undefined") {
-  global.Highcharts = require("highcharts");
+console.warn("ReactHighcharts: Bundled versions are deprecated");
+
+if( typeof global.Highcharts !== "undefined"){
+  throw Error('ReachHighcharts: Using bundled version, ' +
+    'but Highcharts already defined.');
 }
-module.exports = require('../ReactHighcharts.jsx');
+
+module.exports = require('../ReactHighcharts.jsx')(require("highcharts"));
