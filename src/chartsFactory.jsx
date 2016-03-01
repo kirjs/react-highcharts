@@ -23,7 +23,7 @@ module.exports = function (chartType, Highcharts){
         }
       });
 
-      requestAnimationFrame(()=>{
+      global.requestAnimationFrame && requestAnimationFrame(()=>{
         this.chart.reflow()
       })
     },
