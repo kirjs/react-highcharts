@@ -37,7 +37,7 @@ npm install react-highcharts highcharts react --save
 ```jsx
 var React = require('react');
 var Highcharts = require('highcharts');
-var ReactHighcharts = require('react-highcharts')(Highcharts); // Expects that Highcharts was loaded in the code. 
+var ReactHighcharts = require('react-highcharts'); // Expects that Highcharts was loaded in the code. 
 
 var config = {
   /* HighchartsConfig */
