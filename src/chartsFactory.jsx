@@ -46,6 +46,10 @@ module.exports = function (chartType, Highcharts){
       this.renderChart(this.props.config);
     },
 
+    componentWillUnmount() {
+      this.chart.destroy();
+    },
+
     render: function (){
       let props = this.props;
       props = {
