@@ -10,6 +10,10 @@ module.exports = function (chartType, Highcharts){
       isPureConfig: React.PropTypes.bool
     },
 
+    propDefaults: {
+      isPureConfig: null,
+    },
+
     renderChart: function (config){
       if (!config) {
         throw new Error('Config must be specified for the ' + displayName + ' component');
@@ -29,7 +33,9 @@ module.exports = function (chartType, Highcharts){
     },
 
     shouldComponentUpdate(nextProps) {
-      if (!this.props.isPureConfig || !(this.props.config === nextProps.config)) {
+      // if isPureConfig is explicitly false, don't bother comparing configs, otherwise compare if not explicitly true
+      if (this.props.isPureConfig === false
+          || (this.props.isPureConfig !== true && !(this.props.config === nextProps.config))) {
         this.renderChart(nextProps.config);
       }
       return true;
