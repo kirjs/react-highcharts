@@ -25,8 +25,8 @@ module.exports = function (chartType, Highcharts){
       });
 
       global.requestAnimationFrame && requestAnimationFrame(()=>{
-        this.chart.reflow()
-      })
+        this.chart && this.chart.reflow();
+      });
     },
 
     shouldComponentUpdate(nextProps) {
