@@ -7,11 +7,8 @@ module.exports = function (chartType, Highcharts){
 
     propTypes: {
       config: React.PropTypes.object.isRequired,
-      isPureConfig: React.PropTypes.bool
-    },
-
-    propDefaults: {
-      isPureConfig: null,
+      isPureConfig: React.PropTypes.bool,
+      neverReflow: React.PropTypes.bool
     },
 
     renderChart: function (config){
@@ -33,9 +30,7 @@ module.exports = function (chartType, Highcharts){
     },
 
     shouldComponentUpdate(nextProps) {
-      // if isPureConfig is explicitly false, don't bother comparing configs, otherwise compare if not explicitly true
-      if (this.props.isPureConfig === false
-          || (this.props.isPureConfig !== true && !(this.props.config === nextProps.config))) {
+      if (!this.props.neverReflow && (!this.props.isPureConfig || !(this.props.config === nextProps.config))) {
         this.renderChart(nextProps.config);
       }
       return true;
