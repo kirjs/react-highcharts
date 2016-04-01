@@ -7,7 +7,8 @@ module.exports = function (chartType, Highcharts){
 
     propTypes: {
       config: React.PropTypes.object.isRequired,
-      isPureConfig: React.PropTypes.bool
+      isPureConfig: React.PropTypes.bool,
+      neverReflow: React.PropTypes.bool
     },
 
     renderChart: function (config){
@@ -24,15 +25,16 @@ module.exports = function (chartType, Highcharts){
       });
 
       global.requestAnimationFrame && requestAnimationFrame(()=>{
-        this.chart.reflow()
-      })
+        this.chart && this.chart.reflow();
+      });
     },
 
     shouldComponentUpdate(nextProps) {
-      if (!this.props.isPureConfig || !(this.props.config === nextProps.config)) {
-        this.renderChart(nextProps.config);
+      if (this.props.neverReflow || (this.props.isPureConfig  && this.props.config === nextProps.config)) {
+        return true;
       }
-      return true;
+      this.renderChart(nextProps.config);
+      return false;
     },
 
     getChart: function (){
