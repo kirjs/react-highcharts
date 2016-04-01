@@ -34,6 +34,7 @@ module.exports = function (chartType, Highcharts){
         return true;
       }
       this.renderChart(nextProps.config);
+      return false;
     },
 
     getChart: function (){
