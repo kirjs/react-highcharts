@@ -30,10 +30,10 @@ module.exports = function (chartType, Highcharts){
     },
 
     shouldComponentUpdate(nextProps) {
-      if (!this.props.neverReflow && (!this.props.isPureConfig || !(this.props.config === nextProps.config))) {
-        this.renderChart(nextProps.config);
+      if (this.props.neverReflow || (this.props.isPureConfig  && this.props.config === nextProps.config)) {
+        return true;
       }
-      return true;
+      this.renderChart(nextProps.config);
     },
 
     getChart: function (){
