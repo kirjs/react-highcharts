@@ -25,11 +25,7 @@ module.exports = function (chartType, Highcharts){
       });
 
       global.requestAnimationFrame && requestAnimationFrame(()=>{
-        try {
-          this.chart.reflow();
-        } catch (e) {
-          // let it fall through
-        }
+        this.chart && this.chart.options && this.chart.reflow();
       });
     },
 
