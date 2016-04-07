@@ -46,7 +46,7 @@
     "mocha": "^2.3.0",
     "proxyquire": "^1.7.4",
     "raw-loader": "^0.5.1",
-    "react": "~0.14",
+    "react": "~15.0.0",
     "react-addons-test-utils": "^0.14.0",
     "react-dom": "~0.14",
     "react-highlight": "^0.7.0",
