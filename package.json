@@ -48,7 +48,7 @@
     "raw-loader": "^0.5.1",
     "react": "~0.14",
     "react-addons-test-utils": "^0.14.0",
-    "react-dom": "~0.14",
+    "react-dom": "~15.0.1",
     "react-highlight": "^0.7.0",
     "webpack": "^1.5.3",
     "webpack-dev-server": "^1.10.1"
