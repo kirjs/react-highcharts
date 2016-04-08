@@ -47,7 +47,7 @@
     "proxyquire": "^1.7.4",
     "raw-loader": "^0.5.1",
     "react": "~0.14",
-    "react-addons-test-utils": "^0.14.0",
+    "react-addons-test-utils": "^15.0.1",
     "react-dom": "~0.14",
     "react-highlight": "^0.7.0",
     "webpack": "^1.5.3",
