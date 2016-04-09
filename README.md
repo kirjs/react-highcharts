@@ -16,32 +16,37 @@ You can find the full code for the examples [here](https://github.com/kirjs/reac
 To run the demo:
 
  1. run:
+ 
     ```bash
     git clone https://github.com/kirjs/react-highcharts.git
-    npm install
+    npm i
     npm run demo
     ```
- 2. Point your browser at http://localhost:8080
+    
+ 2. Point your browser at [http://localhost:8080](http://localhost:8080)
 
 ## Installation
+
 ```bash
-npm install react-highcharts --save
+npm i react-highcharts --save
 ```
 
 ## Usage
 #### Webpack/Browserify
 ```bash
-npm install react-highcharts highcharts react --save
+npm i react-highcharts highcharts react --save
 ```
 
 ```jsx
-var React = require('react');
-var ReactHighcharts = require('react-highcharts'); // Expects that Highcharts was loaded in the code. 
+const React = require('react');
+const ReactDOM = require('react-dom');
 
-var config = {
+const ReactHighcharts = require('react-highcharts'); // Expects that Highcharts was loaded in the code. 
+
+let config = {
   /* HighchartsConfig */
 };
-React.render(<ReactHighcharts config = {config}></ReactHighcharts>, document.body);
+ReactDOM.render(<ReactHighcharts config = {config}></ReactHighcharts>, document.body);
 ```
 
 #### Accessing Highcharts API After Render
@@ -71,20 +76,20 @@ See this [recipe](https://github.com/kirjs/react-highcharts/blob/master/recipes.
 
 ## Using highmaps
 ```javascript
-var ReactHighmaps = require('react-highcharts/ReactHighmaps');
+const ReactHighmaps = require('react-highcharts/ReactHighmaps');
 ```
 
 * see [the demo](http://kirjs.github.io/react-highcharts/highmaps.html)
 
 ## Using highstock ([demo](http://kirjs.github.io/react-highcharts/highstock.html))
 ```javascript
-var ReactHighstock = require('react-highcharts/ReactHighstock')
+const ReactHighstock = require('react-highcharts/ReactHighstock')
 ```
 
 ## Using highcharts modules/add-ons like exporting, data, etc.
 Use `highcharts-more` npm package. 
 ```javascript
-var ReactHighcharts = require('react-highcharts')
+const ReactHighcharts = require('react-highcharts')
 require('highcharts-more')(ReactHighcharts.Highcharts)
 ```
 
@@ -93,12 +98,15 @@ You can find the full list list [here](https://github.com/kirjs/publish-highchar
 
 ## For Contributors
 #### Running tests
+
 Run `npm tests`
 
 #### Running demo
+
 Run `npm run demo`
 
 #### Using with React@0.13 
+
 ```bash
-npm install react-highcharts@^3.0.0 --save
+npm i react-highcharts@^3.0.0 --save
 ```
