@@ -6,7 +6,7 @@ react-highcharts
 Highcharts component for react.
 
 ## Demos
-[react-highcharts](http://kirjs.github.io/react-highcharts/) 
+[react-highcharts](http://kirjs.github.io/react-highcharts/)
 | [react-highcharts/more](http://kirjs.github.io/react-highcharts/more.html)
 | [react-highcharts/highstock](http://kirjs.github.io/react-highcharts/highstock.html)
 | [react-highcharts/highmaps](http://kirjs.github.io/react-highcharts/highmaps.html)
@@ -16,36 +16,38 @@ You can find the full code for the examples [here](https://github.com/kirjs/reac
 To run the demo:
 
  1. run:
- 
+
     ```bash
     git clone https://github.com/kirjs/react-highcharts.git
-    npm i
+    cd react-highcharts && npm install
     npm run demo
     ```
-    
+
  2. Point your browser at [http://localhost:8080](http://localhost:8080)
 
 ## Installation
 
 ```bash
-npm i react-highcharts --save
+npm install react-highcharts --save
 ```
 
 ## Usage
 #### Webpack/Browserify
+
 ```bash
-npm i react-highcharts highcharts react --save
+npm install react-highcharts highcharts react --save
 ```
 
 ```jsx
 const React = require('react');
 const ReactDOM = require('react-dom');
 
-const ReactHighcharts = require('react-highcharts'); // Expects that Highcharts was loaded in the code. 
+const ReactHighcharts = require('react-highcharts'); // Expects that Highcharts was loaded in the code.
 
-let config = {
+const config = {
   /* HighchartsConfig */
 };
+
 ReactDOM.render(<ReactHighcharts config = {config}></ReactHighcharts>, document.body);
 ```
 
@@ -75,6 +77,7 @@ Rerendering a highcharts graph is expensive. You can pass in a `isPureConfig` op
 See this [recipe](https://github.com/kirjs/react-highcharts/blob/master/recipes.md#rendering-react-highcharts-on-node)
 
 ## Using highmaps
+
 ```javascript
 const ReactHighmaps = require('react-highcharts/ReactHighmaps');
 ```
@@ -87,7 +90,7 @@ const ReactHighstock = require('react-highcharts/ReactHighstock')
 ```
 
 ## Using highcharts modules/add-ons like exporting, data, etc.
-Use `highcharts-more` npm package. 
+Use `highcharts-more` npm package.
 ```javascript
 const ReactHighcharts = require('react-highcharts')
 require('highcharts-more')(ReactHighcharts.Highcharts)
@@ -105,8 +108,8 @@ Run `npm tests`
 
 Run `npm run demo`
 
-#### Using with React@0.13 
+#### Using with React@0.13
 
 ```bash
-npm i react-highcharts@^3.0.0 --save
+npm install react-highcharts@^3.0.0 --save
 ```
