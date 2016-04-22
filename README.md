@@ -49,6 +49,10 @@ const config = {
 };
 
 ReactDOM.render(<ReactHighcharts config = {config}></ReactHighcharts>, document.body);
+
+/* with optional after-render callback */
+const afterRender = () => { /* do stuff */ };
+ReactDOM.render(<ReactHighcharts config = {config} callback = {afterRender}></ReactHighcharts>, document.body);
 ```
 
 #### Accessing Highcharts API After Render
