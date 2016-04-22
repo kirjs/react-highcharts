@@ -8,7 +8,12 @@ module.exports = function (chartType, Highcharts){
     propTypes: {
       config: React.PropTypes.object.isRequired,
       isPureConfig: React.PropTypes.bool,
-      neverReflow: React.PropTypes.bool
+      neverReflow: React.PropTypes.bool,
+      callback: React.PropTypes.func,
+    },
+
+    defaultProps: {
+        callback: () => {},
     },
 
     renderChart: function (config){
@@ -22,7 +27,7 @@ module.exports = function (chartType, Highcharts){
           ...chartConfig,
           renderTo: this.refs.chart
         }
-      });
+    }, this.props.callback);
 
       global.requestAnimationFrame && requestAnimationFrame(()=>{
         this.chart && this.chart.options && this.chart.reflow();
