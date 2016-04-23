@@ -40,11 +40,13 @@ function nonBundleTest(lib, chartName, modulename){
         a: 1
       };
 
+      var noop = () => {};
+
       TestUtils.renderIntoDocument(
-        React.createElement(Component, {config: config})
+        React.createElement(Component, {config: config, callback: noop})
       );
 
-      assert.deepEqual(args, [config]);
+      assert.deepEqual(args, [config, noop]);
     });
   })
 }
