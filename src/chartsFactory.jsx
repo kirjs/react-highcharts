@@ -35,7 +35,7 @@ module.exports = function (chartType, Highcharts){
     },
 
     shouldComponentUpdate(nextProps) {
-      if (this.props.neverReflow || (this.props.isPureConfig  && this.props.config === nextProps.config)) {
+      if (nextProps.neverReflow || (nextProps.isPureConfig  && this.props.config === nextProps.config)) {
         return true;
       }
       this.renderChart(nextProps.config);
