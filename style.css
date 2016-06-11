@@ -1,0 +1,23 @@
+body {
+    font-family: sans-serif;
+}
+
+.menu:before {
+    content: "All demos:";
+}
+.menu a {
+    margin-left: 10px;
+    color: #f00;
+    text-decoration: none;
+    border-left: 1px #ddd solid;
+    padding-left: 10px;
+}
+
+.menu a:first-child {
+    border:none;
+}
+
+.menu a:visited {
+    color: #777;
+}
+
