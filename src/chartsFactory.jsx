@@ -9,11 +9,11 @@ module.exports = function (chartType, Highcharts){
       config: React.PropTypes.object.isRequired,
       isPureConfig: React.PropTypes.bool,
       neverReflow: React.PropTypes.bool,
-      callback: React.PropTypes.func,
+      callback: React.PropTypes.func
     },
 
     defaultProps: {
-        callback: () => {},
+      callback: () =>{}
     },
 
     renderChart: function (config){
@@ -27,15 +27,17 @@ module.exports = function (chartType, Highcharts){
           ...chartConfig,
           renderTo: this.refs.chart
         }
-    }, this.props.callback);
+      }, this.props.callback);
 
-      global.requestAnimationFrame && requestAnimationFrame(()=>{
-        this.chart && this.chart.options && this.chart.reflow();
-      });
+      if (!this.props.neverReflow) {
+        global.requestAnimationFrame && requestAnimationFrame(()=>{
+          this.chart && this.chart.options && this.chart.reflow();
+        });
+      }
     },
 
     shouldComponentUpdate(nextProps) {
-      if (nextProps.neverReflow || (nextProps.isPureConfig  && this.props.config === nextProps.config)) {
+      if (nextProps.neverReflow || (nextProps.isPureConfig && this.props.config === nextProps.config)) {
         return true;
       }
       this.renderChart(nextProps.config);

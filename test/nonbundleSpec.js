@@ -1,53 +1,137 @@
 var React = require('react');
 var assert = require('assert');
 var TestUtils = require('react-addons-test-utils');
-var proxyquire = require('proxyquire');
-
-function unCacheLib(path){
-  var keys = Object.keys(require.cache);
-  var last = keys.length - 1;
-
-  for (var i = last; i > 0; i--) {
-    if (keys[i].indexOf(path) > -1) {
-      delete require.cache[keys[i]];
-      return;
-    }
-  }
-}
+var mock = require('mock-require');
+var sinon = require('sinon');
 
 function nonBundleTest(lib, chartName, modulename){
   var libPath = 'dist/' + lib + '.src.js';
-  describe('react-highcharts/' + lib, function (){
-    var Component, args, config;
-    beforeEach(function (){
-      unCacheLib(libPath);
-      args = undefined;
+  var fakeHighChartsInstance = {};
+  var noop = () =>{
+  };
+  describe('react-highcharts/' + lib, ()=>{
+    var Component, fakeHighcharts;
+
+    beforeEach(()=>{
+      fakeHighcharts = {};
+      mock(modulename, fakeHighcharts);
+      Component = mock.reRequire('../' + libPath);
     });
 
-    it('Renders the chart with the appropriate parameters', function (){
-      var Highcharts = require('../src/fakeHighcharts');
-      Highcharts[chartName] = function (){
-        args = Array.prototype.slice.call(arguments);
-        delete args[0].chart;
-      };
+    describe('Config', ()=>{
+      it('Renders the chart and passes apropriate fakeConfig', ()=>{
+        var fakeConfig = {};
 
-      var fakeRequire = {};
-      fakeRequire[modulename] = Highcharts;
+        fakeHighcharts[chartName] = sinon.spy();
 
-      Component = proxyquire('../' + libPath, fakeRequire);
+        TestUtils.renderIntoDocument(
+          React.createElement(Component, {config: fakeConfig, callback: noop})
+        );
 
-      config = {
-        a: 1
-      };
+        assert(fakeHighcharts[chartName].called);
+        var arg = fakeHighcharts[chartName].firstCall.args[0];
+        delete arg.chart;
+        assert.deepEqual(arg, fakeConfig);
+      });
 
-      var noop = () => {};
+      it('Extends config with the DOM node, but preserves existing properties', ()=>{
+        var fakeConfig = {
+          chart: {
+            specialProp: {}
+          }
+        };
 
-      TestUtils.renderIntoDocument(
-        React.createElement(Component, {config: config, callback: noop})
+        fakeHighcharts[chartName] = sinon.spy();
+
+        TestUtils.renderIntoDocument(
+          React.createElement(Component, {config: fakeConfig, callback: noop})
+        );
+
+        assert(fakeHighcharts[chartName].called);
+
+        var arg = fakeHighcharts[chartName].firstCall.args[0];
+        // Existing property is preserved
+        assert.equal(arg.chart.specialProp, fakeConfig.chart.specialProp);
+        // Node element is added
+        assert(arg.chart.hasOwnProperty('renderTo'));
+      });
+    });
+
+    it('Sets chart property to the highcharts instance', ()=>{
+      var fakeHighchartsInstance = {};
+      fakeHighcharts[chartName] = sinon.stub().returns(fakeHighchartsInstance);
+
+      var component = TestUtils.renderIntoDocument(
+        React.createElement(Component, {config: {}, callback: noop})
       );
-
-      assert.deepEqual(args, [config, noop]);
+      assert.equal(fakeHighchartsInstance, component.getChart());
     });
+
+
+    describe('clean up', ()=>{
+      it('Destroys Highcharts when component gets unmounted', ()=>{
+        var fakeHighchartsInstance = {
+          destroy: sinon.stub()
+        };
+        fakeHighcharts[chartName] = sinon.stub().returns(fakeHighchartsInstance);
+
+        var component = TestUtils.renderIntoDocument(
+          React.createElement(Component, {config: {}, callback: noop})
+        );
+
+        assert(!fakeHighchartsInstance.destroy.called);
+        component.componentWillUnmount();
+        assert(fakeHighchartsInstance.destroy.called);
+      });
+    });
+
+    describe('Reflowing', function (){
+      beforeEach(()=>{
+        global.requestAnimationFrame = sinon.stub();
+      });
+
+
+      it('Schedules reflow in the next animation frame', function (){
+        var fakeHighchartsInstance = {
+          options: {},
+          reflow: sinon.stub()
+        };
+
+        fakeHighcharts[chartName] = sinon.stub().returns(fakeHighchartsInstance);
+
+        TestUtils.renderIntoDocument(
+          React.createElement(Component, {config: {}, callback: noop})
+        );
+
+        assert(global.requestAnimationFrame.called);
+        var callback = global.requestAnimationFrame.firstCall.args[0];
+        assert(!fakeHighchartsInstance.reflow.called);
+        callback();
+        assert(fakeHighchartsInstance.reflow.called);
+      });
+
+      it('Never reflows if neverReflow is true', function (){
+        var fakeHighchartsInstance = {
+          options: {},
+          reflow: sinon.stub()
+        };
+
+        fakeHighcharts[chartName] = sinon.stub().returns(fakeHighchartsInstance);
+
+        TestUtils.renderIntoDocument(
+          React.createElement(Component, {
+            config: {},
+            callback: noop,
+            neverReflow: true
+          })
+        );
+
+        assert(!global.requestAnimationFrame.called);
+        assert(!fakeHighchartsInstance.reflow.called);
+      })
+    });
+
+
   })
 }
 
