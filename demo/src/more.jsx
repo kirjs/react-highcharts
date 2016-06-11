@@ -1,9 +1,17 @@
 var React = require('react');
 // Note that Highcharts has to be required separately
 var ReactHighcharts = require('react-highcharts');
+
+
+// Note that Highcharts has to be in the codebase already
+// Highcharts more
 var HighchartsMore = require('highcharts-more');
-// Note that HighMaps has to be in the codebase already
 HighchartsMore(ReactHighcharts.Highcharts);
+
+// Highcharts exporting
+var HighchartsExporting = require('highcharts-exporting');
+HighchartsExporting(ReactHighcharts.Highcharts);
+
 var Highlight = require('react-highlight');
 var ReactDOM = require('react-dom');
 

@@ -20,6 +20,7 @@ module.exports = {
   resolve: {
     alias: {
       "highcharts-more" : "highcharts/highcharts-more.src.js",
+      "highcharts-exporting" : "highcharts/modules/exporting.src.js",
       "react-highcharts": '../../dist'
     },
     modulesDirectories: ['node_modules']
