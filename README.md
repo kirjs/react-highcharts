@@ -91,20 +91,20 @@ const ReactHighmaps = require('react-highcharts/ReactHighmaps');
 const ReactHighstock = require('react-highcharts/ReactHighstock')
 ```
 
-## Using highcharts modules/add-ons like exporting, data, etc.
+## Using highcharts modules/add-ons like exporting, data, etc. ([demo](http://kirjs.github.io/react-highcharts/more.html))
 Use `highcharts-more` npm package.
 ```javascript
 const ReactHighcharts = require('react-highcharts')
 require('highcharts-more')(ReactHighcharts.Highcharts)
 ```
 
+You can find the full list list [here](https://github.com/kirjs/publish-highcharts-modules/blob/master/modules.md)
+
 ## Passing Highcharts instance manually 
 ```javascript
 const ReactHighcharts = require('react-highcharts').withHighcharts(ReactHighstock)
 ```
 
-You can find the full list list [here](https://github.com/kirjs/publish-highcharts-modules/blob/master/modules.md)
-* see [the demo](http://kirjs.github.io/react-highcharts/more.html)
 
 ## For Contributors
 #### Running tests
