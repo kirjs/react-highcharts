@@ -80,7 +80,7 @@ Rerendering a highcharts graph is expensive. You can pass in a `isPureConfig` op
 #### Rendering on the server with node
 See this [recipe](https://github.com/kirjs/react-highcharts/blob/master/recipes.md#rendering-react-highcharts-on-node)
 
-## Using highmaps ([the demo](http://kirjs.github.io/react-highcharts/highmaps.html))
+## Using highmaps ([demo](http://kirjs.github.io/react-highcharts/highmaps.html))
 
 ```javascript
 const ReactHighmaps = require('react-highcharts/ReactHighmaps');
