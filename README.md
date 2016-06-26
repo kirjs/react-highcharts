@@ -13,18 +13,6 @@ Highcharts component for react.
 
 You can find the full code for the examples [here](https://github.com/kirjs/react-highcharts/tree/master/demo)
 
-To run the demo:
-
- 1. run:
-
-    ```bash
-    git clone https://github.com/kirjs/react-highcharts.git
-    cd react-highcharts && npm install
-    npm run demo
-    ```
-
- 2. Point your browser at [http://localhost:8080](http://localhost:8080)
-
 ## Installation
 
 ```bash
@@ -113,10 +101,9 @@ Run `npm tests`
 
 #### Running demo
 
-Run `npm run demo`
-
-#### Using with React@0.13
-
 ```bash
-npm install react-highcharts@^3.0.0 --save
+git clone https://github.com/kirjs/react-highcharts.git
+cd react-highcharts && npm install
+npm run demo
 ```
+Point your browser at [http://localhost:8080](http://localhost:8080)
