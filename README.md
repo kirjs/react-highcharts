@@ -11,7 +11,8 @@ Highcharts component for react.
 | [react-highcharts/highstock](http://kirjs.github.io/react-highcharts/highstock.html)
 | [react-highcharts/highmaps](http://kirjs.github.io/react-highcharts/highmaps.html)
 
-You can find the full code for the examples [here](https://github.com/kirjs/react-highcharts/tree/master/demo)
+You can also see [Code for the demo](https://github.com/kirjs/react-highcharts/tree/master/demo) and
+ [run demo locally](https://github.com/kirjs/react-highcharts#running-demo)
 
 ## Installation
 
