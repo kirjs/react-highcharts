@@ -85,6 +85,33 @@ function nonBundleTest(lib, chartName, modulename){
       });
     });
 
+    describe('WithHighcharts', ()=>{
+      it('Allows to replace Highcharts instance', ()=>{
+        var otherFakeHighcharts = {};
+        fakeHighcharts[chartName] = sinon.spy();
+        otherFakeHighcharts[chartName] = sinon.spy();
+        var fakeConfig = {};
+
+        // When an ReactHighachrts instance is creative with a different
+        // Highcharts instance
+        var Component2 = Component.withHighcharts(otherFakeHighcharts);
+
+        // And rendered
+        TestUtils.renderIntoDocument(
+          React.createElement(Component2, {config: fakeConfig, callback: noop})
+        );
+
+        // The original Highcharts instance methods were not called.
+        assert(!fakeHighcharts[chartName].called);
+
+        // The passed Highcharts instance methods were called.
+        assert(otherFakeHighcharts[chartName].called);
+        var arg = otherFakeHighcharts[chartName].firstCall.args[0];
+        delete arg.chart;
+        assert.deepEqual(arg, fakeConfig);
+      });
+    });
+
     describe('Reflowing', function (){
       beforeEach(()=>{
         global.requestAnimationFrame = sinon.stub();
@@ -130,8 +157,6 @@ function nonBundleTest(lib, chartName, modulename){
         assert(!fakeHighchartsInstance.reflow.called);
       })
     });
-
-
   })
 }
 

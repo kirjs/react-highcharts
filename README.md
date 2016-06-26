@@ -100,6 +100,11 @@ const ReactHighcharts = require('react-highcharts')
 require('highcharts-more')(ReactHighcharts.Highcharts)
 ```
 
+## Passing Highcharts instance manually 
+```javascript
+const ReactHighcharts = require('react-highcharts').withHighcharts(ReactHighstock)
+```
+
 You can find the full list list [here](https://github.com/kirjs/publish-highcharts-modules/blob/master/modules.md)
 * see [the demo](http://kirjs.github.io/react-highcharts/more.html)
 

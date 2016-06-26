@@ -70,5 +70,9 @@ module.exports = function (chartType, Highcharts){
   });
 
   result.Highcharts = Highcharts;
+  result.withHighcharts = (Highcharts) =>{
+    return module.exports(chartType, Highcharts);
+  };
   return result;
 };
+
