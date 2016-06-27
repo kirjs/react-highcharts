@@ -1,4 +1,5 @@
 var React = require('react');
+var win = typeof global === 'undefined' ? window : global;
 
 module.exports = function (chartType, Highcharts){
   var displayName = 'Highcharts' + chartType;
@@ -30,7 +31,7 @@ module.exports = function (chartType, Highcharts){
       }, this.props.callback);
 
       if (!this.props.neverReflow) {
-        global.requestAnimationFrame && requestAnimationFrame(()=>{
+        win.requestAnimationFrame && requestAnimationFrame(()=>{
           this.chart && this.chart.options && this.chart.reflow();
         });
       }
