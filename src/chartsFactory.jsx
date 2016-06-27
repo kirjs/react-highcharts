@@ -1,5 +1,5 @@
 var React = require('react');
-var win = global || window;
+var win = typeof global === 'undefined' ? window : global;
 
 module.exports = function (chartType, Highcharts){
   var displayName = 'Highcharts' + chartType;
