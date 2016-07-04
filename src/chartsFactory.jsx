@@ -61,12 +61,7 @@ module.exports = function (chartType, Highcharts){
     },
 
     render: function (){
-      let props = this.props;
-      props = {
-        ...props,
-        ref: 'chart'
-      };
-      return <div {...props} />;
+      return <div ref="chart" />;
     }
   });
 
