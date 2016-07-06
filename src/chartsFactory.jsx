@@ -61,7 +61,13 @@ module.exports = function (chartType, Highcharts){
     },
 
     render: function (){
-      let props = this.props;
+      let {
+          callback: callbackIgnored,
+          config: configIgnored,
+          isPureConfig: isPureConfigIgnored,
+          neverReflow: neverReflowIgnored,
+          ...props
+      } = this.props;
       props = {
         ...props,
         ref: 'chart'
