@@ -61,6 +61,10 @@ module.exports = function (chartType, Highcharts){
     },
 
     render: function (){
+      /*
+        stripping out the internal props and creating new props
+        so that only valid (user-driven) props are passed to the div
+       */
       let {
           callback,
           config,
