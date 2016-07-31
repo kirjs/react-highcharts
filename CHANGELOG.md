@@ -6,7 +6,6 @@ From http://keepachangelog.com
 ## [9.0.0] - 2016-07-06
 Support react 15
 
-... a lot of exciting stuff happened...
 
 ## [6.0.0] - 2015-11-26
 ### Changed
