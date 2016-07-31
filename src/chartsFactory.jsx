@@ -61,21 +61,20 @@ module.exports = function (chartType, Highcharts){
     },
 
     render: function (){
-      /*
-        stripping out the internal props and creating new props
-        so that only valid (user-driven) props are passed to the div
-       */
-      let {
-          callback,
-          config,
-          isPureConfig,
-          neverReflow,
-          ...props
-      } = this.props;
-      props = {
+      let props = {
         ...props,
         ref: 'chart'
       };
+
+      /*
+       stripping out the internal props and creating new props
+       so that only valid (user-driven) props are passed to the div
+       */
+      delete props.callback;
+      delete props.config;
+      delete props.isPureConfig;
+      delete props.neverReflow;
+
       return <div {...props} />;
     }
   });
