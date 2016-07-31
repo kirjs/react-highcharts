@@ -6,7 +6,6 @@ module.exports = {
       "launch_url": "http://127.0.0.1:8080/"
     },
     "saucelabs": {
-
       desiredCapabilities: {
         browserName: "chrome",
         platform: "OS X 10.11",
@@ -27,6 +26,7 @@ module.exports = {
       },
       "globals": {
         "waitForConditionTimeout": 10000,
-      },
+      }
+    }
   }
 };
