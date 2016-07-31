@@ -4,7 +4,7 @@
   "description": "React wrapper for highcharts",
   "main": "dist/ReactHighcharts.js",
   "scripts": {
-    "test": "webpack && mocha",
+    "test": "webpack && mocha test/unit",
     "build": "webpack && webpack -p && webpack -b && webpack -p -b",
     "demo": "cd demo && webpack &&  sh generate-contents.sh && ../node_modules/.bin/webpack-dev-server --content-base dist/",
     "prepublish": "npm run build && npm run copy-bundles",

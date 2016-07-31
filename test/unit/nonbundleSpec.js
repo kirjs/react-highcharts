@@ -15,7 +15,7 @@ function nonBundleTest(lib, chartName, modulename){
     beforeEach(()=>{
       fakeHighcharts = {};
       mock(modulename, fakeHighcharts);
-      Component = mock.reRequire('../' + libPath);
+      Component = mock.reRequire('../../' + libPath);
     });
 
     describe('Config', ()=>{
