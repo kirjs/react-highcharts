@@ -6,6 +6,7 @@
   "scripts": {
     "test": "webpack && mocha test/unit",
     "e2e": "nightwatch test/e2e/e2e-launcher.js -e local --config nightwatch.js ",
+    "e2e-sc": "nightwatch test/e2e/e2e-launcher.js -e soucelabs --config nightwatch.js ",
     "build": "webpack && webpack -p && webpack -b && webpack -p -b",
     "demo": "cd demo && webpack &&  sh generate-contents.sh && ../node_modules/.bin/webpack-dev-server --content-base dist/",
     "prepublish": "npm run build && npm run copy-bundles",
