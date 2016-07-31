@@ -6,7 +6,7 @@ addons:
 install:
   - npm install
 before_script:
-  - npm start &
+  - npm build && npm run demo &
 script:
   - npm test && npm run e2e-sc
   - pkill node
