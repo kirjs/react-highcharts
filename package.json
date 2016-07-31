@@ -5,6 +5,7 @@
   "main": "dist/ReactHighcharts.js",
   "scripts": {
     "test": "webpack && mocha test/unit",
+    "e2e": "nightwatch test/e2e/e2e-launcher.js -e local --config nightwatch.js ",
     "build": "webpack && webpack -p && webpack -b && webpack -p -b",
     "demo": "cd demo && webpack &&  sh generate-contents.sh && ../node_modules/.bin/webpack-dev-server --content-base dist/",
     "prepublish": "npm run build && npm run copy-bundles",
@@ -44,6 +45,7 @@
     "jsdom": "^9.0.0",
     "mocha": "^2.5.3",
     "mock-require": "^1.3.0",
+    "nightwatch": "^0.9.6",
     "raw-loader": "^0.5.1",
     "react": "^15.0.0",
     "react-addons-test-utils": "^15.0.0",
