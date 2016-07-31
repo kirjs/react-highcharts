@@ -3,6 +3,11 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 From http://keepachangelog.com
 
+## [9.0.0] - 2016-07-06
+Support react 15
+
+... a lot of exciting stuff happened...
+
 ## [6.0.0] - 2015-11-26
 ### Changed
 - Update Highcharts Highmaps and Highstock to 4.2.0 
