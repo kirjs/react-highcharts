@@ -72,7 +72,7 @@ class MyComponent extends React.Component {
 
 #### Limiting Highchart Rerenders
 Rerendering a highcharts graph is expensive. You can pass in a `isPureConfig` option to the `ReactHighcharts` component, which will keep the highcharts graph from being updated so long as the provided `config` is [referentially equal](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Comparison_Operators) to its previous value.
-There is also `neverRerender` property.
+There is also `neverReflow` property.
 
 #### Rendering on the server with node
 See this [recipe](https://github.com/kirjs/react-highcharts/blob/master/recipes.md#rendering-react-highcharts-on-node)
