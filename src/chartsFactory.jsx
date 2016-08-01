@@ -10,7 +10,8 @@ module.exports = function (chartType, Highcharts){
       config: React.PropTypes.object.isRequired,
       isPureConfig: React.PropTypes.bool,
       neverReflow: React.PropTypes.bool,
-      callback: React.PropTypes.func
+      callback: React.PropTypes.func,
+      domProps: React.PropTypes.object
     },
 
     defaultProps: {
@@ -62,18 +63,9 @@ module.exports = function (chartType, Highcharts){
 
     render: function (){
       let props = {
-        ...props,
+        ...this.domProps,
         ref: 'chart'
       };
-
-      /*
-       stripping out the internal props and creating new props
-       so that only valid (user-driven) props are passed to the div
-       */
-      delete props.callback;
-      delete props.config;
-      delete props.isPureConfig;
-      delete props.neverReflow;
 
       return <div {...props} />;
     }
