@@ -38,10 +38,17 @@ const config = {
 };
 
 ReactDOM.render(<ReactHighcharts config = {config}></ReactHighcharts>, document.body);
+```
 
-/* with optional after-render callback */
-const afterRender = () => { /* do stuff */ };
-ReactDOM.render(<ReactHighcharts config = {config} callback = {afterRender}></ReactHighcharts>, document.body);
+#### Optional after-render callback
+```jsx
+const afterRender = (chart) => { /* do stuff with the chart  */ };
+<ReactHighcharts config = {config} callback = {afterRender}></ReactHighcharts>
+```
+
+#### Passing properties to the wrapping DOM element
+```jsx
+<ReactHighcharts config = {config} domProps = {{id: 'chartId'}}></ReactHighcharts>
 ```
 
 #### Accessing Highcharts API After Render
@@ -65,6 +72,7 @@ class MyComponent extends React.Component {
 
 #### Limiting Highchart Rerenders
 Rerendering a highcharts graph is expensive. You can pass in a `isPureConfig` option to the `ReactHighcharts` component, which will keep the highcharts graph from being updated so long as the provided `config` is [referentially equal](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Comparison_Operators) to its previous value.
+There is also `neverRerender` property.
 
 #### Rendering on the server with node
 See this [recipe](https://github.com/kirjs/react-highcharts/blob/master/recipes.md#rendering-react-highcharts-on-node)

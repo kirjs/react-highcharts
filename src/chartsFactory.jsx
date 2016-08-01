@@ -15,7 +15,8 @@ module.exports = function (chartType, Highcharts){
     },
 
     defaultProps: {
-      callback: () =>{}
+      callback: () =>{},
+      domProps: {}
     },
 
     renderChart: function (config){
@@ -62,12 +63,7 @@ module.exports = function (chartType, Highcharts){
     },
 
     render: function (){
-      let props = {
-        ...this.domProps,
-        ref: 'chart'
-      };
-
-      return <div {...props} />;
+      return <div ref="chart" {...this.props.domProps} />;
     }
   });
 
