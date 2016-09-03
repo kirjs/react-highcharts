@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 rm -rf ./bundle
-cp -r ./dist/bundle ./
+pwd
+cp -r ./dist/* ./
