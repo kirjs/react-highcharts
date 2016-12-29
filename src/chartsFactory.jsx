@@ -33,7 +33,7 @@ module.exports = function (chartType, Highcharts){
       }, this.props.callback);
 
       if (!this.props.neverReflow) {
-        win.requestAnimationFrame && requestAnimationFrame(()=>{
+        win && win.requestAnimationFrame && requestAnimationFrame(()=>{
           this.chart && this.chart.options && this.chart.reflow();
         });
       }
