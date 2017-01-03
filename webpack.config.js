@@ -51,6 +51,8 @@ var reactExternals = {
   }
 };
 
+var externals = [reactExternals];
+
 externals.push(highchartsExternals);
 
 
