@@ -60,11 +60,11 @@ if(!bundles){
 module.exports = {
   entry: {
     // Array syntax to workaround https://github.com/webpack/webpack/issues/300
-    'index': ['./src/ReactHighcharts1.jsx'],
-    'ReactHighcharts': ['./src/ReactHighcharts1.jsx'],
-    'ReactHighstock': ['./src/Highstock.jsx'],
-    'ReactHighmaps': ['./src/Highmaps.jsx'],
-    'RedrawOnPrint': ['./src/RedrawOnPrint.jsx']
+    'index': ['../src/ReactHighcharts.jsx'],
+    'ReactHighcharts': ['../src/ReactHighcharts.jsx'],
+    'ReactHighstock': ['../src/Highstock.jsx'],
+    'ReactHighmaps': ['../src/Highmaps.jsx'],
+    'RedrawOnPrint': ['../src/RedrawOnPrint.jsx']
   },
   module: {
     loaders: [
