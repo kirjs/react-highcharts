@@ -52,9 +52,7 @@ var reactExternals = {
 };
 
 var externals = [reactExternals];
-if(!bundles){
-  externals.push(highchartsExternals);
-}
+externals.push(highchartsExternals);
 
 
 module.exports = {
