@@ -42,7 +42,7 @@
     "babel-preset-react": "^6.16.0",
     "babel-preset-stage-2": "^6.18.0",
     "exports-loader": "^0.6.2",
-    "file-loader": "^0.9.0",
+    "file-loader": "^0.10.1",
     "highlight.js": "^9.3.0",
     "imports-loader": "^0.6.4",
     "jsdom": "^9.9.1",
