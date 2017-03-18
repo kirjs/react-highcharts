@@ -1,10 +1,10 @@
-var React = require('react');
+const React = require('react');
 // Note that Highcharts has to be required separately
-var ReactHighcharts = require('react-highcharts');
-var Highlight = require('react-highlight');
-var ReactDOM = require('react-dom');
+const ReactHighcharts = require('react-highcharts');
+const Highlight = require('react-highlight');
+const ReactDOM = require('react-dom');
 
-var config = {
+const config = {
   xAxis: {
     categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
   },
@@ -14,7 +14,7 @@ var config = {
 };
 
 ReactDOM.render(
-  <ReactHighcharts config={config}></ReactHighcharts>,
+  <ReactHighcharts config={config} />,
   document.getElementById('test')
 );
 ReactDOM.render(
@@ -26,8 +26,8 @@ ReactDOM.render(
   document.getElementById('code-html')
 );
 
-require("file?name=[name].[ext]!./index.html");
-require("file?name=[name].[ext]!./more.html");
-require("file?name=[name].[ext]!./style.css");
-require("file?name=[name].[ext]!./tomorrow.css");
+require("file-loader?name=[name].[ext]!./index.html");
+require("file-loader?name=[name].[ext]!./more.html");
+require("file-loader?name=[name].[ext]!./style.css");
+require("file-loader?name=[name].[ext]!./tomorrow.css");
 
