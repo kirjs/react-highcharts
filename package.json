@@ -50,7 +50,7 @@
     "mock-require": "^2.0.1",
     "nightwatch": "^0.9.6",
     "raw-loader": "^0.5.1",
-    "react": "^15.4.2",
+    "react": "^15.5.3",
     "react-addons-test-utils": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-highlight": "^0.9.0",
