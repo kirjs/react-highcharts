@@ -1,17 +1,19 @@
 var React = require('react');
+var createReactClass = require('create-react-class');
+var PropTypes = require('prop-types');
 var win = typeof global === 'undefined' ? window : global;
 
 module.exports = function (chartType, Highcharts){
   var displayName = 'Highcharts' + chartType;
-  var result = React.createClass({
+  var result = createReactClass({
     displayName: displayName,
 
     propTypes: {
-      config: React.PropTypes.object.isRequired,
-      isPureConfig: React.PropTypes.bool,
-      neverReflow: React.PropTypes.bool,
-      callback: React.PropTypes.func,
-      domProps: React.PropTypes.object
+      config: PropTypes.object.isRequired,
+      isPureConfig: PropTypes.bool,
+      neverReflow: PropTypes.bool,
+      callback: PropTypes.func,
+      domProps: PropTypes.object
     },
 
     defaultProps: {

@@ -1,6 +1,7 @@
 var React = require('react');
+var createReactClass = require('create-react-class');
 
-var RedrawOnPrint = React.createClass({
+var RedrawOnPrint = createReactClass({
   componentDidMount() {
     // This is a listiner bind to the print media query
     // it call reflow since highcharts doesn't reflow upon print
