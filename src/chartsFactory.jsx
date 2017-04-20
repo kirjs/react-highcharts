@@ -9,7 +9,7 @@ module.exports = function (chartType, Highcharts){
     displayName: displayName,
 
     propTypes: {
-      config: PropTypes.object.isRequired,
+      config: PropTypes.object,
       isPureConfig: PropTypes.bool,
       neverReflow: PropTypes.bool,
       callback: PropTypes.func,
