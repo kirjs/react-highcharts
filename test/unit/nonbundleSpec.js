@@ -1,6 +1,6 @@
 var React = require('react');
 var assert = require('assert');
-var TestUtils = require('react-addons-test-utils');
+var TestUtils = require('react-dom/test-utils');
 var mock = require('mock-require');
 var sinon = require('sinon');
 
