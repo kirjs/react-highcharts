@@ -24,7 +24,7 @@
     "url": "https://github.com/kirjs/react-highcharts"
   },
   "peerDependencies": {
-    "react": "~0.14 || ^15.0.0",
+    "react": "~15.4.0",
     "react-dom": "~0.14 || ^15.0.0"
   },
   "bugs": "https://github.com/kirjs/react-highcharts/issues",
