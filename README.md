@@ -80,12 +80,12 @@ See this [recipe](https://github.com/kirjs/react-highcharts/blob/master/recipes.
 ## Using highmaps ([demo](http://kirjs.github.io/react-highcharts/highmaps.html))
 
 ```javascript
-const ReactHighmaps = require('react-highcharts/ReactHighmaps');
+const ReactHighmaps = require('react-highcharts/dist/ReactHighmaps');
 ```
 
 ## Using highstock ([demo](http://kirjs.github.io/react-highcharts/highstock.html))
 ```javascript
-const ReactHighstock = require('react-highcharts/ReactHighstock')
+const ReactHighstock = require('react-highcharts/dist/ReactHighstock')
 ```
 
 ## Using highcharts modules/add-ons like exporting, data, etc. ([demo](http://kirjs.github.io/react-highcharts/more.html))
