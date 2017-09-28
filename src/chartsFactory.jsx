@@ -15,12 +15,15 @@ module.exports = function (chartType, Highcharts){
       callback: PropTypes.func,
       domProps: PropTypes.object
     },
-
-    defaultProps: {
-      callback: () =>{},
-      domProps: {}
+    getDefaultProps: function() {
+      return {
+        callback: () =>{},
+        domProps: {}
+      };
     },
-
+    setChartRef: function(chartRef) {
+      this.chartRef = chartRef;
+    },
     renderChart: function (config){
       if (!config) {
         throw new Error('Config must be specified for the ' + displayName + ' component');
@@ -30,7 +33,7 @@ module.exports = function (chartType, Highcharts){
         ...config,
         chart: {
           ...chartConfig,
-          renderTo: this.refs.chart
+          renderTo: this.chartRef
         }
       }, this.props.callback);
 
@@ -65,7 +68,7 @@ module.exports = function (chartType, Highcharts){
     },
 
     render: function (){
-      return <div ref="chart" {...this.props.domProps} />;
+      return <div ref={this.setChartRef} {...this.props.domProps} />;
     }
   });
 
