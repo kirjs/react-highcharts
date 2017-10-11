@@ -47,7 +47,7 @@
     "highlight.js": "^9.10.0",
     "imports-loader": "^0.7.1",
     "jsdom": "^9.9.1",
-    "mocha": "^3.2.0",
+    "mocha": "^3.3.0",
     "mock-require": "^2.0.1",
     "nightwatch": "^0.9.6",
     "prop-types": "^15.5.8",
