@@ -106,7 +106,7 @@ const ReactHighcharts = require('react-highcharts').withHighcharts(ReactHighstoc
 ## For Contributors
 #### Running tests
 
-Run `npm tests`
+Run `npm test`
 
 #### Running demo
 
