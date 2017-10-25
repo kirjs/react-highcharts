@@ -115,4 +115,4 @@ git clone https://github.com/kirjs/react-highcharts.git
 cd react-highcharts && npm install
 npm run demo
 ```
-Point your browser at [http://localhost:8080](http://localhost:8080)
+Point your browser at [http://localhost:8081](http://localhost:8081)
