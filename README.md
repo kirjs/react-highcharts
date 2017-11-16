@@ -3,7 +3,8 @@ react-highcharts
 
 [![Build Status](https://travis-ci.org/kirjs/react-highcharts.svg?branch=master)](https://travis-ci.org/kirjs/react-highcharts)
 
-[Highcharts 5.x.x](https://www.highcharts.com/documentation/changelog) component for react.
+[Highcharts 6.x.x](https://www.highcharts.com/documentation/changelog) component for react.
+For highcharts 5.x.x use v. 14.0.0
 
 ## Demos
 [react-highcharts](http://kirjs.github.io/react-highcharts/)
@@ -106,7 +107,7 @@ const ReactHighcharts = require('react-highcharts').withHighcharts(ReactHighstoc
 ## For Contributors
 #### Running tests
 
-Run `npm tests`
+Run `npm test`
 
 #### Running demo
 
