@@ -4,6 +4,7 @@ react-highcharts
 [![Build Status](https://travis-ci.org/kirjs/react-highcharts.svg?branch=master)](https://travis-ci.org/kirjs/react-highcharts)
 
 [Highcharts 6.x.x](https://www.highcharts.com/documentation/changelog) component for react.
+For highcharts 5.x.x use v. 14.0.0
 
 ## Demos
 [react-highcharts](http://kirjs.github.io/react-highcharts/)
@@ -97,7 +98,7 @@ require('highcharts-more')(ReactHighcharts.Highcharts)
 
 You can find the full list list [here](https://github.com/kirjs/publish-highcharts-modules/blob/master/modules.md)
 
-## Passing Highcharts instance manually 
+## Passing Highcharts instance manually
 ```javascript
 const ReactHighcharts = require('react-highcharts').withHighcharts(ReactHighstock)
 ```
