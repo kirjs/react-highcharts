@@ -15,11 +15,9 @@ module.exports = function (chartType, Highcharts){
       callback: PropTypes.func,
       domProps: PropTypes.object
     },
-    getDefaultProps: function() {
-      return {
-        callback: () =>{},
-        domProps: {}
-      };
+    defaultProps: {
+      callback: () =>{},
+      domProps: {}
     },
     setChartRef: function(chartRef) {
       this.chartRef = chartRef;
