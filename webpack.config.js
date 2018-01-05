@@ -1,9 +1,9 @@
 const path = require('path');
-
+const webpack = require('webpack')
 
 module.exports = function (env) {
     env = env || {};
-
+    let plugins = [];
 
     /**
      * If -p flag is set, minify the files
@@ -11,6 +11,16 @@ module.exports = function (env) {
      */
     const src = !env.p;
     const filenamePostfix = src ? '.src' : '';
+
+    if (!src) {
+        plugins.push(new webpack.optimize.UglifyJsPlugin({
+                compress: {
+                    drop_console: true,
+                    unsafe: true
+                }
+            })
+        )
+    }
 
     /**
      * If -b flag is set, build bundles, and not exclude highcharts from the build
@@ -86,6 +96,7 @@ module.exports = function (env) {
                 }
             ]
         },
+        plugins: plugins,
         externals: externals,
         resolve: {
             modules: [
