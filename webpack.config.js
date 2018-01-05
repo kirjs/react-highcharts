@@ -84,13 +84,15 @@ module.exports = function (env) {
             rules: [
                 {
                     test: /\.jsx$/,
-
-                    use: {
+                    use: [{
                         loader: 'babel-loader',
-                        options: {
-                            presets: ['env', 'react', 'stage-2'],
+                        query: {
+                            cacheDirectory: true,
+                            presets: ['react', 'es2015', 'stage-2']
                         }
-                    }
+                    }],
+
+
                 }
             ]
         },
