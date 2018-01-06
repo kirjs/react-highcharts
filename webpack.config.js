@@ -69,6 +69,7 @@ module.exports = function (env) {
 
     externals.push(highchartsExternals);
 
+
     return {
         entry: {
             // Array syntax to workaround https://github.com/webpack/webpack/issues/300
