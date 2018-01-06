@@ -4,20 +4,39 @@ const webpack = require('webpack')
 module.exports = function (env) {
     env = env || {};
     let plugins = [];
-
     /**
      * If -p flag is set, minify the files
      * @type {boolean}
      */
     const src = !env.p;
+    plugins.push(new webpack.DefinePlugin({
+            cutCode: JSON.stringify(src)
+        })
+    )
+    console.log('process.env.NODE_ENVD process.env.NODE_ENVD',process.env.NODE_ENVD)
+
     const filenamePostfix = src ? '.src' : '';
 
     if (!src) {
         plugins.push(new webpack.optimize.UglifyJsPlugin({
                 compress: {
                     drop_console: true,
-                    unsafe: true
-                }
+                    unsafe: true,
+                    warnings: false,
+                    screw_ie8: true,
+                    conditionals: true,
+                    unused: false,
+                    comparisons: true,
+                    sequences: true,
+                    dead_code: true,
+                    evaluate: true,
+                    if_return: true,
+                    join_vars: true
+
+                },
+            output: {
+                comments: false
+            }
             })
         )
     }

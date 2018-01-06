@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import PropTypes from 'prop-types';
 
 const win = typeof global === 'undefined' ? window : global;
 
@@ -65,14 +64,17 @@ module.exports = function (chartType, Highcharts) {
         }
     }
 
-    Charts.propTypes = {
-        config: PropTypes.object,
-        isPureConfig: PropTypes.bool,
-        neverReflow: PropTypes.bool,
-        callback: PropTypes.func,
-        domProps: PropTypes.object
-    }
+    if(cutCode) {
+        let PropTypes = require('prop-types')
 
+        Charts.propTypes = {
+            config: PropTypes.object,
+            isPureConfig: PropTypes.bool,
+            neverReflow: PropTypes.bool,
+            callback: PropTypes.func,
+            domProps: PropTypes.object
+        }
+    }
     Charts.defaultProps = {
         callback: () => {
         },
