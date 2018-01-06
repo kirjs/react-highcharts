@@ -12,7 +12,7 @@ module.exports = function (chartType, Highcharts) {
             this.displayName = 'Highcharts' + chartType;
         }
 
-        setChartRef = (chartRef) => {
+        setChartRef (chartRef) {
             this.chartRef = chartRef;
         }
 
@@ -20,7 +20,7 @@ module.exports = function (chartType, Highcharts) {
             if (!config) {
                 throw new Error('Config must be specified for the ' + this.displayName + ' component');
             }
-            let chartConfig = config.chart;
+            const chartConfig = config.chart;
             this.chart = new this.Highcharts[this.chartType]({
                 ...config,
                 chart: {
@@ -60,7 +60,7 @@ module.exports = function (chartType, Highcharts) {
         }
 
         render() {
-            return <div ref={this.setChartRef} {...this.props.domProps} />;
+            return <div ref={this.setChartRef.bind(this)} {...this.props.domProps} />;
         }
     }
 
