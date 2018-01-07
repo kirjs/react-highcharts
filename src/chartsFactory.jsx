@@ -29,7 +29,7 @@ function chartsFactory(chartType, Highcharts) {
                 }
             }, this.props.callback);
 
-            if (!this.props.neverReflow) {
+            if (this.props.neverReflow) {
                 win && win.requestAnimationFrame && requestAnimationFrame(() => {
                     this.chart && this.chart.options && this.chart.reflow();
                 });
