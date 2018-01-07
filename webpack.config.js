@@ -1,44 +1,26 @@
 const path = require('path');
 const webpack = require('webpack')
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 
 module.exports = function (env) {
     env = env || {};
     let plugins = [];
+
     /**
      * If -p flag is set, minify the files
      * @type {boolean}
      */
+
     const src = !env.p;
     plugins.push(new webpack.DefinePlugin({
             cutCode: JSON.stringify(src)
         })
-    )
-    console.log('process.env.NODE_ENVD process.env.NODE_ENVD',process.env.NODE_ENVD)
+    );
 
     const filenamePostfix = src ? '.src' : '';
 
     if (!src) {
-        plugins.push(new webpack.optimize.UglifyJsPlugin({
-                compress: {
-                    drop_console: true,
-                    unsafe: true,
-                    warnings: false,
-                    screw_ie8: true,
-                    conditionals: true,
-                    unused: false,
-                    comparisons: true,
-                    sequences: true,
-                    dead_code: true,
-                    evaluate: true,
-                    if_return: true,
-                    join_vars: true
-
-                },
-            output: {
-                comments: false
-            }
-            })
-        )
+        plugins.push(new UglifyJsPlugin())
     }
 
     /**
@@ -47,7 +29,6 @@ module.exports = function (env) {
      */
     const bundles = env.b;
     const bundlePrefix = (bundles ? 'bundle/' : '');
-
 
     const highchartsExternals = {
         'highcharts/highmaps': {
@@ -89,7 +70,6 @@ module.exports = function (env) {
 
     externals.push(highchartsExternals);
 
-
     return {
         entry: {
             // Array syntax to workaround https://github.com/webpack/webpack/issues/300
@@ -107,11 +87,10 @@ module.exports = function (env) {
                         loader: 'babel-loader',
                         query: {
                             cacheDirectory: true,
-                            presets: ['react', 'es2015', 'stage-2']
+                            presets: ['react', 'es2015', 'stage-2'],
+                            plugins: ["add-module-exports"]
                         }
                     }],
-
-
                 }
             ]
         },

@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 const win = typeof global === 'undefined' ? window : global;
 
-module.exports = function (chartType, Highcharts) {
+function chartsFactory(chartType, Highcharts) {
 
     class Charts extends Component {
         constructor() {
@@ -12,7 +12,7 @@ module.exports = function (chartType, Highcharts) {
             this.displayName = 'Highcharts' + chartType;
         }
 
-        setChartRef (chartRef) {
+        setChartRef(chartRef) {
             this.chartRef = chartRef;
         }
 
@@ -64,7 +64,7 @@ module.exports = function (chartType, Highcharts) {
         }
     }
 
-    if(cutCode) {
+    if (cutCode) {
         let PropTypes = require('prop-types')
 
         Charts.propTypes = {
@@ -86,3 +86,5 @@ module.exports = function (chartType, Highcharts) {
 
     return result
 }
+
+export default chartsFactory;
