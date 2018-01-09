@@ -21,26 +21,26 @@ import './tomorrow.css'
 
 
 var config = {
-    chart: {
-        polar: true
-    },
-    xAxis: {
-        categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-    },
-    series: [{
-        data: [29.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]
-    }]
+  chart: {
+    polar: true
+  },
+  xAxis: {
+    categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+  },
+  series: [{
+    data: [29.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]
+  }]
 };
 
 ReactDOM.render(
-    <ReactHighcharts config={config}> </ReactHighcharts>,
-    document.getElementById('test')
+  <ReactHighcharts config={config}> </ReactHighcharts>,
+  document.getElementById('test')
 );
 ReactDOM.render(
-    <PrismCode component="pre" className="language-javascript">{require("!!raw-loader!./more.jsx")}</PrismCode>,
-    document.getElementById('code-js')
+  <PrismCode component="pre" className="language-javascript">{require("!!raw-loader!./more.jsx")}</PrismCode>,
+  document.getElementById('code-js')
 );
 ReactDOM.render(
-    <PrismCode component="pre" className="language-markup">{require("raw-loader!./more.html")}</PrismCode>,
-    document.getElementById('code-html')
+  <PrismCode component="pre" className="language-markup">{require("raw-loader!./more.html")}</PrismCode>,
+  document.getElementById('code-html')
 );

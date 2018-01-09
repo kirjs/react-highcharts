@@ -20,7 +20,7 @@ const config = {
 };
 
 ReactDOM.render(
-  <ReactHighcharts config={config} />,
+  <ReactHighcharts config={config}/>,
   document.getElementById('test')
 );
 ReactDOM.render(
