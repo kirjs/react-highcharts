@@ -1,9 +1,16 @@
 const React = require('react');
 // Note that HighMaps has to be in the codebase already
 const ReactHighmaps = require('react-highcharts/ReactHighmaps.src');
-const Highlight = require('react-highlight');
 const ReactDOM = require('react-dom');
 const maps = require('./mapdata/europe');
+require('prismjs');
+require('prismjs/themes/prism.css');
+import PrismCode from 'react-prism'
+
+import './style.css'
+import './tomorrow.css'
+
+
 
 const config = {
     chart: {
@@ -57,12 +64,12 @@ ReactDOM.render(
 );
 
 ReactDOM.render(
-    <Highlight className="jsx">{require("raw-loader!./highmaps.jsx")}</Highlight>,
+    <PrismCode component="pre" className="language-javascript">{require("!!raw-loader!./highmaps.jsx")}</PrismCode>,
     document.getElementById('code-js')
 );
 
 ReactDOM.render(
-    <Highlight className="html">{require("raw-loader!./highmaps.html")}</Highlight>,
+    <PrismCode component="pre" className="language-markup">{require("raw-loader!./highmaps.html")}</PrismCode>,
     document.getElementById('code-html')
 );
 

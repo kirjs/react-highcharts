@@ -13,13 +13,13 @@
  */
 
 var jsdom = require('jsdom');
-
-global.document = jsdom.jsdom('<!doctype html><html><body><div id="test"></div></body></html>');
-var win = global.document.defaultView;
+const {JSDOM} = jsdom;
+const {document} = (new JSDOM('<!doctype html><html><body><div id="test"></div></body></html>')).window;
+var win = document.defaultView;
 global.window = global;
 for( var i in win ){
-  if( i !== 'window' && win.hasOwnProperty(i)){
-    global.window[i] = win[i];
-  }
+    if( i !== 'window' && win.hasOwnProperty(i)){
+        global.window[i] = win[i];
+    }
 }
 

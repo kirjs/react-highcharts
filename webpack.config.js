@@ -87,6 +87,7 @@ module.exports = function (env) {
                         loader: 'babel-loader',
                         options: {
                             presets: ['env', 'react', 'stage-2'],
+                            plugins: ["add-module-exports"]
                         }
                     }
                 }
