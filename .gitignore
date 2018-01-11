@@ -4,3 +4,4 @@ node_modules
 dist
 modules
 demo/dist/*
+sandbox/node_modules/*
