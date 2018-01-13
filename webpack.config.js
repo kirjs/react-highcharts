@@ -1,16 +1,26 @@
 const path = require('path');
-
+const webpack = require('webpack')
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 
 module.exports = function (env) {
     env = env || {};
-
+    let plugins = [];
 
     /**
      * If -p flag is set, minify the files
      * @type {boolean}
      */
     const src = !env.p;
+    plugins.push(new webpack.DefinePlugin({
+        isProdMode: JSON.stringify(src)
+        })
+    );
+
     const filenamePostfix = src ? '.src' : '';
+
+    if (!src) {
+        plugins.push(new UglifyJsPlugin())
+    }
 
     /**
      * If -b flag is set, build bundles, and not exclude highcharts from the build
@@ -18,7 +28,6 @@ module.exports = function (env) {
      */
     const bundles = env.b;
     const bundlePrefix = (bundles ? 'bundle/' : '');
-
 
     const highchartsExternals = {
         'highcharts/highmaps': {
@@ -60,7 +69,6 @@ module.exports = function (env) {
 
     externals.push(highchartsExternals);
 
-
     return {
         entry: {
             // Array syntax to workaround https://github.com/webpack/webpack/issues/300
@@ -74,18 +82,18 @@ module.exports = function (env) {
             rules: [
                 {
                     test: /\.jsx$/,
-                    use: [{
+
+                    use: {
                         loader: 'babel-loader',
-                        query: {
-                            cacheDirectory: true,
-                            presets: ['react', 'es2015', 'stage-2']
+                        options: {
+                            presets: ['env', 'react', 'stage-2'],
+                            plugins: ["add-module-exports"]
                         }
-                    }],
-
-
+                    }
                 }
             ]
         },
+        plugins: plugins,
         externals: externals,
         resolve: {
             modules: [

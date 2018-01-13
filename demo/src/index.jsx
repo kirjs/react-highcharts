@@ -3,6 +3,12 @@ const React = require('react');
 const ReactHighcharts = require('react-highcharts');
 const Highlight = require('react-highlight');
 const ReactDOM = require('react-dom');
+require('prismjs');
+require('prismjs/themes/prism.css');
+import PrismCode from 'react-prism'
+
+import './style.css'
+import './tomorrow.css'
 
 const config = {
   xAxis: {
@@ -14,20 +20,18 @@ const config = {
 };
 
 ReactDOM.render(
-  <ReactHighcharts config={config} />,
+  <ReactHighcharts config={config}/>,
   document.getElementById('test')
 );
 ReactDOM.render(
-  <Highlight className="jsx">{require("raw-loader!./index.jsx")}</Highlight>,
+  <PrismCode component="pre" className="language-javascript">{require("!!raw-loader!./index.jsx")}</PrismCode>,
   document.getElementById('code-js')
 );
 ReactDOM.render(
-  <Highlight className="html">{require("raw-loader!./index.html")}</Highlight>,
+  <PrismCode component="pre" className="language-markup">{require("raw-loader!./index.html")}</PrismCode>,
   document.getElementById('code-html')
 );
 
 require("file-loader?name=[name].[ext]!./index.html");
 require("file-loader?name=[name].[ext]!./more.html");
-require("file-loader?name=[name].[ext]!./style.css");
-require("file-loader?name=[name].[ext]!./tomorrow.css");
 

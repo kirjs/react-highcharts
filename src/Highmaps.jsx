@@ -1,1 +1,4 @@
-module.exports = require('./chartsFactory.jsx')('Map', require("highcharts/highmaps"));
+import chartsFactory from './chartsFactory.jsx';
+import highmaps from 'highcharts/highmaps';
+
+export default chartsFactory('Map', highmaps);

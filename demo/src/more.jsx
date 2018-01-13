@@ -2,7 +2,6 @@ var React = require('react');
 // Note that Highcharts has to be required separately
 var ReactHighcharts = require('react-highcharts');
 
-
 // Note that Highcharts has to be in the codebase already
 // Highcharts more
 var HighchartsMore = require('highcharts-more');
@@ -11,9 +10,15 @@ HighchartsMore(ReactHighcharts.Highcharts);
 // Highcharts exporting
 var HighchartsExporting = require('highcharts-exporting');
 HighchartsExporting(ReactHighcharts.Highcharts);
-
-var Highlight = require('react-highlight');
 var ReactDOM = require('react-dom');
+
+require('prismjs');
+require('prismjs/themes/prism.css');
+import PrismCode from 'react-prism'
+
+import './style.css'
+import './tomorrow.css'
+
 
 var config = {
   chart: {
@@ -28,14 +33,14 @@ var config = {
 };
 
 ReactDOM.render(
-  <ReactHighcharts config={config}></ReactHighcharts>,
+  <ReactHighcharts config={config}> </ReactHighcharts>,
   document.getElementById('test')
 );
 ReactDOM.render(
-  <Highlight className="jsx">{require("raw-loader!./more.jsx")}</Highlight>,
+  <PrismCode component="pre" className="language-javascript">{require("!!raw-loader!./more.jsx")}</PrismCode>,
   document.getElementById('code-js')
 );
 ReactDOM.render(
-  <Highlight className="html">{require("raw-loader!./more.html")}</Highlight>,
+  <PrismCode component="pre" className="language-markup">{require("raw-loader!./more.html")}</PrismCode>,
   document.getElementById('code-html')
 );
