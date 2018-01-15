@@ -1,7 +1,6 @@
 const React = require('react');
 // Note that Highcharts has to be required separately
 const ReactHighcharts = require('react-highcharts');
-const Highlight = require('react-highlight');
 const ReactDOM = require('react-dom');
 require('prismjs');
 require('prismjs/themes/prism.css');
