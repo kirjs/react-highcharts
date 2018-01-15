@@ -61,11 +61,11 @@
     "style-loader": "^0.19.1",
     "uglifyjs-webpack-plugin": "^1.1.6",
     "webpack": "^3.10.0",
-    "webpack-dev-server": "^2.9.6"
-  },
-  "dependencies": {
-    "highcharts": "^6.0.4",
+    "webpack-dev-server": "^2.9.6",
     "prismjs": "^1.9.0",
     "react-prism": "^4.3.2"
+  },
+  "dependencies": {
+    "highcharts": "^6.0.4"
   }
 }
