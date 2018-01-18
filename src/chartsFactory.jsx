@@ -4,7 +4,7 @@ const win = typeof global === 'undefined' ? window : global;
 
 function chartsFactory(chartType, Highcharts) {
 
-    class Chart extends Component {
+    class Charts extends Component {
         constructor() {
             super()
             this.chartType = chartType;
@@ -65,10 +65,10 @@ function chartsFactory(chartType, Highcharts) {
         }
     }
 
-    if (isProdMode) {
+    if (cutCode) {
         let PropTypes = require('prop-types')
 
-        Chart.propTypes = {
+        Charts.propTypes = {
             config: PropTypes.object,
             isPureConfig: PropTypes.bool,
             neverReflow: PropTypes.bool,
@@ -76,12 +76,12 @@ function chartsFactory(chartType, Highcharts) {
             domProps: PropTypes.object
         }
     }
-    Chart.defaultProps = {
+    Charts.defaultProps = {
         callback: () => {
         },
         domProps: {}
     }
-    let result = Chart;
+    let result = Charts;
     result.Highcharts = Highcharts;
     result.withHighcharts = Highcharts => module.exports(chartType, Highcharts);
 

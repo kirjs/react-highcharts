@@ -29,6 +29,7 @@ module.exports = function (env) {
     const bundles = env.b;
     const bundlePrefix = (bundles ? 'bundle/' : '');
 
+
     const highchartsExternals = {
         'highcharts/highmaps': {
             root: 'Highcharts',
