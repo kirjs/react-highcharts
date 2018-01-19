@@ -3,31 +3,34 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 From http://keepachangelog.com
 
-Added checking for rendering on the server
-
 ## [16.0.0] - 2018-01-14
-- remove prop-types and extra deps in ReactHighcharts, ReactHighstock, ReactHighmaps
+- Clean up the prod version: minify, get rid of prop types. Overall reduce the size from 70 to 4kb, thanks @ilyjs 
 
 ## [15.0.0] - 2017-10-11
 - Update Highcharts to 6.0.0 
 
+## [14.0.0] - 2017-10-11
+- This release never happened
+
 ## [13.0.0] - 2017-10-11
-- Added support react 16
+- Support React 16
 
 ## [12.0.0] - 2017-04-27
-- create-react-class, prop-types is added as a dependency
+- Use create-react-class
+- Add prop-types as a dependency
 
 ## [11.5.0] - 2017-01-04
-- Added checking reflow for rendering on the server 
+- [Fix]  Throwing an error when rendering on the server
+
 
 ## [11.0.0] - 2016-10-22
 - Update Highcharts to 5.0.0 
 
 ## [10.0.0] - 2016-07-06
-Introduce new `domProps` property to explicitly specifying DOM properties.
+- Introduce new `domProps` property to explicitly specifying DOM properties.
 
 ## [9.0.0] - 2016-07-06
-Get rid of custom property warnings in react 15.2
+- Get rid of custom property warnings in react 15.2
 
 ## [6.0.0] - 2015-11-26
 ### Changed
