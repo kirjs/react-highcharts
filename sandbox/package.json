@@ -1,9 +1,10 @@
 {
   "name": "sandbox",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": false,
   "dependencies": {
     "history": "^4.7.2",
+    "lodash": "^4.17.4",
     "material-ui": "^0.20.0",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",

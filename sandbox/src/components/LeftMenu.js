@@ -32,12 +32,12 @@ class LeftMenu extends Component {
 
           </Subheader>
 
-          <ListItem primaryText="Area" onClick={e => this.handleRequestClose(e, '/area')}
+          <ListItem primaryText="Animation Chart" onClick={e => this.handleRequestClose(e, '/area')}
                     value={'/area'}
                     nestedItems={[]}
 
           />
-          <ListItem primaryText="Area Reflow=true" onClick={e => this.handleRequestClose(e, '/areatrue')}
+          <ListItem primaryText="Update Chart" onClick={e => this.handleRequestClose(e, '/areatrue')}
                     value={'/areatrue'}
                     nestedItems={[]}
 

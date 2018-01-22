@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import ReactHighcharts from 'react-highcharts'
+import ReactHAnimation from './ReactHAnimation'
 import {getData} from "../../reducer/ducks/charts"
 import {connect} from "react-redux";
 
@@ -20,6 +20,7 @@ class Area extends Component {
         categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
       },
       series: [{
+        type:'column',
         data: charts
       }]
     };
@@ -27,7 +28,7 @@ class Area extends Component {
 
     return (
       <div>
-        <ReactHighcharts config={config}> </ReactHighcharts>
+        <ReactHAnimation config={config}> </ReactHAnimation>
         <button onClick={this.getAreaData}>Get New Data</button>
       </div>
     );
