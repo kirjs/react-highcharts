@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import ReactHUpdate from './ReactHUpdate'
+import ReactHighcharts from 'react-highcharts';
 import {getData} from "../../reducer/ducks/charts"
 import {connect} from "react-redux";
 
@@ -41,9 +41,9 @@ class AreaTrue extends Component {
 
     return (
       <div>
-        <ReactHUpdate beforeConfigUpdate={beforeConfigUpdate}
+        <ReactHighcharts beforeConfigUpdate={beforeConfigUpdate}
                       configUpdate={configUpdate}
-                      config={config}> </ReactHUpdate>
+                      config={config}> </ReactHighcharts>
         <button onClick={this.getAreaData}>Get New Data</button>
       </div>
     );
