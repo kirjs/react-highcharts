@@ -29,7 +29,7 @@ function chartsFactory(chartType, Highcharts) {
                 }
             }, this.props.callback);
 
-            if (!this.props.neverReflow) {
+            if (this.props.reflow) {
                 win && win.requestAnimationFrame && requestAnimationFrame(() => {
                     this.chart && this.chart.options && this.chart.reflow();
                 });
@@ -37,10 +37,16 @@ function chartsFactory(chartType, Highcharts) {
         }
 
         shouldComponentUpdate(nextProps) {
-            if (nextProps.neverReflow || (nextProps.isPureConfig && this.props.config === nextProps.config)) {
-                return true;
-            }
-            this.renderChart(nextProps.config);
+
+          if(nextProps.neverRender){
+            return false;
+          }
+
+          if (nextProps.isPureConfig && this.props.config === nextProps.config) {
+            return true;
+          }
+
+          this.renderChart(nextProps.config);
             return false;
         }
 

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import ReactHAnimation from './ReactHAnimation'
-import {getData} from "../../reducer/ducks/charts"
+import ReactHighcharts from 'react-highcharts';
+import {getData} from "../../reducer/ducks/charts";
 import {connect} from "react-redux";
 
 class Area extends Component {
@@ -28,7 +28,7 @@ class Area extends Component {
 
     return (
       <div>
-        <ReactHAnimation config={config}> </ReactHAnimation>
+        <ReactHighcharts config={config}> </ReactHighcharts>
         <button onClick={this.getAreaData}>Get New Data</button>
       </div>
     );
