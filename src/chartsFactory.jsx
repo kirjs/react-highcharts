@@ -6,7 +6,7 @@ function chartsFactory(chartType, Highcharts) {
 
     class Chart extends Component {
         constructor() {
-            super()
+            super();
             this.chartType = chartType;
             this.Highcharts = Highcharts;
             this.displayName = 'Highcharts' + chartType;
@@ -29,21 +29,12 @@ function chartsFactory(chartType, Highcharts) {
                 }
             }, this.props.callback);
 
-            if (this.props.reflow) {
-                win && win.requestAnimationFrame && requestAnimationFrame(() => {
-                    this.chart && this.chart.options && this.chart.reflow();
-                });
-            }
         }
 
         shouldComponentUpdate(nextProps) {
 
-          if(nextProps.neverRender){
-            return false;
-          }
-
           if (nextProps.isPureConfig && this.props.config === nextProps.config) {
-            return true;
+            return false;
           }
 
           this.renderChart(nextProps.config);
@@ -76,7 +67,6 @@ function chartsFactory(chartType, Highcharts) {
         Chart.propTypes = {
             config: PropTypes.object,
             isPureConfig: PropTypes.bool,
-            neverReflow: PropTypes.bool,
             callback: PropTypes.func,
             domProps: PropTypes.object
         }

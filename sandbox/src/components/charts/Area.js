@@ -9,7 +9,19 @@ class Area extends Component {
     e.preventDefault();
     const {getData} = this.props;
     getData();
-  }
+  };
+
+  state = {
+    config: {
+      xAxis: {
+        categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+      },
+      series: [{
+        type:'column',
+        data: [176.0, 135.6, 148.5, 216.4, 194.1, 295.6, 454.4, 148.5, 216.4, 194.1, 295.6, 454.4]
+      }]
+    }
+  };
 
   render() {
 
@@ -28,7 +40,7 @@ class Area extends Component {
 
     return (
       <div>
-        <ReactHighcharts config={config}> </ReactHighcharts>
+        <ReactHighcharts  config={this.state.config}> </ReactHighcharts>
         <button onClick={this.getAreaData}>Get New Data</button>
       </div>
     );
