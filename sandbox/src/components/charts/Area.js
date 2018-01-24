@@ -40,7 +40,7 @@ class Area extends Component {
 
     return (
       <div>
-        <ReactHighcharts  config={this.state.config}> </ReactHighcharts>
+        <ReactHighcharts  config={config}> </ReactHighcharts>
         <button onClick={this.getAreaData}>Get New Data</button>
       </div>
     );

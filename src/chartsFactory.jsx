@@ -42,42 +42,42 @@ function chartsFactory(chartType, Highcharts) {
 
             throw new Error(`${item.name} should be the object {...}`);
           }
-        })
+        });
         this.renderChart(configMerge);
       }
 
-        shouldComponentUpdate(nextProps) {
+      shouldComponentUpdate(nextProps) {
 
-          if(nextProps.neverRender){
+        if (nextProps.configUpdate || nextProps.beforeConfigUpdate){
+
+          if (nextProps.isPureConfig && this.props.config === nextProps.config &&
+            this.props.configUpdate === nextProps.configUpdate &&
+            this.props.beforeConfigUpdate === nextProps.beforeConfigUpdate) {
             return false;
           }
 
-          if (nextProps.configUpdate || nextProps.beforeConfigUpdate){
+          if (nextProps.configUpdate && nextProps.beforeConfigUpdate) {
+            this.chart.update(nextProps.beforeConfigUpdate);
+            setTimeout(() => this.chart.update(nextProps.configUpdate), 10);
+            return true;
 
-            if (nextProps.configUpdate && nextProps.beforeConfigUpdate) {
-              this.chart.update(nextProps.beforeConfigUpdate);
-              setTimeout(() => this.chart.update(nextProps.configUpdate), 10);
-              return true;
+          } else if (nextProps.configUpdate) {
+            this.chart.update(nextProps.configUpdate);
+            return true;
 
-            } else if (nextProps.configUpdate) {
-
-              this.chart.update(nextProps.configUpdate);
-              return true;
-
-            } else if (nextProps.beforeConfigUpdate) {
-
-              this.chart.update(nextProps.beforeConfigUpdate);
-              return true;
-            }
+          } else if (nextProps.beforeConfigUpdate) {
+            this.chart.update(nextProps.beforeConfigUpdate);
+            return true;
           }
-
-          if (nextProps.isPureConfig && this.props.config === nextProps.config) {
-            return false;
-          }
-
-          this.renderChart(nextProps.config);
-            return false;
         }
+
+        if (nextProps.isPureConfig && this.props.config === nextProps.config) {
+          return false;
+        }
+
+        this.renderChart(nextProps.config);
+        return false;
+      }
 
         getChart() {
             if (!this.chart) {
@@ -87,7 +87,7 @@ function chartsFactory(chartType, Highcharts) {
         }
 
       componentDidMount() {
-        const {config, configUpdate, beforeConfigUpdate} = this.props
+        const {config, configUpdate, beforeConfigUpdate} = this.props;
 
         if (configUpdate || beforeConfigUpdate) {
 
@@ -125,7 +125,7 @@ function chartsFactory(chartType, Highcharts) {
     }
 
     if (isProdMode) {
-        let PropTypes = require('prop-types')
+        let PropTypes = require('prop-types');
 
         Chart.propTypes = {
             config: PropTypes.object,
@@ -139,7 +139,7 @@ function chartsFactory(chartType, Highcharts) {
         callback: () => {
         },
         domProps: {}
-    }
+    };
     let result = Chart;
     result.Highcharts = Highcharts;
     result.withHighcharts = Highcharts => module.exports(chartType, Highcharts);

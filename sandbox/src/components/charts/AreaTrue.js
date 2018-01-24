@@ -11,6 +11,43 @@ class AreaTrue extends Component {
     getData();
   }
 
+  state = {
+    config: {
+      xAxis: {
+        categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+      },
+      series: [{
+
+      }]
+
+    },
+    configUpdate:{
+      series: [{
+        data: [29.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 295.6, 454.4]
+      }]
+    },
+    beforeConfigUpdate : {
+      series: [{
+        colorByPoint: false,
+
+      }]
+    }
+  };
+
+  componentWillReceiveProps(newProps){
+    //console.log(newProps);
+      this.setState({configUpdate:{
+          series: [{
+            data: newProps.charts
+          }]
+        },
+
+      })
+
+
+  }
+
+
   render() {
 
     const {charts,type} = this.props;
@@ -41,9 +78,10 @@ class AreaTrue extends Component {
 
     return (
       <div>
-        <ReactHighcharts beforeConfigUpdate={beforeConfigUpdate}
-                      configUpdate={configUpdate}
-                      config={config}> </ReactHighcharts>
+        <ReactHighcharts
+                      isPureConfig
+                      configUpdate={this.state.configUpdate}
+                      config={this.state.config}> </ReactHighcharts>
         <button onClick={this.getAreaData}>Get New Data</button>
       </div>
     );

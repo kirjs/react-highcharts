@@ -1,147 +1,153 @@
 import React, {Component} from 'react';
+import merge from 'lodash/merge';
 import highcharts from "highcharts";
-import merge from 'lodash/merge'
 /* eslint-disable */
+
 const win = typeof global === 'undefined' ? window : global;
 
 
-class ReactHUpdate extends Component {
-  constructor() {
-    super();
-    this.chartType = 'Chart';
-    this.Highcharts = highcharts;
-    this.displayName = 'Highcharts' + 'Chart';
-  }
-
-  setChartRef(chartRef) {
-    this.chartRef = chartRef;
-  }
-
-  renderChart(config) {
-    if (!config) {
-      throw new Error('Config must be specified for the ' + this.displayName + ' component');
+  class Chart extends Component {
+    constructor() {
+      super();
+      super();
+      this.chartType = 'Chart';
+      this.Highcharts = highcharts;
+      this.displayName = 'Highcharts' + 'Chart';
     }
-    const chartConfig = config.chart;
-    console.log('chartConfig', chartConfig)
-    this.chart = new this.Highcharts[this.chartType]({
-      ...config,
-      chart: {
-        ...chartConfig,
-        renderTo: this.chartRef
+
+    setChartRef(chartRef) {
+      this.chartRef = chartRef;
+    }
+
+    renderChart(config) {
+      if (!config) {
+        throw new Error('Config must be specified for the ' + this.displayName + ' component');
       }
-    }, this.props.callback);
+      const chartConfig = config.chart;
+      this.chart = new this.Highcharts[this.chartType]({
+        ...config,
+        chart: {
+          ...chartConfig,
+          renderTo: this.chartRef
+        }
+      }, this.props.callback);
 
-    if (this.props.reflow) {
+    }
 
-      win && win.requestAnimationFrame && requestAnimationFrame(() => {
-        this.chart && this.chart.options && this.chart.reflow();
+    renderMergeObjects(mergeObjects) {
+      let configMerge = {};
+      mergeObjects.forEach((item) => {
+        if (Object.prototype.toString.call(item.obj) === '[object Object]') {
+
+          configMerge = merge(item.obj, configMerge);
+        } else {
+
+          throw new Error(`${item.name} should be the object {...}`);
+        }
       });
+      this.renderChart(configMerge);
     }
-  }
 
-  renderMergeObjects(mergeObjects) {
-    let configMerge = {};
-    mergeObjects.forEach((item) => {
-      if (Object.prototype.toString.call(item.obj) === '[object Object]') {
+    shouldComponentUpdate(nextProps) {
 
-        configMerge = merge(item.obj, configMerge);
-      } else {
+      if (nextProps.configUpdate || nextProps.beforeConfigUpdate){
 
-        throw new Error(`${item.name} should be the object {...}`);
+        if (nextProps.isPureConfig && this.props.config === nextProps.config &&
+          this.props.configUpdate === nextProps.configUpdate &&
+          this.props.beforeConfigUpdate === nextProps.beforeConfigUpdate) {
+          return false;
+        }
+
+        if (nextProps.configUpdate && nextProps.beforeConfigUpdate) {
+          console.log('beforeConfigUpdate, nextProps.configUpdate');
+          this.chart.update(nextProps.beforeConfigUpdate);
+          setTimeout(() => this.chart.update(nextProps.configUpdate), 10);
+          return true;
+
+        } else if (nextProps.configUpdate) {
+          let data = new Date;
+          console.log('this.chart.update(nextProps.configUpdate)');
+          this.chart.update(nextProps.configUpdate);
+          console.log(new Date - data);
+          return true;
+
+        } else if (nextProps.beforeConfigUpdate) {
+          console.log('nextProps.beforeConfigUpdate');
+          this.chart.update(nextProps.beforeConfigUpdate);
+          return true;
+        }
       }
-    })
-    this.renderChart(configMerge);
-  }
 
-  shouldComponentUpdate(nextProps) {
+      if (nextProps.isPureConfig && this.props.config === nextProps.config) {
+        return false;
+      }
 
-    if (nextProps.neverRender) {
+      this.renderChart(nextProps.config);
       return false;
     }
 
-    if (nextProps.configUpdate || nextProps.beforeConfigUpdate){
-      if (nextProps.configUpdate && nextProps.beforeConfigUpdate) {
-        this.chart.update(nextProps.beforeConfigUpdate);
-        setTimeout(() => this.chart.update(nextProps.configUpdate), 10);
-        return true;
-
-      } else if (nextProps.configUpdate) {
-
-        this.chart.update(nextProps.configUpdate);
-        return true;
-
-      } else if (nextProps.beforeConfigUpdate) {
-
-        this.chart.update(nextProps.beforeConfigUpdate);
-        return true;
+    getChart() {
+      if (!this.chart) {
+        throw new Error('getChart() should not be called before the component is mounted');
       }
+      return this.chart;
     }
 
+    componentDidMount() {
+      const {config, configUpdate, beforeConfigUpdate} = this.props
 
-    if (nextProps.isPureConfig && this.props.config === nextProps.config) {
-      this.renderChart(nextProps.config);
-      console.log('return true');
-      return true;
-    }
+      if (configUpdate || beforeConfigUpdate) {
 
-    this.renderChart(nextProps.config);
-    console.log('return false');
-    return false;
-  }
+        if (configUpdate && beforeConfigUpdate) {
 
-  getChart() {
-    if (!this.chart) {
-      throw new Error('getChart() should not be called before the component is mounted');
-    }
-    return this.chart;
-  }
+          this.renderMergeObjects([{name: 'this.props.configUpdate', obj: configUpdate},
+            {name: 'this.props.beforeConfigUpdate', obj: beforeConfigUpdate},
+            {name: 'this.props.config', obj: config}
+          ])
 
-  componentDidMount() {
-    const {config, configUpdate, beforeConfigUpdate} = this.props
+        } else if (configUpdate) {
 
-    if (configUpdate || beforeConfigUpdate) {
+          this.renderMergeObjects([{name: 'this.props.configUpdate', obj: configUpdate},
+            {name: 'this.props.config', obj: config}
+          ])
 
-      if (configUpdate && beforeConfigUpdate) {
+        } else if (beforeConfigUpdate) {
 
-        this.renderMergeObjects([{name: 'this.props.configUpdate', obj: configUpdate},
-          {name: 'this.props.beforeConfigUpdate', obj: beforeConfigUpdate},
-          {name: 'this.props.config', obj: config}
-        ])
-
-      } else if (configUpdate) {
-
-        this.renderMergeObjects([{name: 'this.props.configUpdate', obj: configUpdate},
-          {name: 'this.props.config', obj: config}
-        ])
-
-      } else if (beforeConfigUpdate) {
-
-        this.renderMergeObjects([{name: 'this.props.beforeConfigUpdate', obj: beforeConfigUpdate},
-          {name: 'this.props.config', obj: config}
-        ])
+          this.renderMergeObjects([{name: 'this.props.beforeConfigUpdate', obj: beforeConfigUpdate},
+            {name: 'this.props.config', obj: config}
+          ])
+        }
+      } else {
+        this.renderChart(config);
       }
-    } else {
-      this.renderChart(config);
+
+    }
+    componentWillUnmount() {
+      this.chart.destroy();
     }
 
-
+    render() {
+      return <div ref={this.setChartRef.bind(this)} {...this.props.domProps} />;
+    }
   }
 
-  componentWillUnmount() {
-    console.log('this.chart.destroy();')
-    this.chart.destroy();
+    let PropTypes = require('prop-types')
+
+    Chart.propTypes = {
+      config: PropTypes.object,
+      isPureConfig: PropTypes.bool,
+      neverReflow: PropTypes.bool,
+      callback: PropTypes.func,
+      domProps: PropTypes.object
+    }
+  Chart.defaultProps = {
+    callback: () => {
+    },
+    domProps: {}
   }
-
-  render() {
-    return <div ref={this.setChartRef.bind(this)} {...this.props.domProps} />;
-  }
-}
-
-ReactHUpdate.defaultProps = {
-  callback: () => {
-  },
-  domProps: {}
-};
+  let result = Chart;
+  result.Highcharts = this.Highcharts;
+  result.withHighcharts = Highcharts => module.exports(chartType, Highcharts);
 
 
-export default ReactHUpdate
+export default Chart;
