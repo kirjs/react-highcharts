@@ -5,13 +5,20 @@ import {List, ListItem, makeSelectable} from 'material-ui/List';
 import Subheader from 'material-ui/Subheader';
 import logo from '../logo.svg';
 import history from '../history'
+import 'prismjs';
+import 'prismjs/themes/prism.css';
 
 class LeftMenu extends Component {
+
+  state = {
+    value: 1,
+  };
+
 
   handleRequestClose = (ev, local) => {
     history.push(local)
   };
-
+  handleChange = (event, index, value) => this.setState({value});
   render() {
     const SelectableList = makeSelectable(List);
     const logoLeft = <img src={logo} className="App-logo" alt="logo"/>;
@@ -32,27 +39,28 @@ class LeftMenu extends Component {
 
           </Subheader>
 
-          <ListItem primaryText="Animation Chart" onClick={e => this.handleRequestClose(e, '/area')}
-                    value={'/area'}
-                    nestedItems={[]}
+          <ListItem primaryText="Highcharts" onClick={e => this.handleRequestClose(e, '/highchart')}
+                    value={'/highchart'}
+                    nestedItems={[
+                      <ListItem primaryText="Highcharts-More" onClick={e => this.handleRequestClose(e, '/highchartmore')}
+                                value={'/highchartmore'}
+
+                      />
+                    ]}
 
           />
-          <ListItem primaryText="Update Chart" onClick={e => this.handleRequestClose(e, '/areatrue')}
-                    value={'/areatrue'}
-                    nestedItems={[]}
-
-          />
-
           <ListItem primaryText="Highstock" onClick={e => this.handleRequestClose(e, '/highstock')}
                     value={'/highstock'}
                     nestedItems={[]}
 
           />
-          <ListItem primaryText="Highstock Reflow=true" onClick={e => this.handleRequestClose(e, '/highstocktrue')}
-                    value={'/highstocktrue'}
+
+          <ListItem primaryText="Highmaps" onClick={e => this.handleRequestClose(e, '/highmaps')}
+                    value={'/highmaps'}
                     nestedItems={[]}
 
           />
+
 
 
         </SelectableList>

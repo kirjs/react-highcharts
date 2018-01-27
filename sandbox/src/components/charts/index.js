@@ -1,6 +1,6 @@
-import Area from './Area';
-import AreaTrue from './AreaTrue';
+import Highchart from './Highchart';
 import Highstock from './Highstock';
-import HighstockTrue from './HighstockTrue';
+import Highmaps from './Highmaps';
+import HighchartMore from './HighchartMore';
 
-export { Area, AreaTrue, Highstock, HighstockTrue }
+export { Highchart, Highstock, Highmaps, HighchartMore }
