@@ -1,11 +1,12 @@
 import React, {Component, Fragment} from 'react';
 import ReactHighmaps from 'react-highcharts/ReactHighmaps';
-/* Sub-disable-start */
+/* strip-start */
 import Sub from "./Sub";
 /* eslint-disable */
 import PrismCode from 'react-prism'
-/* Sub-disable-stop */
+/* strip-end */
 import maps from 'europe';
+
 class Highmaps extends Component {
 
 state = {
@@ -56,17 +57,15 @@ state = {
 };
 
   render() {
-
     const {config} = this.state;
-
     return (
       <Fragment>
         <ReactHighmaps config={config}> </ReactHighmaps>
-        {/* Sub-disable-start */}
+        {/* strip-start */}
         <PrismCode component="pre" className="language-javascript">
           <Sub>  {require("!!raw-loader!./Highmaps.js") + ""} </Sub>
         </PrismCode>
-        {/* Sub-disable-stop */}
+        {/* strip-end */}
       </Fragment>
     );
   }

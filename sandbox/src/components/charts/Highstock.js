@@ -1,12 +1,10 @@
 import React, {Component, Fragment} from 'react';
 import ReactHighstock from 'react-highcharts/ReactHighstock';
-import Highcharts from 'highcharts';
-/* Sub-disable-start */
+/* strip-start */
 import Sub from "./Sub";
 /* eslint-disable */
 import PrismCode from 'react-prism'
-
-/* Sub-disable-stop */
+/* strip-end */
 
 class Highstock extends Component {
 
@@ -33,11 +31,11 @@ class Highstock extends Component {
     return (
       <Fragment>
         <ReactHighstock config={config}> </ReactHighstock>
-        {/* Sub-disable-start */}
+        {/* strip-start */}
         <PrismCode component="pre" className="language-javascript">
           <Sub>  {require("!!raw-loader!./Highstock.js") + ""} </Sub>
         </PrismCode>
-        {/* Sub-disable-stop */}
+        {/* strip-end */}
       </Fragment>
     );
   }

@@ -1,11 +1,11 @@
 import React, {Component, Fragment} from 'react';
 import ReactHighcharts from 'react-highcharts'
 import HighchartsMore from 'highcharts/highcharts-more';
-/* Sub-disable-start */
+/* strip-start */
 import Sub from "./Sub";
 /* eslint-disable */
 import PrismCode from 'react-prism'
-/* Sub-disable-stop */
+/* strip-end */
 
 HighchartsMore(ReactHighcharts.Highcharts);
 
@@ -29,17 +29,15 @@ class HighchartMore extends Component {
   };
 
   render() {
-
     const {config} = this.state;
-
     return (
       <Fragment>
         <ReactHighcharts config={config}> </ReactHighcharts>
-        {/* Sub-disable-start */}
+        {/* strip-start */}
         <PrismCode component="pre" className="language-javascript">
           <Sub>  {require("!!raw-loader!./HighchartMore.js") + ""} </Sub>
         </PrismCode>
-        {/* Sub-disable-stop */}
+        {/* strip-end */}
       </Fragment>
     );
   }

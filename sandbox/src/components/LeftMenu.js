@@ -10,15 +10,10 @@ import 'prismjs/themes/prism.css';
 
 class LeftMenu extends Component {
 
-  state = {
-    value: 1,
-  };
-
-
   handleRequestClose = (ev, local) => {
     history.push(local)
   };
-  handleChange = (event, index, value) => this.setState({value});
+
   render() {
     const SelectableList = makeSelectable(List);
     const logoLeft = <img src={logo} className="App-logo" alt="logo"/>;
@@ -35,16 +30,11 @@ class LeftMenu extends Component {
           title="React-Highcharts"
         />
         <SelectableList value={history.location.pathname}>
-          <Subheader style={{backgroundColor: 'rgb(245, 246, 247)'}}>
-
-          </Subheader>
-
           <ListItem primaryText="Highcharts" onClick={e => this.handleRequestClose(e, '/highchart')}
                     value={'/highchart'}
                     nestedItems={[
                       <ListItem primaryText="Highcharts-More" onClick={e => this.handleRequestClose(e, '/highchartmore')}
                                 value={'/highchartmore'}
-
                       />
                     ]}
 
@@ -54,15 +44,11 @@ class LeftMenu extends Component {
                     nestedItems={[]}
 
           />
-
           <ListItem primaryText="Highmaps" onClick={e => this.handleRequestClose(e, '/highmaps')}
                     value={'/highmaps'}
                     nestedItems={[]}
 
           />
-
-
-
         </SelectableList>
       </Drawer>
     </div>
