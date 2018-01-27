@@ -2,6 +2,12 @@ import React, {Component} from 'react';
 import ReactHighstock from 'react-highcharts/ReactHighstock'
 import {getDataST} from "../../reducer/ducks/charts"
 import {connect} from "react-redux";
+import Sub from "./Sub";
+/* eslint import/no-webpack-loader-syntax: off */
+import HS from '!!raw-loader!./Highstock.js';
+import 'prismjs';
+import 'prismjs/themes/prism.css';
+import PrismCode from 'react-prism'
 
 class Highstock extends Component {
 
@@ -35,6 +41,16 @@ class Highstock extends Component {
       <div>
         <ReactHighstock config={config}> </ReactHighstock>
         <button onClick={this.getStData}>Get New Data Highstock</button>
+        <PrismCode component="pre" className="language-javascript">
+          <Sub subFilter={["import HS from '!!raw-loader!./Highstock.js';",
+            "import PrismCode from 'react-prism'",
+            "import 'prismjs';",
+            "import 'prismjs/themes/prism.css';",
+            "/* eslint-disable */",
+            "import Sub from \"./Sub\";" ]} > {HS +""}
+            </Sub>
+        </PrismCode>
+
       </div>
     );
   }

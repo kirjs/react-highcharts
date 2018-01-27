@@ -1,49 +1,46 @@
 import React, {Component} from 'react';
-import ReactHUpdate from './ReactHUpdate'
+import ReactHighcharts from 'react-highcharts'
 import {getData} from "../../reducer/ducks/charts"
 import {connect} from "react-redux";
 
 class AreaTrue extends Component {
 
   getAreaData = (e) => {
-    e.preventDefault();
     const {getData} = this.props;
     getData();
   }
 
+
+  shouldComponentUpdate(nextProps) {
+    const { charts } = nextProps
+    let chart = this.refs.chart.getChart();
+    chart.series[0].update({
+      data: charts
+    });
+    return false
+  }
+
+
+
   render() {
 
-    const {charts,type} = this.props;
+    const {charts} = this.props;
 
     const config = {
+
       xAxis: {
-        categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+        categories: this.props.categories
       },
       series: [{
-
+        data: this.props.charts,
+        showInLegend: false,
+        type: 'area',
       }]
-
     };
-
-    const configUpdate = {
-      series: [{
-        data: charts
-      }]
-
-    }
-
-    const beforeConfigUpdate = {
-      series: [{
-        colorByPoint: false,
-        type
-      }]
-    }
 
     return (
       <div>
-        <ReactHUpdate beforeConfigUpdate={beforeConfigUpdate}
-                      configUpdate={configUpdate}
-                      config={config}> </ReactHUpdate>
+        <ReactHighcharts   config={config} ref='chart'> </ReactHighcharts>
         <button onClick={this.getAreaData}>Get New Data</button>
       </div>
     );
@@ -53,6 +50,6 @@ class AreaTrue extends Component {
 export default connect((state) => {
   return {
     charts: state.charts.data,
-    type:state.charts.type
+    categories:state.charts.categories
   }
 }, {getData})(AreaTrue)

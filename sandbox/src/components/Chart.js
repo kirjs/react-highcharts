@@ -4,9 +4,10 @@ import logo from '../logo.svg';
 const ReactHighcharts = require('react-highcharts').default;
 const ReactHighmaps = require('react-highcharts/ReactHighmaps').default;
 const ReactHighstock = require('react-highcharts/ReactHighstock').default;
+
 const maps = require('europe');
 
-class Chart extends Component {
+export default class Chart extends Component {
   render() {
     const config = {
       xAxis: {
@@ -88,7 +89,7 @@ class Chart extends Component {
 
         <img src={logo} className="App-logo" alt="logo"/>
         <p>
-          To get started, edit <code>src/App.js</code> and save to reload.
+          To get started, edit <code>src/App.js</code> and save to reload. fff
         </p>
         <ReactHighstock config={ReactHighstockconfig}/>
         <ReactHighcharts config={config}/>
@@ -98,4 +99,3 @@ class Chart extends Component {
   }
 }
 
-export default Chart;
