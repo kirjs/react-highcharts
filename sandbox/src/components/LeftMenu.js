@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import Drawer from 'material-ui/Drawer';
 import AppBar from 'material-ui/AppBar';
 import {List, ListItem, makeSelectable} from 'material-ui/List';
-import Subheader from 'material-ui/Subheader';
 import logo from '../logo.svg';
 import history from '../history'
 import 'prismjs';
