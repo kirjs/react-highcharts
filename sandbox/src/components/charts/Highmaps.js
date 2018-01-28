@@ -3,7 +3,6 @@ import ReactHighmaps from 'react-highcharts/ReactHighmaps';
 /* strip-start */
 import Sub from "./Sub";
 /* eslint-disable */
-import PrismCode from 'react-prism'
 /* strip-end */
 import maps from 'europe';
 
@@ -62,9 +61,7 @@ state = {
       <Fragment>
         <ReactHighmaps config={config}> </ReactHighmaps>
         {/* strip-start */}
-        <PrismCode component="pre" className="language-javascript">
-          <Sub>  {require("!!raw-loader!./Highmaps.js") + ""} </Sub>
-        </PrismCode>
+          <Sub text={require("!!raw-loader!./Highmaps.js")}/>
         {/* strip-end */}
       </Fragment>
     );

@@ -3,7 +3,7 @@ import ReactHighcharts from 'react-highcharts';
 /* strip-start */
 import Sub from "./Sub";
 /* eslint-disable */
-import PrismCode from 'react-prism'
+
 /* strip-end */
 
 class Highchart extends Component {
@@ -28,9 +28,7 @@ class Highchart extends Component {
       <Fragment>
         <ReactHighcharts config={config}> </ReactHighcharts>
         {/* strip-start */}
-        <PrismCode component="pre" className="language-javascript">
-          <Sub>  {require("!!raw-loader!./Highchart.js") + ""} </Sub>
-        </PrismCode>
+          <Sub text={require("!!raw-loader!./Highchart.js")} />
         {/* strip-end */}
       </Fragment>
     );

@@ -3,7 +3,6 @@ import ReactHighstock from 'react-highcharts/ReactHighstock';
 /* strip-start */
 import Sub from "./Sub";
 /* eslint-disable */
-import PrismCode from 'react-prism'
 /* strip-end */
 
 class Highstock extends Component {
@@ -32,9 +31,7 @@ class Highstock extends Component {
       <Fragment>
         <ReactHighstock config={config}> </ReactHighstock>
         {/* strip-start */}
-        <PrismCode component="pre" className="language-javascript">
-          <Sub>  {require("!!raw-loader!./Highstock.js") + ""} </Sub>
-        </PrismCode>
+          <Sub text={require("!!raw-loader!./Highstock.js")}/>
         {/* strip-end */}
       </Fragment>
     );

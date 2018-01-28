@@ -4,7 +4,6 @@ import HighchartsMore from 'highcharts/highcharts-more';
 /* strip-start */
 import Sub from "./Sub";
 /* eslint-disable */
-import PrismCode from 'react-prism'
 /* strip-end */
 
 HighchartsMore(ReactHighcharts.Highcharts);
@@ -34,9 +33,7 @@ class HighchartMore extends Component {
       <Fragment>
         <ReactHighcharts config={config}> </ReactHighcharts>
         {/* strip-start */}
-        <PrismCode component="pre" className="language-javascript">
-          <Sub>  {require("!!raw-loader!./HighchartMore.js") + ""} </Sub>
-        </PrismCode>
+          <Sub text={require("!!raw-loader!./HighchartMore.js")} />
         {/* strip-end */}
       </Fragment>
     );
