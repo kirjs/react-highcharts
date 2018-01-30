@@ -68,4 +68,4 @@ state = {
   }
 }
 
-export default Highmaps
+export default Highmaps;
