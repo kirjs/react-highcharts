@@ -2,7 +2,9 @@
   "name": "sandbox",
   "version": "0.2.0",
   "private": false,
+  "homepage": "https://ilyjs.github.io/react-highcharts",
   "dependencies": {
+    "gh-pages": "^1.1.0",
     "highcharts": "^6.0.4",
     "history": "^4.7.2",
     "lodash": "^4.17.4",
@@ -22,6 +24,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   }

@@ -6,11 +6,11 @@ function Routes() {
   return (
     <div>
       <Switch>
-        <Route path="/highchart" component={Highchart}/>
-        <Route path="/highmaps" component={Highmaps}/>
-        <Route path="/highstock" component={Highstock}/>
-        <Route path="/highchartmore" component={HighchartMore}/>
-        <Route path="/" component={Highchart}/>
+        <Route path="/react-highcharts/highchart" component={Highchart}/>
+        <Route path="/react-highcharts/highmaps" component={Highmaps}/>
+        <Route path="/react-highcharts/highstock" component={Highstock}/>
+        <Route path="/react-highcharts/highchartmore" component={HighchartMore}/>
+        <Route path="/react-highcharts" component={Highchart}/>
       </Switch>
     </div>
   )
