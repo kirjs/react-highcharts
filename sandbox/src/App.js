@@ -11,33 +11,25 @@ import {ConnectedRouter} from 'react-router-redux'
 
 class App extends Component {
   render() {
-
     return (
       <Provider store={store}>
-
         <ConnectedRouter history={history}>
-
           <div>
             <MuiThemeProvider>
-
               <div>
                 <AppBar
                   className={'menus'}
                   title="Title"
                   iconClassNameRight="muidocs-icon-navigation-expand-more"
                 />
-
                 <LeftMenu/>
-                <div style={{marginLeft: 256}}>
+                <div className='ContentStyle'>
                   <Routes/>
                 </div>
               </div>
-
             </MuiThemeProvider>
-
           </div>
         </ConnectedRouter>
-
       </Provider>
     );
   }

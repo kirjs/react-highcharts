@@ -35,23 +35,14 @@ class LeftMenu extends Component {
         <SelectableList value={history.location.pathname}>
           <ListItem primaryText="Highcharts" onClick={e => this.handleRequestClose(e, '/highchart')}
                     value={urlPatch + '/highchart'}
-                    nestedItems={[
-                      <ListItem primaryText="Highcharts-More" onClick={e => this.handleRequestClose(e, '/highchartmore')}
-                                value={urlPatch + '/highchartmore'}
-                      />
+                    nestedItems={[<ListItem primaryText="Highcharts-More" onClick={e => this.handleRequestClose(e, '/highchartmore')}
+                                value={urlPatch + '/highchartmore'}/>
                     ]}
-
           />
           <ListItem primaryText="Highstock" onClick={e => this.handleRequestClose(e, '/highstock')}
-                    value={urlPatch + '/highstock'}
-                    nestedItems={[]}
-
-          />
+                    value={urlPatch + '/highstock'}/>
           <ListItem primaryText="Highmaps" onClick={e => this.handleRequestClose(e, '/highmaps')}
-                    value={urlPatch + '/highmaps'}
-                    nestedItems={[]}
-
-          />
+                    value={urlPatch + '/highmaps'}/>
         </SelectableList>
       </Drawer>
     </div>
