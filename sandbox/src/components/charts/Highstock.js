@@ -1,7 +1,6 @@
 import React, {Component, Fragment} from 'react';
-import ReactHighstock from 'react-highcharts/ReactHighstock';
-/* strip-start */
-import Sub from "./Sub";
+import ReactHighstock from 'react-highcharts/ReactHighstock';/* strip-start */
+import CodeView from "./CodeView";
 /* eslint-disable */
 /* strip-end */
 
@@ -29,9 +28,8 @@ class Highstock extends Component {
     const {config} = this.state;
     return (
       <Fragment>
-        <ReactHighstock config={config}> </ReactHighstock>
-        {/* strip-start */}
-          <Sub text={require("!!raw-loader!./Highstock.js")}/>
+        <ReactHighstock config={config}> </ReactHighstock>{/* strip-start */}
+          <CodeView text={require("!!raw-loader!./Highstock.js")}/>
         {/* strip-end */}
       </Fragment>
     );

@@ -1,7 +1,6 @@
 import React, {Component, Fragment} from 'react';
-import ReactHighmaps from 'react-highcharts/ReactHighmaps';
-/* strip-start */
-import Sub from "./Sub";
+import ReactHighmaps from 'react-highcharts/ReactHighmaps';/* strip-start */
+import CodeView from "./CodeView";
 /* eslint-disable */
 /* strip-end */
 import maps from 'europe';
@@ -59,9 +58,8 @@ state = {
     const {config} = this.state;
     return (
       <Fragment>
-        <ReactHighmaps config={config}> </ReactHighmaps>
-        {/* strip-start */}
-          <Sub text={require("!!raw-loader!./Highmaps.js")}/>
+        <ReactHighmaps config={config}> </ReactHighmaps>{/* strip-start */}
+          <CodeView text={require("!!raw-loader!./Highmaps.js")}/>
         {/* strip-end */}
       </Fragment>
     );

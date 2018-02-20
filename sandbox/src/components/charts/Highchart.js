@@ -1,9 +1,7 @@
 import React, {Component, Fragment} from 'react';
-import ReactHighcharts from 'react-highcharts';
-/* strip-start */
-import Sub from "./Sub";
+import ReactHighcharts from 'react-highcharts';/* strip-start */
+import CodeView from "./CodeView";
 /* eslint-disable */
-
 /* strip-end */
 
 class Highchart extends Component {
@@ -22,13 +20,13 @@ class Highchart extends Component {
     }
   };
 
+
   render() {
     const {config} = this.state;
     return (
       <Fragment>
-        <ReactHighcharts config={config}> </ReactHighcharts>
-        {/* strip-start */}
-          <Sub text={require("!!raw-loader!./Highchart.js")} />
+        <ReactHighcharts config={config}> </ReactHighcharts>{/* strip-start */}
+        <CodeView text={require("!!raw-loader!./Highchart.js")} />
         {/* strip-end */}
       </Fragment>
     );
