@@ -8,14 +8,20 @@ import history from './history'
 import store from './store'
 import {Provider} from 'react-redux'
 import {ConnectedRouter} from 'react-router-redux'
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
 class App extends Component {
   render() {
+    const muiTheme = getMuiTheme({
+      appBar:{
+        color:'rgb(72, 70, 91)'
+      }
+    })
     return (
       <Provider store={store}>
         <ConnectedRouter history={history}>
           <div>
-            <MuiThemeProvider>
+            <MuiThemeProvider muiTheme={muiTheme}>
               <div>
                 <AppBar
                   className={'menus'}

@@ -5,7 +5,6 @@ function Menu() {
 
   return <div>
     <AppBar
-      className={'menus'}
       titleStyle={{color: 'rgb(114, 217, 250)'}}
       showMenuIconButton={false}
     />
