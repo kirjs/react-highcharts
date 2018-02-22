@@ -4,7 +4,6 @@ import stripByComment from 'strip-by-comment';
 /* eslint-disable */
 
 class CodeView extends Component {
-
   render() {
     let {text} = this.props;
     return(

@@ -5,7 +5,6 @@ import CodeView from "./CodeView";
 /* strip-end */
 
 class Highstock extends Component {
-
   state = {
     config: {
       rangeSelector: {
@@ -29,7 +28,7 @@ class Highstock extends Component {
     return (
       <Fragment>
         <ReactHighstock config={config}> </ReactHighstock>{/* strip-start */}
-          <CodeView text={require("!!raw-loader!./Highstock.js")}/>
+        <CodeView text={require("!!raw-loader!./Highstock.js")}/>
         {/* strip-end */}
       </Fragment>
     );

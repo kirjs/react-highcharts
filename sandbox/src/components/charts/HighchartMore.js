@@ -8,7 +8,6 @@ import CodeView from "./CodeView";
 HighchartsMore(ReactHighcharts.Highcharts);
 
 class HighchartMore extends Component {
-
   state = {
     config: {
       chart: {
@@ -31,7 +30,7 @@ class HighchartMore extends Component {
     return (
       <Fragment>
         <ReactHighcharts config={config}> </ReactHighcharts>{/* strip-start */}
-          <CodeView text={require("!!raw-loader!./HighchartMore.js")} />
+        <CodeView text={require("!!raw-loader!./HighchartMore.js")}/>
         {/* strip-end */}
       </Fragment>
     );

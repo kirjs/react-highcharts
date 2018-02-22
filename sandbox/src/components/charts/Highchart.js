@@ -5,7 +5,6 @@ import CodeView from "./CodeView";
 /* strip-end */
 
 class Highchart extends Component {
-
   state = {
     config: {
       title: {
@@ -20,13 +19,12 @@ class Highchart extends Component {
     }
   };
 
-
   render() {
     const {config} = this.state;
     return (
       <Fragment>
         <ReactHighcharts config={config}> </ReactHighcharts>{/* strip-start */}
-        <CodeView text={require("!!raw-loader!./Highchart.js")} />
+        <CodeView text={require("!!raw-loader!./Highchart.js")}/>
         {/* strip-end */}
       </Fragment>
     );
