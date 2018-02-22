@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, Fragment} from 'react';
 import Routes from './components/Routes'
 import './App.css';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -14,27 +14,21 @@ class App extends Component {
   render() {
     const muiTheme = getMuiTheme({
       appBar:{
-        color:'rgb(72, 70, 91)'
+        color:'#48465B'
       }
-    })
+    });
     return (
       <Provider store={store}>
         <ConnectedRouter history={history}>
-          <div>
             <MuiThemeProvider muiTheme={muiTheme}>
-              <div>
-                <AppBar
-                  className={'menus'}
-                  title="Title"
-                  iconClassNameRight="muidocs-icon-navigation-expand-more"
-                />
+              <Fragment>
+                <AppBar/>
                 <LeftMenu/>
                 <div className='ContentStyle'>
                   <Routes/>
                 </div>
-              </div>
+              </Fragment>
             </MuiThemeProvider>
-          </div>
         </ConnectedRouter>
       </Provider>
     );

@@ -1,17 +1,16 @@
 import React, {Component} from 'react';
 import PrismCode from 'react-prism'
 import stripByComment from 'strip-by-comment';
-/* eslint-disable */
 
-class CodeView extends Component {
+class CodeWrapper extends Component {
   render() {
-    let {text} = this.props;
+    let {code} = this.props;
     return(
       <PrismCode component="pre" className="language-javascript">
-        {stripByComment(text)}
+        {stripByComment(code)}
       </PrismCode>
     );
   }
 }
 
-export default CodeView
+export default CodeWrapper

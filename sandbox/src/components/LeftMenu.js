@@ -8,24 +8,19 @@ import 'prismjs';
 import 'prismjs/themes/prism.css';
 
 class LeftMenu extends Component {
-
   state = {
-    urlPatch:'/react-highcharts'
-  }
-
-  handleRequestClose = (ev, local) => {
-    history.push( this.state.urlPatch + local)
+    urlPatch: '/react-highcharts'
   };
+
+  handleOpenURL = (ev, local) => history.push(this.state.urlPatch + local);
 
   render() {
     const SelectableList = makeSelectable(List);
     const logoLeft = <img src={logo} className="App-logo" alt="logo"/>;
-    const {urlPatch} = this.state
+    const {urlPatch} = this.state;
     return <div>
-
       <Drawer containerStyle={{background: '#efefef'}} open={true}>
         <AppBar
-          className={'menus'}
           titleStyle={{color: 'rgb(114, 217, 250)', fontSize: 20}}
           showMenuIconButton={true}
           iconStyleLeft={{margin: "15px -3px 0px -5px"}}
@@ -33,15 +28,16 @@ class LeftMenu extends Component {
           title="React-Highcharts"
         />
         <SelectableList value={history.location.pathname}>
-          <ListItem primaryText="Highcharts" onClick={e => this.handleRequestClose(e, '/highchart')}
+          <ListItem primaryText="Highcharts" onClick={e => this.handleOpenURL(e, '/highchart')}
                     value={urlPatch + '/highchart'}
-                    nestedItems={[<ListItem primaryText="Highcharts-More" onClick={e => this.handleRequestClose(e, '/highchartmore')}
-                                value={urlPatch + '/highchartmore'}/>
+                    nestedItems={[<ListItem primaryText="Highcharts-More"
+                                            onClick={e => this.handleOpenURL(e, '/highchartmore')}
+                                            value={urlPatch + '/highchartmore'}/>
                     ]}
           />
-          <ListItem primaryText="Highstock" onClick={e => this.handleRequestClose(e, '/highstock')}
+          <ListItem primaryText="Highstock" onClick={e => this.handleOpenURL(e, '/highstock')}
                     value={urlPatch + '/highstock'}/>
-          <ListItem primaryText="Highmaps" onClick={e => this.handleRequestClose(e, '/highmaps')}
+          <ListItem primaryText="Highmaps" onClick={e => this.handleOpenURL(e, '/highmaps')}
                     value={urlPatch + '/highmaps'}/>
         </SelectableList>
       </Drawer>

@@ -1,6 +1,6 @@
 import React, {Component, Fragment} from 'react';
 import ReactHighmaps from 'react-highcharts/ReactHighmaps';/* strip-start */
-import CodeView from "./CodeView";
+import CodeWrapper from "./CodeWrapper";
 /* eslint-disable */
 /* strip-end */
 import maps from 'europe';
@@ -33,10 +33,8 @@ class Highmaps extends Component {
             headerFormat: '',
             pointFormat: '{point.name}: <b>{series.name}</b>'
           }
-
         }
       },
-
       series: [{
         name: 'UTC',
         data: ['IE', 'IS', 'GB', 'PT'].map(function (code) {
@@ -56,11 +54,11 @@ class Highmaps extends Component {
     return (
       <Fragment>
         <ReactHighmaps config={config}> </ReactHighmaps>{/* strip-start */}
-        <CodeView text={require("!!raw-loader!./Highmaps.js")}/>
+        <CodeWrapper code={require("!!raw-loader!./Highmaps.js")}/>
         {/* strip-end */}
       </Fragment>
     );
   }
 }
 
-export default Highmaps;
+export default Highmaps

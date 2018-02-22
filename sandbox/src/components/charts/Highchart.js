@@ -1,6 +1,6 @@
 import React, {Component, Fragment} from 'react';
 import ReactHighcharts from 'react-highcharts';/* strip-start */
-import CodeView from "./CodeView";
+import CodeWrapper from "./CodeWrapper";
 /* eslint-disable */
 /* strip-end */
 
@@ -24,11 +24,11 @@ class Highchart extends Component {
     return (
       <Fragment>
         <ReactHighcharts config={config}> </ReactHighcharts>{/* strip-start */}
-        <CodeView text={require("!!raw-loader!./Highchart.js")}/>
+        <CodeWrapper code={require("!!raw-loader!./Highchart.js")}/>
         {/* strip-end */}
       </Fragment>
     );
   }
 }
 
-export default Highchart;
+export default Highchart

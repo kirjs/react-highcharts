@@ -1,6 +1,6 @@
 import React, {Component, Fragment} from 'react';
 import ReactHighstock from 'react-highcharts/ReactHighstock';/* strip-start */
-import CodeView from "./CodeView";
+import CodeWrapper from "./CodeWrapper";
 /* eslint-disable */
 /* strip-end */
 
@@ -28,11 +28,11 @@ class Highstock extends Component {
     return (
       <Fragment>
         <ReactHighstock config={config}> </ReactHighstock>{/* strip-start */}
-        <CodeView text={require("!!raw-loader!./Highstock.js")}/>
+        <CodeWrapper code={require("!!raw-loader!./Highstock.js")}/>
         {/* strip-end */}
       </Fragment>
     );
   }
 }
 
-export default Highstock;
+export default Highstock
