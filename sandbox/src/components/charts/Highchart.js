@@ -23,7 +23,7 @@ class Highchart extends Component {
     const {config} = this.state;
     return (
       <Fragment>
-        <ReactHighcharts config={config}> </ReactHighcharts>{/* strip-start */}
+        <ReactHighcharts config={config}></ReactHighcharts>{/* strip-start */}
         <CodeWrapper code={require("!!raw-loader!./Highchart.js")}/>
         {/* strip-end */}
       </Fragment>

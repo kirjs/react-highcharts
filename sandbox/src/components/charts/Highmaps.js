@@ -53,7 +53,7 @@ class Highmaps extends Component {
     const {config} = this.state;
     return (
       <Fragment>
-        <ReactHighmaps config={config}> </ReactHighmaps>{/* strip-start */}
+        <ReactHighmaps config={config}></ReactHighmaps>{/* strip-start */}
         <CodeWrapper code={require("!!raw-loader!./Highmaps.js")}/>
         {/* strip-end */}
       </Fragment>

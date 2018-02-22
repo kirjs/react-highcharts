@@ -27,7 +27,7 @@ class Highstock extends Component {
     const {config} = this.state;
     return (
       <Fragment>
-        <ReactHighstock config={config}> </ReactHighstock>{/* strip-start */}
+        <ReactHighstock config={config}></ReactHighstock>{/* strip-start */}
         <CodeWrapper code={require("!!raw-loader!./Highstock.js")}/>
         {/* strip-end */}
       </Fragment>
