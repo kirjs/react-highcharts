@@ -3,10 +3,11 @@ import Drawer from 'material-ui/Drawer';
 import AppBar from 'material-ui/AppBar';
 import {List, ListItem, makeSelectable} from 'material-ui/List';
 import logo from '../logo.svg';
-import history from '../history'
+import history from '../history';
+import Routes from './Routes';
 import 'prismjs';
 import 'prismjs/themes/prism.css';
-
+/* eslint-disable */
 class LeftMenu extends Component {
   state = {
     urlPatch: '/react-highcharts'
@@ -41,6 +42,10 @@ class LeftMenu extends Component {
                     value={urlPatch + '/highmaps'}/>
         </SelectableList>
       </Drawer>
+      <div className='ContentStyle'>
+        <Routes/>
+      </div>
+
     </div>
 
   }

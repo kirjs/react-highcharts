@@ -24,9 +24,6 @@ class App extends Component {
               <Fragment>
                 <AppBar/>
                 <LeftMenu/>
-                <div className='ContentStyle'>
-                  <Routes/>
-                </div>
               </Fragment>
             </MuiThemeProvider>
         </ConnectedRouter>

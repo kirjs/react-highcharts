@@ -1,8 +1,11 @@
-import React, {Component, Fragment} from 'react';
-import ReactHighcharts from 'react-highcharts';/* strip-start */
-import CodeWrapper from "./CodeWrapper";
-/* eslint-disable */
-/* strip-end */
+import React, {Component} from 'react';
+import CodeWrapper from './CodeWrapper';
+
+class Highchart extends Component {
+  render() {
+    return <CodeWrapper url={"https://stackblitz.com/edit/highcharts?embed=1&file=Highchart.js&view=preview"}>
+      {`import React, { Component } from 'react';
+import ReactHighcharts from 'react-highcharts';
 
 class Highchart extends Component {
   state = {
@@ -20,14 +23,13 @@ class Highchart extends Component {
   };
 
   render() {
-    const {config} = this.state;
-    return (
-      <Fragment>
-        <ReactHighcharts config={config}></ReactHighcharts>{/* strip-start */}
-        <CodeWrapper code={require("!!raw-loader!./Highchart.js")}/>
-        {/* strip-end */}
-      </Fragment>
-    );
+    const { config } = this.state;
+    return <ReactHighcharts config={config}/>
+  }
+}
+
+export default Highchart`}
+    </CodeWrapper>
   }
 }
 

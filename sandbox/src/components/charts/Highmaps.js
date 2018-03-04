@@ -1,9 +1,12 @@
-import React, {Component, Fragment} from 'react';
-import ReactHighmaps from 'react-highcharts/ReactHighmaps';/* strip-start */
-import CodeWrapper from "./CodeWrapper";
-/* eslint-disable */
-/* strip-end */
-import maps from 'europe';
+import React, {Component} from 'react';
+import CodeWrapper from './CodeWrapper';
+
+class Highstock extends Component {
+  render() {
+    return <CodeWrapper url={"https://stackblitz.com/edit/highmaps?embed=1&file=index.js&view=preview"}>
+      {`import React, { Component } from 'react';
+import ReactHighmaps from 'react-highcharts/ReactHighmaps';
+import maps from './europe';
 
 class Highmaps extends Component {
   state = {
@@ -38,27 +41,26 @@ class Highmaps extends Component {
       series: [{
         name: 'UTC',
         data: ['IE', 'IS', 'GB', 'PT'].map(function (code) {
-          return {code: code};
+          return { code: code };
         })
       }, {
         name: 'UTC + 1',
         data: ['NO', 'SE', 'DK', 'DE', 'NL', 'BE', 'LU', 'ES', 'FR', 'PL', 'CZ', 'AT', 'CH', 'LI', 'SK', 'HU', 'SI', 'IT', 'SM', 'HR', 'BA', 'YF', 'ME', 'AL', 'MK'].map(function (code) {
-          return {code: code};
+          return { code: code };
         })
       }]
     }
   };
 
   render() {
-    const {config} = this.state;
-    return (
-      <Fragment>
-        <ReactHighmaps config={config}></ReactHighmaps>{/* strip-start */}
-        <CodeWrapper code={require("!!raw-loader!./Highmaps.js")}/>
-        {/* strip-end */}
-      </Fragment>
-    );
+    const { config } = this.state;
+    return <ReactHighmaps config={config} />;
   }
 }
 
-export default Highmaps
+export default Highmaps`}
+    </CodeWrapper>;
+  }
+}
+
+export default Highstock

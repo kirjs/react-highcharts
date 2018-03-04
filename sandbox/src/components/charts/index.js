@@ -4,3 +4,4 @@ import Highmaps from './Highmaps';
 import HighchartMore from './HighchartMore';
 
 export { Highchart, Highstock, Highmaps, HighchartMore }
+

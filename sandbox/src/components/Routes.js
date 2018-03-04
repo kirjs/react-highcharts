@@ -6,15 +6,14 @@ function Routes() {
   return (
     <div>
       <Switch>
-        <Route path="/react-highcharts/highchart" component={Highchart}/>
+        <Route exact path="/react-highcharts" component={Highchart}/>
+        <Route path="/react-highcharts/highchart" component={Highchart} />
         <Route path="/react-highcharts/highmaps" component={Highmaps}/>
         <Route path="/react-highcharts/highstock" component={Highstock}/>
-        <Route path="/react-highcharts/highchartmore" component={HighchartMore}/>
-        <Route path="/react-highcharts" component={Highchart}/>
+        <Route path="/react-highcharts/highchartmore" component={HighchartMore} />
       </Switch>
     </div>
   )
-
 }
 
 export default Routes

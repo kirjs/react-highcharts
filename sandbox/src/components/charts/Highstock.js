@@ -1,8 +1,11 @@
-import React, {Component, Fragment} from 'react';
-import ReactHighstock from 'react-highcharts/ReactHighstock';/* strip-start */
-import CodeWrapper from "./CodeWrapper";
-/* eslint-disable */
-/* strip-end */
+import React, {Component} from 'react';
+import CodeWrapper from './CodeWrapper';
+
+class Highstock extends Component {
+  render() {
+    return <CodeWrapper url={"https://stackblitz.com/edit/react-highstock?embed=1&file=index.js&view=preview"}>
+      {`import React, { Component } from 'react';
+import ReactHighstock from 'react-highcharts/ReactHighstock';
 
 class Highstock extends Component {
   state = {
@@ -24,14 +27,13 @@ class Highstock extends Component {
   };
 
   render() {
-    const {config} = this.state;
-    return (
-      <Fragment>
-        <ReactHighstock config={config}></ReactHighstock>{/* strip-start */}
-        <CodeWrapper code={require("!!raw-loader!./Highstock.js")}/>
-        {/* strip-end */}
-      </Fragment>
-    );
+    const { config } = this.state;
+    return  <ReactHighstock config={config} />;
+  }
+}
+
+export default Highstock`}
+    </CodeWrapper>;
   }
 }
 
