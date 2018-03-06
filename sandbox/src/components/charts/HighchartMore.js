@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import CodeWrapper from './CodeWrapper';
 
-const code = `import React, { Component } from 'react';
+const code = `import React, {Component} from 'react';
 import ReactHighcharts from 'react-highcharts'
 import HighchartsMore from 'highcharts/highcharts-more';
 import HighchartsExporting from 'highcharts/modules/exporting';

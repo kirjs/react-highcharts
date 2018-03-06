@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import CodeWrapper from './CodeWrapper';
 
-const code = `import React, { Component } from 'react';
+const code = `import React, {Component} from 'react';
 import ReactHighstock from 'react-highcharts/ReactHighstock';
 
 class Highstock extends Component {

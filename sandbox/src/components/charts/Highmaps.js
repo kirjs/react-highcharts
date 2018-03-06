@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import CodeWrapper from './CodeWrapper';
-import europe from 'europe'
+import europe from '../../europe'
 
-const code = `import React, { Component } from 'react';
+const code = `import React, {Component} from 'react';
 import ReactHighmaps from 'react-highcharts/ReactHighmaps';
 import maps from './europe';
 
