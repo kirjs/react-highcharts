@@ -1,10 +1,7 @@
 import React, {Component} from 'react';
 import CodeWrapper from './CodeWrapper';
 
-class Highstock extends Component {
-  render() {
-    return <CodeWrapper url={"https://stackblitz.com/edit/react-highstock?embed=1&file=index.js&view=preview"}>
-      {`import React, { Component } from 'react';
+const code = `import React, { Component } from 'react';
 import ReactHighstock from 'react-highcharts/ReactHighstock';
 
 class Highstock extends Component {
@@ -27,13 +24,24 @@ class Highstock extends Component {
   };
 
   render() {
-    const { config } = this.state;
+    const {config} = this.state;
     return  <ReactHighstock config={config} />;
   }
 }
 
-export default Highstock`}
-    </CodeWrapper>;
+export default Highstock`;
+
+class Highstock extends Component {
+  render() {
+    const files ={
+      'Highstock.js':code,
+    };
+
+    return  <CodeWrapper files={files} name='Highstock'>
+      {code}
+    </CodeWrapper>
+
+      ;
   }
 }
 

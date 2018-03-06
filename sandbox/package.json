@@ -4,6 +4,7 @@
   "private": false,
   "homepage": "https://ilyjs.github.io/react-highcharts",
   "dependencies": {
+    "@stackblitz/sdk": "^1.1.1",
     "gh-pages": "^1.1.0",
     "highcharts": "^6.0.4",
     "history": "^4.7.2",

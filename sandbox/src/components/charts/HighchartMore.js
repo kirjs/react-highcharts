@@ -1,10 +1,7 @@
 import React, {Component} from 'react';
 import CodeWrapper from './CodeWrapper';
 
-class HighchartMore extends Component {
-  render() {
-    return <CodeWrapper url={"https://stackblitz.com/edit/highchartmore?embed=1&file=index.js&view=preview"}>
-      {`import React, { Component } from 'react';
+const code = `import React, { Component } from 'react';
 import ReactHighcharts from 'react-highcharts'
 import HighchartsMore from 'highcharts/highcharts-more';
 import HighchartsExporting from 'highcharts/modules/exporting';
@@ -31,12 +28,21 @@ class HighchartMore extends Component {
   };
 
   render() {
-    const { config } = this.state;
+    const {config} = this.state;
     return <ReactHighcharts config={config} />
   }
 }
 
-export default HighchartMore`}
+export default HighchartMore`;
+
+class HighchartMore extends Component {
+  render() {
+    const files ={
+      'HighchartMore.js':code,
+    };
+
+    return <CodeWrapper files={files} name='HighchartMore'>
+      {code}
     </CodeWrapper>
   }
 }

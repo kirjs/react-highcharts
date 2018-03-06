@@ -1,6 +1,4 @@
 import React, {Component, Fragment} from 'react';
-import Routes from './components/Routes'
-import './App.css';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import LeftMenu from './components/LeftMenu'
 import AppBar from 'material-ui/AppBar';

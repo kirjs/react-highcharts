@@ -10,7 +10,7 @@ function Routes() {
         <Route path="/react-highcharts/highchart" component={Highchart} />
         <Route path="/react-highcharts/highmaps" component={Highmaps}/>
         <Route path="/react-highcharts/highstock" component={Highstock}/>
-        <Route path="/react-highcharts/highchartmore" component={HighchartMore} />
+        <Route path="/react-highcharts/highcharts-more" component={HighchartMore} />
       </Switch>
     </div>
   )
