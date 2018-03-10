@@ -21,6 +21,9 @@ function chartsFactory(chartType, Highcharts) {
                 throw new Error('Config must be specified for the ' + this.displayName + ' component');
             }
             const chartConfig = config.chart;
+            if (this.chart) {
+                this.chart.destroy();
+            }
             this.chart = new this.Highcharts[this.chartType]({
                 ...config,
                 chart: {
