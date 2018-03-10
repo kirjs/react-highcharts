@@ -84,6 +84,28 @@ function nonBundleTest(lib, chartName, modulename){
         component.componentWillUnmount();
         assert(fakeHighchartsInstance.destroy.called);
       });
+
+      it('Destroys Highchart and rebuilds it when component gets updated', ()=>{
+        var fakeHighchartsInstance = {
+          destroy: sinon.stub()
+        };
+        var fakeConfig = {
+          chart: {
+            specialProp: {}
+          }
+        };
+        fakeHighcharts[chartName] = sinon.stub().returns(fakeHighchartsInstance);
+
+        var component = TestUtils.renderIntoDocument(
+          React.createElement(Component, {config: {}, callback: noop})
+        );
+
+        assert(!fakeHighchartsInstance.destroy.called);
+        component.shouldComponentUpdate({
+          config: fakeConfig
+        });
+        assert(fakeHighchartsInstance.destroy.called);
+      });
     });
 
     describe('WithHighcharts', ()=>{
