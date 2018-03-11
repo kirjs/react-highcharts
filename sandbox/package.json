@@ -34,6 +34,9 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
-    "jest": "^22.3.0"
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-prettier": "^2.6.0",
+    "jest": "^22.3.0",
+    "prettier": "1.11.1"
   }
 }
