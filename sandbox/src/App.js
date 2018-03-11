@@ -11,19 +11,19 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 class App extends Component {
   render() {
     const muiTheme = getMuiTheme({
-      appBar:{
-        color:'#48465B'
+      appBar: {
+        color: '#48465B'
       }
     });
     return (
       <Provider store={store}>
         <ConnectedRouter history={history}>
-            <MuiThemeProvider muiTheme={muiTheme}>
-              <Fragment>
-                <AppBar/>
-                <LeftMenu/>
-              </Fragment>
-            </MuiThemeProvider>
+          <MuiThemeProvider muiTheme={muiTheme}>
+            <Fragment>
+              <AppBar/>
+              <LeftMenu/>
+            </Fragment>
+          </MuiThemeProvider>
         </ConnectedRouter>
       </Provider>
     );

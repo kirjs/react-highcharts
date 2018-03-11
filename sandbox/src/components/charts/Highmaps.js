@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
-import CodeWrapper from './CodeWrapper';
-import europe from '../../europe'
+import React, { Component } from "react";
+import CodeWrapper from "./CodeWrapper";
+import europe from "../../europe";
 
 const code = `import React, {Component} from 'react';
 import ReactHighmaps from 'react-highcharts/ReactHighmaps';
@@ -59,17 +59,18 @@ class Highmaps extends Component {
 export default Highmaps`;
 
 class Highstock extends Component {
-
   render() {
-    const files ={
-      'Highmaps.js':code,
-      'europe.js':europe
+    const files = {
+      "Highmaps.js": code,
+      "europe.js": europe
     };
 
-    return <CodeWrapper files={files} name='Highmaps'>
-      {code}
-    </CodeWrapper>;
+    return (
+      <CodeWrapper files={files} name="Highmaps">
+        {code}
+      </CodeWrapper>
+    );
   }
 }
 
-export default Highstock
+export default Highstock;

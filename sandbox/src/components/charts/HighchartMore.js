@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import CodeWrapper from './CodeWrapper';
+import React, { Component } from "react";
+import CodeWrapper from "./CodeWrapper";
 
 const code = `import React, {Component} from 'react';
 import ReactHighcharts from 'react-highcharts'
@@ -37,14 +37,16 @@ export default HighchartMore`;
 
 class HighchartMore extends Component {
   render() {
-    const files ={
-      'HighchartMore.js':code,
+    const files = {
+      "HighchartMore.js": code
     };
 
-    return <CodeWrapper files={files} name='HighchartMore'>
-      {code}
-    </CodeWrapper>
+    return (
+      <CodeWrapper files={files} name="HighchartMore">
+        {code}
+      </CodeWrapper>
+    );
   }
 }
 
-export default HighchartMore
+export default HighchartMore;
