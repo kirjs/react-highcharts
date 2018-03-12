@@ -6,6 +6,12 @@ import logo from "../logo.svg";
 import history from "../history";
 import Routes from "./Routes";
 import styled from "styled-components";
+import UrlConst, {
+  highchart,
+  highchartsMore,
+  highstock,
+  highmaps
+} from "./UrlConst";
 import "prismjs";
 import "prismjs/themes/prism.css";
 
@@ -26,12 +32,11 @@ class LeftMenu extends Component {
     const { base } = this.state;
     const menuList = [
       {
-        name: "Highcharts",
-        url: "highchart",
-        nestedItems: [{ name: "Highcharts-More", url: "highcharts-more" }]
+        ...UrlConst[highchart],
+        nestedItems: [{ ...UrlConst[highchartsMore] }]
       },
-      { name: "Highstock", url: "highstock" },
-      { name: "Highmaps", url: "highmaps" }
+      { ...UrlConst[highstock] },
+      { ...UrlConst[highmaps] }
     ];
     const listItems = menuList.map((listItem, index) => {
       let nestedItem = !listItem.nestedItems

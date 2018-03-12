@@ -5,24 +5,25 @@ import sdk from "@stackblitz/sdk";
 
 class CodeWrapper extends Component {
   componentDidMount() {
-    const { name, files } = this.props;
-    files["index.js"] = `import React, { Component } from 'react';
+    const { files, nameMainFile } = this.props;
+    let file = {};
+    file["index.js"] = `import React, { Component } from 'react';
 import { render } from 'react-dom';
-import ${name} from './${name}';
+import ${nameMainFile} from './${nameMainFile}';
 
 class App extends Component {
 
   render() {
-    return <${name}/>
+    return <${nameMainFile}/>
   }
 }
 
 render(<App />, document.getElementById('root'));
 `;
-    files["index.html"] = '<div id="root"> </div>';
+    file["index.html"] = '<div id="root"> </div>';
     const project = {
-      files,
-      title: "React-Highcharts",
+      files: { ...files, ...file },
+      title: `React-Highcharts`,
       description: "React-Highcharts",
       template: "create-react-app",
       tags: ["stackblitz", "sdk", "React-Highcharts"],
@@ -33,16 +34,37 @@ render(<App />, document.getElementById('root'));
         highcharts: "6.0.7"
       }
     };
-    sdk.embedProject(this.stackblitz, project, {
+    this.sdk = sdk.embedProject(this.stackblitz, project, {
       height: 550,
       width: "100%",
       forceEmbedLayout: true,
+      openFile: `${nameMainFile}.js`,
       view: "preview"
     });
   }
 
-  componentWillUnmount() {
-    this.stackblitz = null;
+  componentWillUpdate(nextProps) {
+    const { files, nameMainFile } = nextProps;
+    let file = {};
+    file["index.js"] = `import React, { Component } from 'react';
+import { render } from 'react-dom';
+import ${nameMainFile} from './${nameMainFile}';
+
+class App extends Component {
+
+  render() {
+    return <${nameMainFile}/>
+  }
+}
+
+render(<App />, document.getElementById('root'));
+`;
+    this.sdk.then(vm => {
+      vm.applyFsDiff({
+        create: { ...file, ...files }
+      });
+      vm.editor.openFile(`${nameMainFile}.js`);
+    });
   }
 
   render() {
@@ -61,7 +83,7 @@ render(<App />, document.getElementById('root'));
 CodeWrapper.propTypes = {
   files: PropTypes.object.isRequired,
   children: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired
+  nameMainFile: PropTypes.string.isRequired
 };
 
 export default CodeWrapper;
