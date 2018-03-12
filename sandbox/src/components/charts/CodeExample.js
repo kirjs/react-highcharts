@@ -2,25 +2,15 @@ import React, { Component } from "react";
 import PrismCode from "react-prism";
 import PropTypes from "prop-types";
 import sdk from "@stackblitz/sdk";
+import indexJs from "./indexJs";
 
 class CodeWrapper extends Component {
   componentDidMount() {
-    const { files, nameMainFile } = this.props;
-    let file = {};
-    file["index.js"] = `import React, { Component } from 'react';
-import { render } from 'react-dom';
-import ${nameMainFile} from './${nameMainFile}';
-
-class App extends Component {
-
-  render() {
-    return <${nameMainFile}/>
-  }
-}
-
-render(<App />, document.getElementById('root'));
-`;
-    file["index.html"] = '<div id="root"> </div>';
+    const { files, fileName } = this.props;
+    const file = {
+      "index.js": indexJs(fileName),
+      "index.html": '<div id="root"> </div>'
+    };
     const project = {
       files: { ...files, ...file },
       title: `React-Highcharts`,
@@ -38,42 +28,28 @@ render(<App />, document.getElementById('root'));
       height: 550,
       width: "100%",
       forceEmbedLayout: true,
-      openFile: `${nameMainFile}.js`,
+      openFile: `${fileName}.js`,
       view: "preview"
     });
   }
 
-  componentWillUpdate(nextProps) {
-    const { files, nameMainFile } = nextProps;
-    let file = {};
-    file["index.js"] = `import React, { Component } from 'react';
-import { render } from 'react-dom';
-import ${nameMainFile} from './${nameMainFile}';
-
-class App extends Component {
-
-  render() {
-    return <${nameMainFile}/>
-  }
-}
-
-render(<App />, document.getElementById('root'));
-`;
+  componentWillUpdate({ files, fileName }) {
+    const file = { "index.js": indexJs(fileName) };
     this.sdk.then(vm => {
       vm.applyFsDiff({
         create: { ...file, ...files }
       });
-      vm.editor.openFile(`${nameMainFile}.js`);
+      vm.editor.openFile(`${fileName}.js`);
     });
   }
 
   render() {
-    let { children } = this.props;
+    let { code } = this.props;
     return (
       <div>
         <div ref={sb => (this.stackblitz = sb)} />
         <PrismCode component="pre" className="language-javascript">
-          {children}
+          {code}
         </PrismCode>
       </div>
     );
@@ -82,8 +58,8 @@ render(<App />, document.getElementById('root'));
 
 CodeWrapper.propTypes = {
   files: PropTypes.object.isRequired,
-  children: PropTypes.string.isRequired,
-  nameMainFile: PropTypes.string.isRequired
+  code: PropTypes.string.isRequired,
+  fileName: PropTypes.string.isRequired
 };
 
 export default CodeWrapper;

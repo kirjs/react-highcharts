@@ -1,21 +1,21 @@
 import React from "react";
 import CodeExample from "./CodeExample";
-import highchartConst from "./highchartConst";
 import history from "../../history";
-import { highchart } from "../UrlConst";
+import { highchart, highchartConst, baseUrl } from "../constants";
 
 export default function Highchart(props) {
   let { url } = props.match.params;
-  console.log("history", history);
-  if (url || history.location.pathname === "/react-highcharts/") {
-    if (!url) url = highchart;
-    const { name, files, code, nameMainFile } = highchartConst[url];
+  if (history.location.pathname === baseUrl) url = highchart;
+  if (url) {
+    const { name, files, code, fileName } = highchartConst[url];
     return (
       <div>
-        <CodeExample files={files} name={name} nameMainFile={nameMainFile}>
-          {code}
-        </CodeExample>
-        {url}
+        <CodeExample
+          code={code}
+          files={files}
+          name={name}
+          fileName={fileName}
+        />
       </div>
     );
   } else {

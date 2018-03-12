@@ -6,12 +6,7 @@ import logo from "../logo.svg";
 import history from "../history";
 import Routes from "./Routes";
 import styled from "styled-components";
-import UrlConst, {
-  highchart,
-  highchartsMore,
-  highstock,
-  highmaps
-} from "./UrlConst";
+import { menuList, baseUrl } from "./constants";
 import "prismjs";
 import "prismjs/themes/prism.css";
 
@@ -20,24 +15,12 @@ const Content = styled.div`
 `;
 
 class LeftMenu extends Component {
-  state = {
-    base: "/react-highcharts/"
-  };
-
-  navigate = local => history.push(this.state.base + local);
+  navigate = local => history.push(baseUrl + local);
 
   render() {
     const SelectableList = makeSelectable(List);
     const logoLeft = <img src={logo} className="App-logo" alt="logo" />;
-    const { base } = this.state;
-    const menuList = [
-      {
-        ...UrlConst[highchart],
-        nestedItems: [{ ...UrlConst[highchartsMore] }]
-      },
-      { ...UrlConst[highstock] },
-      { ...UrlConst[highmaps] }
-    ];
+
     const listItems = menuList.map((listItem, index) => {
       let nestedItem = !listItem.nestedItems
         ? []
@@ -46,7 +29,7 @@ class LeftMenu extends Component {
               key={nestedIndex}
               primaryText={item.name}
               onClick={() => this.navigate(item.url)}
-              value={base + item.url}
+              value={baseUrl + item.url}
             />
           ));
 
@@ -55,7 +38,7 @@ class LeftMenu extends Component {
           key={index}
           primaryText={listItem.name}
           onClick={() => this.navigate(listItem.url)}
-          value={base + listItem.url}
+          value={baseUrl + listItem.url}
           nestedItems={nestedItem}
         />
       );
