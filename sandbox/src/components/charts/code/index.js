@@ -1,6 +1,5 @@
-import Highchart from "./Highchart";
-import HighchartMore from "./HighchartMore";
-import Highmaps from "./Highmaps";
-import Highstock from "./Highstock";
-
-export { Highchart, HighchartMore, Highmaps, Highstock };
+/* eslint-disable */
+export const Highchart = require("!!raw-loader!./Highchart.js");
+export const HighchartMore = require("!!raw-loader!./HighchartMore.js");
+export const Highmaps = require("!!raw-loader!./Highmaps.js");
+export const Highstock = require("!!raw-loader!./Highstock.js");

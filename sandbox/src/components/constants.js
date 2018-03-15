@@ -6,21 +6,14 @@ export const highchartsMore = "highcharts-more";
 export const highstock = "highstock";
 export const highmaps = "highmaps";
 
-export const UrlConst = {
-  [highchart]: { url: highchart },
-  [highchartsMore]: { url: highchartsMore },
-  [highstock]: { url: highstock },
-  [highmaps]: { url: highmaps }
-};
-
 export const menuList = [
   {
-    ...UrlConst[highchart],
+    url: highchart,
     name: "Highcharts",
-    nestedItems: [{ ...UrlConst[highchartsMore], name: "Highcharts-More" }]
+    nestedItems: [{ url: highchartsMore, name: "Highcharts-More" }]
   },
-  { ...UrlConst[highstock], name: "Highstock" },
-  { ...UrlConst[highmaps], name: "Highmaps" }
+  { url: highstock, name: "Highstock" },
+  { url: highmaps, name: "Highmaps" }
 ];
 
 export const filenames = {
@@ -32,25 +25,25 @@ export const filenames = {
 
 export const highchartConst = {
   [highchart]: {
-    ...UrlConst[highchart],
+    url: highchart,
     files: { [filenames[highchart] + ".js"]: Highchart },
     code: Highchart,
     fileName: filenames[highchart]
   },
   [highchartsMore]: {
-    ...UrlConst[highchartsMore],
+    url: highchartsMore,
     files: { [filenames[highchartsMore] + ".js"]: HighchartMore },
     code: HighchartMore,
     fileName: filenames[highchartsMore]
   },
   [highstock]: {
-    ...UrlConst[highstock],
+    url: highstock,
     files: { [filenames[highstock] + ".js"]: Highstock },
     code: Highstock,
     fileName: filenames[highstock]
   },
   [highmaps]: {
-    ...UrlConst[highmaps],
+    url: highmaps,
     files: {
       [filenames[highmaps] + ".js"]: Highmaps,
       "europe.js": europe
