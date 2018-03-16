@@ -1,10 +1,10 @@
 import { Highchart, HighchartMore, Highmaps, Highstock } from "./charts/code";
 import europe from "../europe";
 
-export const highchart = "highchart";
-export const highchartsMore = "highcharts-more";
-export const highstock = "highstock";
-export const highmaps = "highmaps";
+const highchart = "highchart";
+const highchartsMore = "highcharts-more";
+const highstock = "highstock";
+const highmaps = "highmaps";
 
 export const menuList = [
   {
