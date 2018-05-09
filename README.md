@@ -21,6 +21,11 @@ You can also see [Code for the demo](https://github.com/kirjs/react-highcharts/t
 npm install react-highcharts --save
 ```
 
+## Licensing
+The React-Highcharts repository itself is MIT licensed, 
+however note that this module is dependent on Highcharts.js. For commercial use, you need a valid 
+[Highcharts license](http://www.highcharts.com). 
+
 ## Usage
 #### Webpack/Browserify
 
