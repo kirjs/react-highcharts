@@ -14,7 +14,7 @@
 
 var jsdom = require('jsdom');
 const {JSDOM} = jsdom;
-const {document} = (new JSDOM('<!doctype html><html><body><div id="test"></div></body></html>')).window;
+const {document} = (new JSDOM('<!doctype html><html><body><div id="test"></div></body></html>'),{"url":"http://127.0.0.1:8080"}).window;
 var win = document.defaultView;
 global.window = global;
 for( var i in win ){
