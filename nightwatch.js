@@ -13,7 +13,7 @@ module.exports = {
         build: 'build-' + TRAVIS_JOB_NUMBER,
         'tunnel-identifier': TRAVIS_JOB_NUMBER,
         "username": process.env.SAUCE_USERNAME,
-        "access_key": "2addb26e-5725-40c8-b1da-8778cb845253"
+        "access_key": process.env.SAUCE_ACCESS_KEY
       },
       "launch_url": "http://127.0.0.1:8080/",
       "selenium_port": 80,
@@ -25,7 +25,7 @@ module.exports = {
         "path": ""
       },
       "globals": {
-        "waitForConditionTimeout": 30000,
+        "waitForConditionTimeout": 10000,
       }
     }
   }
