@@ -12,7 +12,7 @@ module.exports = {
         version: "latest",
         build: 'build-' + TRAVIS_JOB_NUMBER,
         'tunnel-identifier': TRAVIS_JOB_NUMBER,
-        "username": "kirjs",
+        "username": process.env.SAUCE_USERNAME,
         "access_key": process.env.SAUCE_ACCESS_KEY
       },
       "launch_url": "http://127.0.0.1:8080/",
