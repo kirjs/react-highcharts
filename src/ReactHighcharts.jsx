@@ -1,4 +1,10 @@
-import chartsFactory from './chartsFactory.jsx';
-import highcharts from 'highcharts';
+import chartsFactory from "./chartsFactory.jsx";
+import "highcharts";
 
-export default chartsFactory('Chart', highcharts);
+let Highcharts;
+
+if (window.Highcharts) {
+  Highcharts = window.Highcharts;
+}
+
+export default chartsFactory("Chart", Highcharts);
