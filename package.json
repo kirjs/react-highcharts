@@ -1,7 +1,7 @@
 {
   "name": "react-highcharts",
   "version": "16.0.1",
-  "description": "React wrapper for highcharts",
+  "description": "React wrapper for highcharts with highcharts version 7.0.2",
   "main": "dist/ReactHighcharts.js",
   "scripts": {
     "test": "webpack && mocha test/unit",
