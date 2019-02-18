@@ -1,7 +1,7 @@
 {
-  "name": "react-highcharts",
-  "version": "16.0.1",
-  "description": "React wrapper for highcharts",
+  "name": "emumba-react-highcharts",
+  "version": "16.0.2",
+  "description": "React wrapper for highcharts with highcharts version 7.0.2",
   "main": "dist/ReactHighcharts.js",
   "scripts": {
     "test": "webpack && mocha test/unit",
@@ -66,6 +66,6 @@
     "react-prism": "^4.3.2"
   },
   "dependencies": {
-    "highcharts": "^6.0.4"
+    "highcharts": "^7.0.2"
   }
 }
