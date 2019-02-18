@@ -96,7 +96,7 @@ const ReactHighcharts = require('react-highcharts')
 require('highcharts-more')(ReactHighcharts.Highcharts)
 ```
 
-You can find the full list list [here](https://github.com/kirjs/publish-highcharts-modules/blob/master/modules.md)
+You can find the full list [here](https://github.com/kirjs/publish-highcharts-modules/blob/master/modules.md)
 
 ## Passing Highcharts instance manually
 ```javascript
