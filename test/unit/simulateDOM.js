@@ -14,12 +14,8 @@
 
 var jsdom = require('jsdom');
 const {JSDOM} = jsdom;
-const {document} = (new JSDOM('<!doctype html><html><body><div id="test"></div></body></html>')).window;
-var win = document.defaultView;
-global.window = global;
-for( var i in win ){
-    if( i !== 'window' && win.hasOwnProperty(i)){
-        global.window[i] = win[i];
-    }
-}
+global.dom = new JSDOM('<!doctype html><html><body></body></html>');
+global.window = dom.window;
+global.document = dom.window.document;
+global.navigator = global.window.navigator;
 
