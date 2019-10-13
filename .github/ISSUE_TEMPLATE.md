@@ -1,4 +1,15 @@
-⚠️ Before Submitting an issue ⚠️ 
+## Issue description
 
-Please reproduce your issue in stackblitz and post the link:
+  - react-highcharts version:
+  - Reach version:
+  - Highcharts version:
+
+
+## 💻 Steps to Reproduce 
+
+Please reproduce your issue in stackblitz and post the link below:
 https://stackblitz.com/fork/react-highcharts-demo
+
+
+
+
