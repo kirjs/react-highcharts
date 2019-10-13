@@ -1,5 +1,7 @@
 ## Issue description
 
+Please describe your issue or suggestion here.
+
   - react-highcharts version:
   - Reach version:
   - Highcharts version:
