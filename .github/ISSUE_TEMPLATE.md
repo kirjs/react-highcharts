@@ -1,2 +1,2 @@
-Before Submitting an issue please reproduce it in JSBin using this setup: 
-http://qs.js.org/jsbin/react-highcharts?autostart
+Before Submitting an issue please reproduce it in stackblitz and post the link:
+https://stackblitz.com/edit/react-highcharts-demo
