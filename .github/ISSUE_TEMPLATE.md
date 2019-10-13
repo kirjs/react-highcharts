@@ -11,7 +11,3 @@ Please describe your issue or suggestion here.
 
 Please reproduce your issue in stackblitz and post the link below:
 https://stackblitz.com/fork/react-highcharts-demo
-
-
-
-
