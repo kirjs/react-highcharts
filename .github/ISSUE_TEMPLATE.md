@@ -1,4 +1,4 @@
-🔥Before Submitting an issue 🔥
+⚠️ Before Submitting an issue ⚠️ 
 
 Please reproduce your issue in stackblitz and post the link:
-https://stackblitz.com/edit/react-highcharts-demo
+https://stackblitz.com/fork/react-highcharts-demo
