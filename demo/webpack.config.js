@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = {
     entry: {
         index: './src/index.jsx',
@@ -34,7 +36,7 @@ module.exports = {
         modules: ['node_modules']
     },
     output: {
-        path: __dirname + 'dist/',
+        path: path.resolve(__dirname, 'dist/'),
         filename: '[name].js',
         publicPath: '/'
     }

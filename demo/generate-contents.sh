@@ -19,6 +19,6 @@ contents=`$titles | sed -e "s/$pattern/$replacement/" | tr "\\n" " "`
 pattern="<div class = \"menu\">.*<\/div>"
 replacement="<div class = \"menu\">$contents<\/div>"
 # For all HTML files find the pattern, and add the contents
-sed -i '' -e  "s;$pattern;$replacement;" $(find ./dist -type f -name '*.html')
+sed -e "s;$pattern;$replacement;" $(find ./dist -type f -name '*.html')
 
 echo 'done generating contents';
