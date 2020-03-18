@@ -3,8 +3,7 @@ react-highcharts
 
 [![Build Status](https://travis-ci.org/kirjs/react-highcharts.svg?branch=master)](https://travis-ci.org/kirjs/react-highcharts)
 
-[Highcharts 6.x.x](https://www.highcharts.com/documentation/changelog) component for react.
-For highcharts 5.x.x use v. 13.0.0
+This is an alternative React component for [Highcharts 6.x.x](https://www.highcharts.com/documentation/changelog). For the latest Highcharts, use [the official wrapper](https://github.com/highcharts/highcharts-react). For highcharts 5.x.x use v. 13.0.0.
 
 ## Demos
 [react-highcharts](http://kirjs.github.io/react-highcharts/)
