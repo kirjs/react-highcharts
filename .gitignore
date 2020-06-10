@@ -4,3 +4,14 @@ node_modules
 dist
 modules
 demo/dist/*
+ReactHighcharts.js
+ReactHighcharts.src.js
+ReactHighmaps.js
+ReactHighmaps.src.js
+ReactHighstock.js
+ReactHighstock.src.js
+RedrawOnPrint.js
+RedrawOnPrint.src.js
+bundle/*
+index.js
+index.src.js
