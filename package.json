@@ -66,6 +66,6 @@
     "webpack-dev-server": "^2.9.6"
   },
   "dependencies": {
-    "highcharts": "^6.0.4"
+    "highcharts": "^9.0.0"
   }
 }
