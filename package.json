@@ -49,7 +49,7 @@
     "file-loader": "^1.1.6",
     "highlight.js": "^9.12.0",
     "imports-loader": "^0.7.1",
-    "jsdom": "^15.1.1",
+    "jsdom": "^16.5.0",
     "mocha": "^4.1.0",
     "mock-require": "^2.0.2",
     "nightwatch": "^0.9.19",
