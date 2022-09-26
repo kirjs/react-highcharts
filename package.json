@@ -52,7 +52,7 @@
     "jsdom": "^15.1.1",
     "mocha": "^4.1.0",
     "mock-require": "^2.0.2",
-    "nightwatch": "^0.9.19",
+    "nightwatch": "^2.3.9",
     "prismjs": "^1.9.0",
     "prop-types": "^15.6.0",
     "raw-loader": "^0.5.1",
